@@ -1,0 +1,72 @@
+# Table of Contents
+
+- ABSTRACT ..... II
+- ABSTRAK ..... III
+- Chapter 1 INTRODUCTION ..... 1
+  - 1.1 Introduction ..... 1
+  - 1.2 Problem Background ..... 2
+  - 1.3 Problem Statement ..... 3
+  - 1.4 Project Aim ..... 3
+  - 1.5 Project Objectives ..... 3
+  - 1.6 Project Scope ..... 4
+  - 1.7 Project Importance ..... 5
+  - 1.8 Report Organization ..... 6
+- Chapter 2 LITERATRE REVIEW ..... 7
+  - 2.1 Introduction ..... 7
+  - 2.2 Fundamental Theory and Concepts ..... 7
+    - 2.2.1 Vendor Dependency, Data Sovereignty, and Continuity Risk ..... 7
+    - 2.2.2 Data Warehousing and Replication-Based Analytical Stores ..... 8
+    - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads ..... 8
+    - 2.2.4 Replication, Availability, and Consistency Considerations ..... 9
+    - 2.2.5 Schema-on-Read, Semantic Layers, and Service Interfaces ..... 9
+    - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports ..... 10
+    - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 10
+    - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 11
+  - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 11
+  - 2.4 Technology Used ..... 13
+  - 2.5 Summary (Synthesis and Rationale Map) ..... 14
+- Chapter 3 METHODOLOGY ..... 16
+  - 3.1 Introduction ..... 16
+  - 3.2 Methodology Choice and Justification ..... 16
+  - 3.3 Phases within the Chosen Methodology ..... 17
+    - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback) ..... 19
+    - 3.3.2 Phase 2: System Design ..... 20
+    - 3.3.3 Phase 3: Implementation ..... 20
+    - 3.3.4 Phase 4: Testing & Validation (Parity and Reconciliation) ..... 21
+    - 3.3.5 Phase 5: Deployment ..... 22
+    - 3.3.6 Phase 6: Review & Feedback ..... 22
+  - 3.4 Project Schedule (Gantt Plan for FYPi1 and FYPi2) ..... 23
+  - 3.5 System Requirement Analysis: Hardware and Software ..... 24
+    - 3.5.1 Hardware Requirements ..... 24
+    - 3.5.2 Software Requirements ..... 25
+  - 3.6 Summary ..... 26
+- Chapter 4 ANALYSIS AND DESIGN ..... 27
+  - 4.1 Introduction ..... 27
+  - 4.2 System Analysis ..... 27
+    - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments) ..... 27
+    - 4.2.2 Stakeholders and Role-Based View ..... 28
+    - 4.2.3 System Requirements Gathering Techniques ..... 28
+  - 4.3 System Requirements ..... 29
+    - 4.3.1 Functional Requirements ..... 29
+    - 4.3.2 Non-Functional Requirements ..... 29
+    - 4.3.3 Constraints and Assumptions ..... 30
+  - 4.4 Current System Analysis ..... 30
+  - 4.5 System Design ..... 31
+    - 4.5.1 System Architecture ..... 31
+    - 4.5.2 Component Explanations ..... 32
+    - 4.5.3 Data Engineering and API Design ..... 32
+    - 4.5.3.1 Data Sources and Replication Boundary ..... 32
+    - 4.5.3.2 Refresh Cadence and Idempotent Load Pattern ..... 33
+    - 4.5.3.3 Error Handling, Logging, and Monitoring ..... 33
+    - 4.5.3.4 API Endpoint Pattern and Semantic Layer Responsibilities ..... 34
+    - 4.5.3.5 Security Considerations ..... 34
+    - 4.5.3.6 Report Logic Reconstruction Pattern and Representative Examples ..... 35
+    - 4.5.4 Database Design ..... 36
+    - 4.5.5 Interface Design ..... 37
+    - 4.5.6 Summary ..... 38
+- REFERENCES ..... 39
+- APPENDIX ..... 42
+  - Appendix A: Report Specifications ..... 42
+    - A.1 Specification Template (per report) ..... 42
+    - A.2 Target Report Index (15 reports) ..... 43
+    - A.2 Target Report Index (15 reports) ..... 44

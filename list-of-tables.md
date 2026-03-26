@@ -1,0 +1,31 @@
+# List of Tables
+
+- Table 1.1 Current progress summary (as of Week 28 of the internship) ..... 5
+- Table 2.1 Comparative discussion of vendor-managed reporting versus company-owned redundancy reporting ..... 12
+- Table 2.2 Synthesis / rationale map linking proposed choices to literature ..... 14
+- Table 3.1 Phase-level inputs, activities, and evidence artefacts (per report module) ..... 17
+- Table 3.2 Project schedule and status summary (Weeks 1–28) ..... 23
+- Table 3.3 Hardware requirements (high-level) ..... 24
+- Table 3.4 Software requirements (high-level) ..... 25
+- Table 4.1 Stakeholder groups and reporting needs (role-based view) ..... 28
+- Table 4.2 Functional requirements for the proposed platform ..... 29
+- Table 4.3 Non-functional requirements for the proposed platform ..... 29
+- Table 4.4 Component responsibilities and design considerations ..... 32
+- Table 4.5 Conceptual data dictionary (summary) ..... 37
+- Table A.1 Report specification template fields ..... 42
+- Table A.2 Target report index (15 reports) and status summary (Week 28) ..... 43
+- Table A.3 Report specification fields for R01 (Daily Sales Summary) ..... 44
+- Table A.4 Report specification fields for R02 (Payment Type (All Payment) ..... 45
+- Table A.5 Report specification fields for R03 (Sales Return Report) ..... 46
+- Table A.6 Report specification fields for R04 (Sales Cancelled Report) ..... 47
+- Table A.7 Report specification fields for R05 (DELETED Items Report) ..... 48
+- Table A.8 Report specification fields for R06 (Sale Delivery (By Sales Type) Ex Tax Calculation) ..... 49
+- Table A.9 Report specification fields for R07 (MB Cash Voucher (with Barcode) Redemption Report ..... 50
+- Table A.10 Report specification fields for R08 (MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report) ..... 51
+- Table A.11 Report specification fields for R09 (Product Mix Report) ..... 52
+- Table A.12 Report specification fields for R10 (Discount Remark Report) ..... 52
+- Table A.13 Report specification fields for R11 (Delivery-FoodPanda,Grabfood,ShopeeFood) ..... 53
+- Table A.14 Report specification fields for R12 (Foodpanda Sales) ..... 53
+- Table A.15 Report specification fields for R13 (Foodpanda Discount) ..... 54
+- Table A.16 Report specification fields for R14 (Mobile Ordering Sales) ..... 55
+- Table A.17 Report specification fields for R15 (Pickup & Declaration Report) ..... 55

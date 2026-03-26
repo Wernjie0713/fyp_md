@@ -1,0 +1,74 @@
+# Introduction
+
+## Introduction
+
+In contemporary retail operations, timely access to trusted transaction data is essential for operational oversight and informed decision-making. In practice, many organisations consolidate operational data into analytical repositories (e.g., data warehouses) to support reporting, governance, and performance monitoring (Inmon, 2005; Kimball & Ross, 2013). Large-scale food and beverage (F&B) enterprises such as Marrybrown generate high volumes of sales and payment transactions across multiple outlets, which increases the importance of reliable reporting and data accessibility.
+
+In the current setting, the organisation relies on a third-party cloud point-of-sale (POS) vendor for both transaction processing and analytical reporting. While this arrangement can reduce initial implementation effort, cloud computing guidance highlights that reliance on external service providers can introduce availability, control, and security considerations that must be actively managed (Badger et al., 2012; Jansen & Grance, 2011). This project therefore proposes a company-owned Sales and Payment Analytics Platform that functions as a reporting redundancy system. The proposed solution combines 1:1 replication of key transactional tables into a private Microsoft SQL Server environment and an ELT workflow (with automation planned), with report logic reconstructed at the semantic layer (see Chapter 2, Sections 2.2.3–2.2.5).
+
+In the current project phase, the platform primarily supports continuity reporting by reconstructing operational sales and payment reports with validated parity, while broader analytical extensions are reserved for subsequent work once core report logic has been stabilised.
+
+## Problem Background
+
+The organisation currently relies on a third-party POS service provider for operational data storage and reporting. This creates a single point of failure for critical Finance and Operations reporting activities: when the vendor's cloud services experience downtime or latency, internal stakeholders may be unable to access required transaction data and reports.
+
+A practical constraint is limited internal visibility and control over the sales and payment datasets. Access is typically mediated through the vendor interface, which restricts flexible querying and reduces the organisation's ability to perform ad hoc investigations or rapid enhancements. When disruptions occur, incident resolution is dependent on vendor support processes, which may not align with internal operational timelines.
+
+Internal observations further indicate that report generation may fail or become unavailable during month-end closing periods, when reporting load is typically higher. Even short periods of reporting unavailability during such critical windows can disrupt verification workflows and delay financial reconciliation activities, potentially affecting downstream audit preparation.
+
+![Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture](#)
+
+*Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture*
+
+## Problem Statement
+
+Based on the organisational context described above, this project addresses four interrelated problems. First, reliance on a single third-party reporting portal creates a single point of failure for sales and payment reporting activities. Second, limited direct visibility into transactional datasets restricts ad hoc analysis and slows internal investigations. Third, vendor-dependent incident resolution may not meet operational timelines, particularly during critical reporting windows. Finally, report unavailability during month-end closing periods can disrupt reconciliation work and delay downstream audit preparation.
+
+## Project Aim
+
+The aim of this project is to develop a resilient, company-owned Sales and Payment Analytics Platform that serves as a functional redundancy system for the external POS portal, enabling continued access to critical operational reports through a 1:1 database replication architecture.
+
+## Project Objectives
+
+To achieve the stated aim, the following specific objectives have been defined:
+
+- To elicit and document stakeholder requirements for continuity sales and payment reporting and to define report-level acceptance criteria for parity validation.
+
+- To design and implement a company-owned 1:1 replicated transactional schema in Microsoft SQL Server to preserve data fidelity and traceability for the targeted reporting outputs.
+
+- To reconstruct the business rules for fifteen targeted sales and payment reports within a semantic/API layer and to validate report-level parity against vendor exports using reconciliation and consistency checks.
+
+- To develop a web-based reporting portal that supports outlet and date-range filtering and export workflows, and to evaluate operational usability and response-time performance under reporting-intensive conditions, incorporating baseline security controls and operational monitoring and recovery procedures.
+
+## Project Scope
+
+This project covers the end-to-end development of a custom analytics platform, spanning data extraction, replication, report logic reconstruction, and user-facing reporting. The replication scope focuses on sales and payment datasets required to support the targeted reporting outputs.
+
+The core development focus is the logic reconstruction of 15 critical sales and payment reports. The backend service is being developed using a Python-based API layer (FastAPI) to apply schema-on-read transformations and implement report logic in a controlled and auditable manner. The project applies reverse engineering and report-level parity validation to align reconstructed outputs with the vendor portal.
+
+Although fifteen reports are defined as targeted outputs, implementation is scheduled incrementally: initial iterations prioritise a subset of high-impact operational reports for early reconstruction and parity validation, while the remaining reports are completed in subsequent iterations as described in Chapter 3.
+
+System development includes a sales and payment analytics portal being developed using React to support Finance and Operations users in viewing and exporting required reports. The platform is designed as a read-only redundancy system and does not support write-back operations to the vendor POS system. Inventory and customer relationship management (CRM) analytics are excluded from the current scope and are reserved for future work.
+
+As of Week 28 of the internship, the warehouse, API service, and portal have been deployed to a cloud-hosted development environment. At this stage, seven of the 15 targeted report APIs have been implemented and validated against vendor exports, and four reports have been integrated into the portal frontend. Replication is currently performed using manual scripts; automation (scheduled runs, monitoring, and rerun controls) is planned for subsequent iterations.
+
+| Workstream | Status (Week 28) | Notes |
+| --- | --- | --- |
+| Data warehouse and cloud environment | Deployed (development environment) | Deployed for iterative development and stakeholder review; production hardening remains ongoing. |
+| Report APIs | 7 of 15 implemented and validated | Validation performed against vendor exports using parity and reconciliation checks. |
+| Portal frontend | 4 reports implemented | Remaining report views will be implemented as additional APIs are completed. |
+| Replication and ELT automation | Manual scripts available | Scheduling and automation are planned for later iterations. |
+
+*Table 1.1: Current progress summary (as of Week 28 of the internship)*
+
+## Project Importance
+
+This project is significant because it addresses an operational vulnerability arising from dependence on a third-party reporting portal for critical sales and payment information. By establishing a company-owned replica and reporting layer, the organisation is expected to improve continuity of access to reports and reduce exposure to vendor-side service disruptions. From an information quality perspective, the project emphasises reconciliation and report-level parity checks to support the fitness-for-use of reproduced outputs for financial reporting (Wang & Strong, 1996).
+
+In addition, this work provides a structured case study on designing a redundancy reporting platform using replication, ELT practices, and iterative validation. The resulting architecture can serve as a foundation for future analytical enhancements once the core sales and payment reporting requirements are stabilised.
+
+The contribution of this project lies not only in delivering a continuity reporting platform, but also in demonstrating a practical, validation-driven approach for reconstructing vendor-dependent operational reports using replicated transactional datasets.
+
+## Report Organization
+
+Chapter 1 introduces the project context, problem statement, aim, objectives, scope, importance, and the organisation of the report. Chapter 2 reviews relevant literature on vendor dependency risks, replication and ELT approaches, schema-on-read and semantic layers, data quality and reconciliation, and iterative development approaches. Chapter 3 presents the methodology for executing the project, including the parity validation strategy and the project schedule. Chapter 4 documents the analysis and design of the proposed system, including system analysis, requirements, current system analysis, and detailed design artefacts.
