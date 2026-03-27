@@ -30,7 +30,7 @@
 - Chapter 3 METHODOLOGY ..... 16
   - 3.1 Introduction ..... 16
   - 3.2 Methodology Choice and Justification ..... 16
-  - 3.3 Phases within the Chosen Methodology ..... 17
+  - 3.3 Phases within the Iterative and Incremental Development Methodology ..... 17
     - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback) ..... 19
     - 3.3.2 Phase 2: System Design ..... 20
     - 3.3.3 Phase 3: Implementation ..... 20

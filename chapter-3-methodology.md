@@ -8,9 +8,9 @@ This chapter describes the methodology used to develop the proposed Sales and Pa
 
 The project adopts an iterative and incremental development approach aligned with Agile principles, where functionality is delivered in small increments and continuously validated against expected outputs (Beck et al., 2001; Schwaber & Sutherland, 2020). This choice is suitable for report reconstruction because requirements and edge cases emerge progressively during parity validation, and the cost of rework is reduced when changes are applied in smaller, validated iterations (Pressman & Maxim, 2014; Sommerville, 2015). The academic rationale for iterative delivery, ELT, replication-first traceability, and reconciliation-driven validation is synthesised in Chapter 2 (see Table 2.3).
 
-## Phases within the Chosen Methodology
+## Phases within the Iterative and Incremental Development Methodology
 
-Work is organised as an iterative cycle that repeats for each targeted report module. The phases are designed to maintain traceability from requirements to validation evidence, while keeping a clear separation between stabilising report logic through parity validation and introducing operational automation after parity is established. Table 3.1 summarises typical inputs, activities, and evidence artefacts produced in each phase.
+Work is organised as an iterative and incremental cycle that repeats for each targeted report module. As illustrated in Figure 3.1, each cycle moves through six recurring phases: requirement analysis, system design, implementation, testing and validation, deployment, and review and feedback, before returning to requirement analysis when additional refinement is needed. The phases are designed to maintain traceability from requirements to validation evidence, while keeping a clear separation between stabilising report logic through parity validation and introducing operational automation after parity is established. Table 3.1 summarises the typical inputs, activities, and evidence artefacts produced in each phase.
 
 ![Figure 3.1: Iterative Workflow for Analytics Platform Development](#)
 
@@ -26,6 +26,8 @@ Work is organised as an iterative cycle that repeats for each targeted report mo
 | Phase 6: Review and feedback | Deployed module, stakeholder feedback | Capture usability gaps and missing cases; triage defects vs enhancements; update acceptance criteria and test scenarios | Feedback log; change requests; revised acceptance criteria |
 
 *Table 3.1: Phase-level inputs, activities, and evidence artefacts (per report module)*
+
+The phase descriptions in Sections 3.3.1 to 3.3.6 elaborate the responsibilities summarised in Table 3.1 and explain how each phase contributes to parity-driven report reconstruction and evidence retention.
 
 ### Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback)
 
@@ -59,11 +61,15 @@ Upon meeting validation criteria for a module, the corresponding API and portal 
 
 Feedback is collected from Finance and Operations users to identify usability issues, missing data elements, and any residual discrepancies observed during real workflows. Feedback is documented as traceable change requests and triaged into parity defects that require rule correction and enhancements that adjust workflows or presentation without changing core financial meaning. Where feedback changes acceptance criteria or reveals new edge cases, the iteration returns to Phase 1 for the affected module so that requirements artefacts are updated and the revised logic is validated again with retained evidence.
 
+Figure 3.2 complements the phase-oriented methodology by showing the high-level operational workflow of the platform, from data replication and ELT through semantic/API processing to report delivery in the portal. This view links the development phases described above to the end-to-end technical flow implemented and validated during the project.
+
+![Figure 3.2: High-level system workflow (data replication to report delivery)](#)
+
 *Figure 3.2: High-level system workflow (data replication to report delivery)*
 
 ## Project Schedule (Gantt Plan for FYPi1 and FYPi2)
 
-For planning and tracking purposes, the overall project timeline is expressed as Weeks 1 to 28, where Weeks 1 to 14 correspond to SCSP 4233 (FYPi1) and Weeks 15 to 28 correspond to SCSP 4234 (FYPi2). Table 3.2 summarises the planned sequencing and the current status as of Week 28.
+For planning and tracking purposes, the overall project timeline is expressed as Weeks 1 to 28, where Weeks 1 to 14 correspond to SCSP 4233 (FYPi1) and Weeks 15 to 28 correspond to SCSP 4234 (FYPi2). Table 3.2 summarises the planned sequencing and the current status as of Week 28, showing that the earlier part of the project emphasises problem formulation, literature review, and methodology/design preparation, while the later stages focus on replication foundations, report reconstruction, portal integration, deployment, and subsequent operational enhancements such as automation and performance evaluation.
 
 | Work package | Weeks (planned) | Key outputs | Status (as of Week 28) |
 | --- | --- | --- | --- |
@@ -81,9 +87,11 @@ For planning and tracking purposes, the overall project timeline is expressed as
 
 ## System Requirement Analysis: Hardware and Software
 
-The platform requirements are described at a practical level to support replication workloads, concurrent report queries, and operational monitoring in a cloud-hosted environment. Final sizing depends on replication scope, refresh cadence, and expected user concurrency and should be validated iteratively during performance evaluation.
+The platform requirements are described at a practical level to support replication workloads, concurrent report queries, and operational monitoring in a cloud-hosted environment. Table 3.3 summarises the high-level hardware requirements, while Table 3.4 summarises the software components and their roles within the platform. Final sizing depends on replication scope, refresh cadence, and expected user concurrency and should be validated iteratively during performance evaluation.
 
 ### Hardware Requirements
+
+At the hardware level, the platform requires sufficient compute, memory, storage, network stability, and environment availability to support replication, API serving, and stakeholder validation activities. Table 3.3 summarises these requirements at a high level.
 
 | Resource | Requirement (high-level) | Justification |
 | --- | --- | --- |
@@ -96,6 +104,8 @@ The platform requirements are described at a practical level to support replicat
 *Table 3.3: Hardware requirements (high-level)*
 
 ### Software Requirements
+
+At the software level, the platform depends on a relational database, a Python-based ELT environment, an API framework, a frontend framework, and version control tooling. Table 3.4 summarises the main software components and their roles in supporting the proposed platform.
 
 | Component | Role in the platform | Notes |
 | --- | --- | --- |
