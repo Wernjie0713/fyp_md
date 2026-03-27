@@ -58,7 +58,7 @@ The non-functional requirements are summarised in Table 4.3.
 
 ### Constraints and Assumptions
 
-The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3–2.2.7).
+The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3鈥?.2.7).
 
 ## Current System Analysis
 
@@ -72,7 +72,7 @@ The current reporting workflow relies on a vendor-managed reporting portal as th
 
 ### System Architecture
 
-The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4–2.2.5).
+The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4鈥?.2.5).
 
 As shown in Figure 4.2, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
 
@@ -82,7 +82,7 @@ As shown in Figure 4.2, data flows from the vendor-managed POS environment throu
 
 ### Component Explanations
 
-Table 4.4 summarises each component’s responsibility and key design considerations. The rationale for replication-first traceability, schema-on-read transformations, and reconciliation-driven validation is grounded in Chapter 2 (see Table 2.3).
+Table 4.4 summarises each component's responsibility and key design considerations. These component-level responsibilities are aligned with the literature reviewed in Chapter 2, particularly the discussions on replication-based analytical stores and ELT workflows (Sections 2.2.2-2.2.4), semantic layers and service interfaces (Section 2.2.5), and workflow/interface considerations for operational reporting portals (Section 2.4). Table 2.3 provides the consolidated synthesis linking these design choices to their academic rationale.
 
 | Component | Responsibility | Key design considerations |
 | --- | --- | --- |
@@ -140,7 +140,7 @@ Example 3: Sales Return Report (representative). This report retrieves return tr
 
 ### Database Design
 
-The data design adopts a 1:1 replication strategy, where the company-owned database mirrors relevant transactional tables from the external POS environment. This strategy prioritises fidelity and traceability to support reconciliation and parity validation (see Chapter 2, Sections 2.2.2–2.2.4).
+The data design adopts a 1:1 replication strategy, where the company-owned database mirrors relevant transactional tables from the external POS environment. This strategy prioritises fidelity and traceability to support reconciliation and parity validation (see Chapter 2, Sections 2.2.2鈥?.2.4).
 
 ![Figure 4.4: Simplified conceptual data model for sales and payment reporting (illustrative)](#)
 
