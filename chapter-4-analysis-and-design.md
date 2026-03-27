@@ -164,7 +164,7 @@ The portal is designed to mirror the existing user workflow for continuity repor
 
 *Figure 4.5: Portal navigation and report workflow (illustrative)*
 
-Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. These priorities are consistent with the reporting portal workflow and interface considerations discussed in Chapter 2, Section 2.4. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
+Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. These priorities are consistent with the workflow and interface considerations for operational reporting portals discussed in Chapter 2, Section 2.4. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
 
 ### Summary
 

@@ -23,7 +23,7 @@
     - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 10
     - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 11
   - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 11
-  - 2.4 Reporting Portal Workflow and Interface Considerations ..... 13
+  - 2.4 Workflow and Interface Considerations for Operational Reporting Portals ..... 13
   - 2.5 Technology Used ..... 14
   - 2.6 Summary (Synthesis and Rationale Map) ..... 15
 - Chapter 3 METHODOLOGY ..... 16

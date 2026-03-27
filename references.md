@@ -34,6 +34,8 @@ Matloobtalab, M., & Ferati, M. (2025). User perspectives and usability insights 
 
 Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (NIST Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
 
+Microsoft. (2026). *Paginated reports in the Power BI service*. Microsoft Learn. https://learn.microsoft.com/en-us/power-bi/explore-reports/end-user-paginated-report
+
 Myers, G. J., Sandler, C., & Badgett, T. (2011). *The art of software testing* (3rd ed.). Wiley.
 
 Oracle. (2023). *Oracle MICROS Reporting and Analytics user guide* (Release 9.0). https://docs.oracle.com/cd/E71871_01/doc.90/e72023.pdf
