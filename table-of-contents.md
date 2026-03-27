@@ -48,6 +48,8 @@
     - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments) ..... 27
     - 4.2.2 Stakeholders and Role-Based View ..... 28
     - 4.2.3 System Requirements Gathering Techniques ..... 28
+    - 4.2.4 Use Case Diagram ..... 28
+    - 4.2.5 User Requirement Outcomes ..... 29
   - 4.3 System Requirements ..... 29
     - 4.3.1 Functional Requirements ..... 29
     - 4.3.2 Non-Functional Requirements ..... 29

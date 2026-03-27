@@ -26,6 +26,57 @@ Stakeholders are represented in a role-based manner to clarify reporting needs w
 
 Requirements are derived through document analysis of vendor portal reports and exported files, together with stakeholder feedback and clarification sessions with Finance and Operations users. This approach is consistent with a black-box reporting environment where proprietary report rules must be inferred from observable inputs and outputs (see Chapter 2, Section 2.2.6). No survey instruments or formal interviews are claimed; the emphasis is on traceable artefacts (exports, parameter settings) and acceptance criteria agreed for continuity reporting.
 
+### Use Case Diagram
+
+The principal interactions between user roles and the proposed platform can be summarised through a use case view. As shown in Figure 4.1, Finance and Operations users interact with the platform through six core use cases: access the report catalogue, select a report, apply report parameters, query the report output, review tabular results and totals, and export report outputs for reconciliation or operational follow-up. The internal technical team supports the platform through four operational use cases: execute replication refreshes, monitor runs and logs, rerun failed boundaries, and update report logic in a controlled manner. This use case view provides an analysis-level summary of the actor-system interactions before the more detailed design discussion in later sections.
+
+```mermaid
+flowchart LR
+    finance[Finance User]
+    operations[Operations User]
+    tech[Internal Technical Team]
+
+    subgraph platform[Sales and Payment Analytics Platform]
+        uc1([Access report catalogue])
+        uc2([Select report])
+        uc3([Apply report parameters])
+        uc4([Query report output])
+        uc5([Review tabular results and totals])
+        uc6([Export report output])
+        uc7([Execute replication refresh])
+        uc8([Monitor runs and logs])
+        uc9([Rerun failed boundary])
+        uc10([Update report logic])
+    end
+
+    finance --> uc1
+    finance --> uc2
+    finance --> uc3
+    finance --> uc4
+    finance --> uc5
+    finance --> uc6
+
+    operations --> uc1
+    operations --> uc2
+    operations --> uc3
+    operations --> uc4
+    operations --> uc5
+    operations --> uc6
+
+    tech --> uc7
+    tech --> uc8
+    tech --> uc9
+    tech --> uc10
+```
+
+*Figure 4.1: Use case diagram for the proposed Sales and Payment Analytics Platform (illustrative)*
+
+### User Requirement Outcomes
+
+The requirement-gathering activities described above produced more specific outcomes than a general need for "report access". For Finance and Operations users, the analysis indicated that the replacement platform must preserve the practical behaviour of the vendor portal: users need a familiar report catalogue, parameter-driven retrieval, consistent option sets for shared parameters, exact tabular outputs for checking, and exportable results that can be used directly in reconciliation and month-end workflows. The findings also indicate that continuity reporting is prioritised over exploratory analytics, which is why detailed tables, totals, and export functions are treated as core interface outcomes rather than optional features.
+
+For the internal technical team, the main outcomes concern maintainability and traceability. The platform must preserve source-aligned replicated data, support vendor-equivalent rule implementation through SQL queries executed by the semantic/API layer, reuse common parameter and export logic across reports where possible, and provide controlled rerun and monitoring support when replication or validation issues occur. These outcomes provide the practical basis for the functional and non-functional requirements formalised in Section 4.3 and for the detailed design decisions presented in Sections 4.5.3 to 4.5.6.
+
 ## System Requirements
 
 ### Functional Requirements (FR)
@@ -64,9 +115,9 @@ The platform is designed under several constraints and assumptions. Access to th
 
 The current reporting workflow relies on a vendor-managed reporting portal as the primary interface for sales and payment reports. Users typically select a report, apply parameters (e.g., outlet and date range), and export results for reconciliation activities. This workflow can constrain ad hoc analysis because users cannot freely query underlying transactional records, and operational reporting can be disrupted if portal access is degraded during reporting-intensive periods. Issue resolution is also dependent on vendor support processes, which can misalign with internal reporting timelines (see Chapter 2, Section 2.2.1).
 
-![Figure 4.1: Current vendor-dependent reporting workflow (simplified)](#)
+![Figure 4.2: Current vendor-dependent reporting workflow (simplified)](#)
 
-*Figure 4.1: Current vendor-dependent reporting workflow (simplified)*
+*Figure 4.2: Current vendor-dependent reporting workflow (simplified)*
 
 ## System Design
 
@@ -74,11 +125,11 @@ The current reporting workflow relies on a vendor-managed reporting portal as th
 
 The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4闁?.2.5).
 
-As shown in Figure 4.2, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
+As shown in Figure 4.3, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
 
-![Figure 4.2: Proposed logical architecture of the analytics platform](#)
+![Figure 4.3: Proposed logical architecture of the analytics platform](#)
 
-*Figure 4.2: Proposed logical architecture of the analytics platform*
+*Figure 4.3: Proposed logical architecture of the analytics platform*
 
 ### Component Explanations
 
@@ -106,11 +157,11 @@ Replication boundaries are defined report by report by tracing required output c
 
 The ELT workflow is designed to refresh operational data on a scheduled basis and to account for late corrections (e.g., late voids, adjustments, and return postings). In the current project stage, refresh execution remains manual, while the planned operational design is to perform scheduled refreshes at midnight each day. This design operationalises the ELT and idempotent-load principles discussed in Chapter 2, Section 2.2.3, where controlled load boundaries and deterministic reruns are identified as the basis for repeatable refresh cycles. Within each refresh boundary, existing rows for the affected window are deleted from the replica and then re-inserted from a fresh extract. This ensures that repeating the same boundary yields a consistent replicated state and supports recovery when extraction or load failures occur.
 
-As illustrated in Figure 4.3, the refresh and report-serving sequence can be described in two stages. During the refresh stage, the ELT process first extracts source transactions from the POS environment for a defined boundary window, then removes previously replicated rows for the same boundary from the SQL Server replica, inserts the refreshed rows, and performs post-load checks such as row-count comparison and sampling-based verification. During the report-serving stage, the portal submits a report request with user-specified parameters, the API queries the refreshed replica and applies semantic rules, and the resulting rows, totals, and export-ready output are returned to the portal. This separation clarifies that replication and report serving are linked operationally but remain distinct responsibilities within the overall platform design.
+As illustrated in Figure 4.4, the refresh and report-serving sequence can be described in two stages. During the refresh stage, the ELT process first extracts source transactions from the POS environment for a defined boundary window, then removes previously replicated rows for the same boundary from the SQL Server replica, inserts the refreshed rows, and performs post-load checks such as row-count comparison and sampling-based verification. During the report-serving stage, the portal submits a report request with user-specified parameters, the API queries the refreshed replica and applies semantic rules, and the resulting rows, totals, and export-ready output are returned to the portal. This separation clarifies that replication and report serving are linked operationally but remain distinct responsibilities within the overall platform design.
 
-![Figure 4.3: Proposed boundary-based refresh and report-serving sequence (illustrative)](#)
+![Figure 4.4: Proposed boundary-based refresh and report-serving sequence (illustrative)](#)
 
-*Figure 4.3: Proposed boundary-based refresh and report-serving sequence (illustrative)*
+*Figure 4.4: Proposed boundary-based refresh and report-serving sequence (illustrative)*
 
 #### Error Handling, Logging, and Monitoring
 
@@ -146,11 +197,11 @@ Example 3: Sales Return Report (representative). This report retrieves return tr
 
 The data design adopts a 1:1 replication strategy, where the company-owned database mirrors relevant transactional tables from the external POS environment. This strategy prioritises fidelity and traceability to support reconciliation and parity validation, which is consistent with the replication and consistency considerations discussed in Chapter 2, Sections 2.2.2-2.2.4. It is also aligned with the database-design and schema-on-read discussion in Chapter 2, Section 2.2.5, where duplicated transactional data are retained close to source structure for traceability, while report-specific calculations and derived logic are handled separately at the semantic/API layer.
 
-As illustrated in Figure 4.4, the conceptual model centres on sales headers, sales items, payments, and supporting reference entities such as location and item master data. This model is intended to show the main reporting entities and relationships at a conceptual level rather than to expose vendor-specific physical table names.
+As illustrated in Figure 4.5, the conceptual model centres on sales headers, sales items, payments, and supporting reference entities such as location and item master data. This model is intended to show the main reporting entities and relationships at a conceptual level rather than to expose vendor-specific physical table names.
 
-![Figure 4.4: Simplified conceptual data model for sales and payment reporting (illustrative)](#)
+![Figure 4.5: Simplified conceptual data model for sales and payment reporting (illustrative)](#)
 
-*Figure 4.4: Simplified conceptual data model for sales and payment reporting (illustrative)*
+*Figure 4.5: Simplified conceptual data model for sales and payment reporting (illustrative)*
 
 Table 4.5 summarises the conceptual entities required by the targeted reports. Physical table names and column names in the replicated schema are vendor-specific; the design intent is to preserve a 1:1 representation while documenting join paths and key attributes used in report logic.
 
@@ -176,25 +227,25 @@ In this project, business-rule reconstruction refers to inferring vendor-equival
 
 The portal is designed to mirror the existing user workflow for continuity reporting while providing consistent filtering and export behaviour. The primary interaction is: authenticate, select report, set parameters (outlet/date range and report-specific filters), view results with totals/subtotals, and export for reconciliation.
 
-As illustrated in Figure 4.5, the report-list view is designed to support report discoverability and selection through a structured catalogue of available reports. This interface allows users to identify the required report quickly, recognise its reporting purpose from the accompanying description, and navigate into the relevant reporting screen without relying on vendor-managed menus. In this way, the report-list view contributes to the project objective of improving accessibility for Finance and Operations users within a company-controlled reporting environment.
+As illustrated in Figure 4.6, the report-list view is designed to support report discoverability and selection through a structured catalogue of available reports. This interface allows users to identify the required report quickly, recognise its reporting purpose from the accompanying description, and navigate into the relevant reporting screen without relying on vendor-managed menus. In this way, the report-list view contributes to the project objective of improving accessibility for Finance and Operations users within a company-controlled reporting environment.
 
-![Figure 4.5: Report list view prototype (illustrative)](#)
+![Figure 4.6: Report list view prototype (illustrative)](#)
 
-*Figure 4.5: Report list view prototype (illustrative)*
+*Figure 4.6: Report list view prototype (illustrative)*
 
-As illustrated in Figure 4.6, the reporting view combines parameter controls, query execution, summary indicators, tabular output, and export actions within a single workflow. This design enables users to specify report parameters, retrieve vendor-aligned outputs, inspect key totals or subtotals, and export the result for reconciliation or further review. Rather than prioritising chart-heavy dashboards, the current interface emphasises summary cards and detailed tabular presentation because the project objective is continuity reporting and parity-aligned operational access rather than exploratory visual analytics.
+As illustrated in Figure 4.7, the reporting view combines parameter controls, query execution, summary indicators, tabular output, and export actions within a single workflow. This design enables users to specify report parameters, retrieve vendor-aligned outputs, inspect key totals or subtotals, and export the result for reconciliation or further review. Rather than prioritising chart-heavy dashboards, the current interface emphasises summary cards and detailed tabular presentation because the project objective is continuity reporting and parity-aligned operational access rather than exploratory visual analytics.
 
 In the current prototype, analytical presentation is therefore centred on summary indicators and tabular results, while chart-based views are treated as secondary because the targeted reports prioritise exact values, parameter-driven retrieval, and exportable outputs for reconciliation.
 
-![Figure 4.6: Reporting view prototype (illustrative)](#)
+![Figure 4.7: Reporting view prototype (illustrative)](#)
 
-*Figure 4.6: Reporting view prototype (illustrative)*
+*Figure 4.7: Reporting view prototype (illustrative)*
 
-Figure 4.7 provides a simplified workflow view of the overall portal interaction, linking login, report discovery, report selection, parameter entry, result inspection, export, and downstream reconciliation. While Figures 4.5 and 4.6 show specific interface states, Figure 4.7 summarises the intended end-to-end navigation path so that the relationship between report selection and report consumption can be understood at a glance.
+Figure 4.8 provides a simplified workflow view of the overall portal interaction, linking login, report discovery, report selection, parameter entry, result inspection, export, and downstream reconciliation. While Figures 4.6 and 4.7 show specific interface states, Figure 4.8 summarises the intended end-to-end navigation path so that the relationship between report selection and report consumption can be understood at a glance.
 
-![Figure 4.7: Portal navigation and report workflow (illustrative)](#)
+![Figure 4.8: Portal navigation and report workflow (illustrative)](#)
 
-*Figure 4.7: Portal navigation and report workflow (illustrative)*
+*Figure 4.8: Portal navigation and report workflow (illustrative)*
 
 Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. These priorities are consistent with the workflow and interface considerations for operational reporting portals discussed in Chapter 2, Section 2.4. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
 
