@@ -74,6 +74,8 @@ The current reporting workflow relies on a vendor-managed reporting portal as th
 
 The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4–2.2.5).
 
+As shown in Figure 4.2, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
+
 ![Figure 4.2: Proposed logical architecture of the analytics platform](#)
 
 *Figure 4.2: Proposed logical architecture of the analytics platform*
