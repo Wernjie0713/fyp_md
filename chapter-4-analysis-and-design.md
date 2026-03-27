@@ -58,7 +58,7 @@ The non-functional requirements are summarised in Table 4.3.
 
 ### Constraints and Assumptions
 
-The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3鈥?.2.7).
+The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3闁?.2.7).
 
 ## Current System Analysis
 
@@ -72,7 +72,7 @@ The current reporting workflow relies on a vendor-managed reporting portal as th
 
 ### System Architecture
 
-The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4鈥?.2.5).
+The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4闁?.2.5).
 
 As shown in Figure 4.2, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
 
@@ -144,7 +144,9 @@ Example 3: Sales Return Report (representative). This report retrieves return tr
 
 ### Database Design
 
-The data design adopts a 1:1 replication strategy, where the company-owned database mirrors relevant transactional tables from the external POS environment. This strategy prioritises fidelity and traceability to support reconciliation and parity validation (see Chapter 2, Sections 2.2.2鈥?.2.4).
+The data design adopts a 1:1 replication strategy, where the company-owned database mirrors relevant transactional tables from the external POS environment. This strategy prioritises fidelity and traceability to support reconciliation and parity validation, which is consistent with the replication and consistency considerations discussed in Chapter 2, Sections 2.2.2-2.2.4. It is also aligned with the database-design and schema-on-read discussion in Chapter 2, Section 2.2.5, where duplicated transactional data are retained close to source structure for traceability, while report-specific calculations and derived logic are handled separately at the semantic/API layer.
+
+As illustrated in Figure 4.4, the conceptual model centres on sales headers, sales items, payments, and supporting reference entities such as location and item master data. This model is intended to show the main reporting entities and relationships at a conceptual level rather than to expose vendor-specific physical table names.
 
 ![Figure 4.4: Simplified conceptual data model for sales and payment reporting (illustrative)](#)
 
