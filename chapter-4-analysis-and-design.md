@@ -176,9 +176,25 @@ In this project, business-rule reconstruction refers to inferring vendor-equival
 
 The portal is designed to mirror the existing user workflow for continuity reporting while providing consistent filtering and export behaviour. The primary interaction is: authenticate, select report, set parameters (outlet/date range and report-specific filters), view results with totals/subtotals, and export for reconciliation.
 
-![Figure 4.5: Portal navigation and report workflow (illustrative)](#)
+As illustrated in Figure 4.5, the report-list view is designed to support report discoverability and selection through a structured catalogue of available reports. This interface allows users to identify the required report quickly, recognise its reporting purpose from the accompanying description, and navigate into the relevant reporting screen without relying on vendor-managed menus. In this way, the report-list view contributes to the project objective of improving accessibility for Finance and Operations users within a company-controlled reporting environment.
 
-*Figure 4.5: Portal navigation and report workflow (illustrative)*
+![Figure 4.5: Report list view prototype (illustrative)](#)
+
+*Figure 4.5: Report list view prototype (illustrative)*
+
+As illustrated in Figure 4.6, the reporting view combines parameter controls, query execution, summary indicators, tabular output, and export actions within a single workflow. This design enables users to specify report parameters, retrieve vendor-aligned outputs, inspect key totals or subtotals, and export the result for reconciliation or further review. Rather than prioritising chart-heavy dashboards, the current interface emphasises summary cards and detailed tabular presentation because the project objective is continuity reporting and parity-aligned operational access rather than exploratory visual analytics.
+
+In the current prototype, analytical presentation is therefore centred on summary indicators and tabular results, while chart-based views are treated as secondary because the targeted reports prioritise exact values, parameter-driven retrieval, and exportable outputs for reconciliation.
+
+![Figure 4.6: Reporting view prototype (illustrative)](#)
+
+*Figure 4.6: Reporting view prototype (illustrative)*
+
+Figure 4.7 provides a simplified workflow view of the overall portal interaction, linking login, report discovery, report selection, parameter entry, result inspection, export, and downstream reconciliation. While Figures 4.5 and 4.6 show specific interface states, Figure 4.7 summarises the intended end-to-end navigation path so that the relationship between report selection and report consumption can be understood at a glance.
+
+![Figure 4.7: Portal navigation and report workflow (illustrative)](#)
+
+*Figure 4.7: Portal navigation and report workflow (illustrative)*
 
 Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. These priorities are consistent with the workflow and interface considerations for operational reporting portals discussed in Chapter 2, Section 2.4. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
 
