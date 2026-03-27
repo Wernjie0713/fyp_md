@@ -114,7 +114,7 @@ As illustrated in Figure 4.3, the refresh and report-serving sequence can be des
 
 #### Error Handling, Logging, and Monitoring
 
-Operational controls are designed to support reliability and recovery. These controls include logging extraction and load outcomes (record counts, durations, and errors), post-load validation checks (e.g., row-count comparisons and sampling-based checks), and rerun capability for specific tables or boundaries without manual cleanup. Monitoring is intended to surface failed runs and to support repeatable recovery steps (see Chapter 3, Section 3.3.4).
+Operational controls are designed to support reliability and recovery. These controls include logging extraction and load outcomes (record counts, durations, and errors), post-load validation checks (e.g., row-count comparisons and sampling-based checks), and rerun capability for specific tables or boundaries without manual cleanup. This design is consistent with the discussion in Chapter 2, Sections 2.2.3 and 2.2.4, where idempotent load boundaries, operational controls, and recovery-oriented replication practices are identified as important for maintaining a trusted replicated state. Monitoring is intended to surface failed runs and to support repeatable recovery steps, which also aligns with the validation and recovery emphasis described in Chapter 3, Section 3.3.4.
 
 #### API Endpoint Pattern and Semantic Layer Responsibilities
 
@@ -126,7 +126,7 @@ GET /reports/<report_name>
 &location_keys=...(optional)
 &... (other optional parameters)
 
-For each endpoint, the design specifies required and optional parameters (including defaults aligned to the portal workflow), the output schema (fields, totals/subtotals, and formatting rules), and the validation approach (parity checks against vendor exports and cross-report reconciliation). The API adopts a RESTful interface style to support standardised access and decouple report consumption from storage design (see Chapter 2, Section 2.2.5).
+For each endpoint, the design specifies required and optional parameters (including defaults aligned to the portal workflow), the output schema (fields, totals/subtotals, and formatting rules), and the validation approach (parity checks against vendor exports and cross-report reconciliation). This design directly reflects the semantic-layer and service-interface concepts discussed in Chapter 2, Section 2.2.5: replicated data are retained close to source structure for traceability, while report-specific business rules, derived fields, and delivery logic are centralised at the API layer. The API adopts a RESTful interface style to support standardised access and to decouple report consumption from underlying storage design, thereby keeping report logic more maintainable, versioned, and auditable.
 
 #### Security Considerations
 
