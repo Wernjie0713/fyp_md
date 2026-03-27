@@ -2,7 +2,8 @@
 
 - Table 1.1 Current progress summary (as of Week 28 of the internship) ..... 5
 - Table 2.1 Comparative discussion of vendor-managed reporting versus company-owned redundancy reporting ..... 12
-- Table 2.2 Synthesis / rationale map linking proposed choices to literature ..... 14
+- Table 2.2 Reporting portal workflow and interface considerations for the proposed platform ..... 14
+- Table 2.3 Synthesis / rationale map linking proposed choices to literature ..... 15
 - Table 3.1 Phase-level inputs, activities, and evidence artefacts (per report module) ..... 17
 - Table 3.2 Project schedule and status summary (Weeks 1–28) ..... 23
 - Table 3.3 Hardware requirements (high-level) ..... 24

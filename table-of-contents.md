@@ -14,17 +14,18 @@
 - Chapter 2 LITERATRE REVIEW ..... 7
   - 2.1 Introduction ..... 7
   - 2.2 Fundamental Theory and Concepts ..... 7
-    - 2.2.1 Vendor Dependency, Data Sovereignty, and Continuity Risk ..... 7
+    - 2.2.1 Sales and Payment Reporting in Vendor-Managed POS Environments ..... 7
     - 2.2.2 Data Warehousing and Replication-Based Analytical Stores ..... 8
     - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads ..... 8
     - 2.2.4 Replication, Availability, and Consistency Considerations ..... 9
-    - 2.2.5 Schema-on-Read, Semantic Layers, and Service Interfaces ..... 9
+    - 2.2.5 Schema-on-Read, Database Design, Semantic Layers, and Service Interfaces ..... 9
     - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports ..... 10
     - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 10
     - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 11
   - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 11
-  - 2.4 Technology Used ..... 13
-  - 2.5 Summary (Synthesis and Rationale Map) ..... 14
+  - 2.4 Reporting Portal Workflow and Interface Considerations ..... 13
+  - 2.5 Technology Used ..... 14
+  - 2.6 Summary (Synthesis and Rationale Map) ..... 15
 - Chapter 3 METHODOLOGY ..... 16
   - 3.1 Introduction ..... 16
   - 3.2 Methodology Choice and Justification ..... 16

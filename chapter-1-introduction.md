@@ -4,9 +4,9 @@
 
 In contemporary retail operations, timely access to trusted transaction data is essential for operational oversight and informed decision-making. In practice, many organisations consolidate operational data into analytical repositories (e.g., data warehouses) to support reporting, governance, and performance monitoring (Inmon, 2005; Kimball & Ross, 2013). Large-scale food and beverage (F&B) enterprises such as Marrybrown generate high volumes of sales and payment transactions across multiple outlets, which increases the importance of reliable reporting and data accessibility.
 
-In the current setting, the organisation relies on a third-party cloud point-of-sale (POS) vendor for both transaction processing and analytical reporting. While this arrangement can reduce initial implementation effort, cloud computing guidance highlights that reliance on external service providers can introduce availability, control, and security considerations that must be actively managed (Badger et al., 2012; Jansen & Grance, 2011). This project therefore proposes a company-owned Sales and Payment Analytics Platform that functions as a reporting redundancy system. The proposed solution combines 1:1 replication of key transactional tables into a private Microsoft SQL Server environment and an ELT workflow (with automation planned), with report logic reconstructed at the semantic layer (see Chapter 2, Sections 2.2.3–2.2.5).
+In the current setting, the organisation relies on a third-party cloud point-of-sale (POS) vendor for both transaction processing and analytical reporting. Sales and payment information is primarily accessed through vendor-managed portal views and exported files, which are used by Finance and Operations stakeholders for daily review, reconciliation activities, and month-end closing. While this arrangement can reduce initial implementation effort, cloud computing guidance highlights that reliance on external service providers can introduce availability, control, and security considerations that must be actively managed (Badger et al., 2012; Jansen & Grance, 2011).
 
-In the current project phase, the platform primarily supports continuity reporting by reconstructing operational sales and payment reports with validated parity, while broader analytical extensions are reserved for subsequent work once core report logic has been stabilised.
+Accordingly, the existing sales and payment reporting environment is characterised by high transaction volume, dependence on vendor-managed access channels, and the need for timely, trusted outputs for operational and financial workflows. This context establishes the basis for examining the practical limitations of the current reporting arrangement, which are discussed in the following sections.
 
 ## Problem Background
 
@@ -16,9 +16,11 @@ A practical constraint is limited internal visibility and control over the sales
 
 Internal observations further indicate that report generation may fail or become unavailable during month-end closing periods, when reporting load is typically higher. Even short periods of reporting unavailability during such critical windows can disrupt verification workflows and delay financial reconciliation activities, potentially affecting downstream audit preparation.
 
+As illustrated in Figure 1.1, the current reporting arrangement provides a direct but vendor-dependent path from the external POS and reporting portal to Finance and Operations users, whereas the proposed redundancy architecture introduces an alternative reporting path through replication and ELT, a company-owned SQL Server replica, a semantic layer, and an internal reporting portal. This comparison highlights how the existing arrangement concentrates reporting access within vendor-managed services, while the proposed design shifts reporting delivery into components under organisational control.
+
 ![Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture](#)
 
-*Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture*
+_Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture_
 
 ## Problem Statement
 
@@ -32,13 +34,13 @@ The aim of this project is to develop a resilient, company-owned Sales and Payme
 
 To achieve the stated aim, the following specific objectives have been defined:
 
-- To elicit and document stakeholder requirements for continuity sales and payment reporting and to define report-level acceptance criteria for parity validation.
+- To define stakeholder requirements for continuity sales and payment reporting, including report-level acceptance criteria for parity validation.
 
-- To design and implement a company-owned 1:1 replicated transactional schema in Microsoft SQL Server to preserve data fidelity and traceability for the targeted reporting outputs.
+- To design a company-owned 1:1 replicated transactional schema in Microsoft SQL Server that ensures data fidelity and traceability for the targeted reporting outputs.
 
-- To reconstruct the business rules for fifteen targeted sales and payment reports within a semantic/API layer and to validate report-level parity against vendor exports using reconciliation and consistency checks.
+- To reconstruct the business rules for fifteen targeted sales and payment reports within a semantic/API layer, ensuring report-level parity with vendor exports.
 
-- To develop a web-based reporting portal that supports outlet and date-range filtering and export workflows, and to evaluate operational usability and response-time performance under reporting-intensive conditions, incorporating baseline security controls and operational monitoring and recovery procedures.
+- To develop an interactive web-based reporting portal with operational usability, performance monitoring, baseline security controls, and recovery procedures.
 
 ## Project Scope
 
@@ -50,16 +52,14 @@ Although fifteen reports are defined as targeted outputs, implementation is sche
 
 System development includes a sales and payment analytics portal being developed using React to support Finance and Operations users in viewing and exporting required reports. The platform is designed as a read-only redundancy system and does not support write-back operations to the vendor POS system. Inventory and customer relationship management (CRM) analytics are excluded from the current scope and are reserved for future work.
 
-As of Week 28 of the internship, the warehouse, API service, and portal have been deployed to a cloud-hosted development environment. At this stage, seven of the 15 targeted report APIs have been implemented and validated against vendor exports, and four reports have been integrated into the portal frontend. Replication is currently performed using manual scripts; automation (scheduled runs, monitoring, and rerun controls) is planned for subsequent iterations.
-
-| Workstream | Status (Week 28) | Notes |
-| --- | --- | --- |
+| Workstream                           | Status (Week 28)                   | Notes                                                                                            |
+| ------------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------ |
 | Data warehouse and cloud environment | Deployed (development environment) | Deployed for iterative development and stakeholder review; production hardening remains ongoing. |
-| Report APIs | 7 of 15 implemented and validated | Validation performed against vendor exports using parity and reconciliation checks. |
-| Portal frontend | 4 reports implemented | Remaining report views will be implemented as additional APIs are completed. |
-| Replication and ELT automation | Manual scripts available | Scheduling and automation are planned for later iterations. |
+| Report APIs                          | 7 of 15 implemented and validated  | Validation performed against vendor exports using parity and reconciliation checks.              |
+| Portal frontend                      | 4 reports implemented              | Remaining report views will be implemented as additional APIs are completed.                     |
+| Replication and ELT automation       | Manual scripts available           | Scheduling and automation are planned for later iterations.                                      |
 
-*Table 1.1: Current progress summary (as of Week 28 of the internship)*
+_Table 1.1: Current progress summary (as of Week 28 of the internship)_
 
 ## Project Importance
 

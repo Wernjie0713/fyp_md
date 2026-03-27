@@ -6,7 +6,7 @@ This chapter describes the methodology used to develop the proposed Sales and Pa
 
 ## Methodology Choice and Justification
 
-The project adopts an iterative and incremental development approach aligned with Agile principles, where functionality is delivered in small increments and continuously validated against expected outputs (Beck et al., 2001; Schwaber & Sutherland, 2020). This choice is suitable for report reconstruction because requirements and edge cases emerge progressively during parity validation, and the cost of rework is reduced when changes are applied in smaller, validated iterations (Pressman & Maxim, 2014; Sommerville, 2015). The academic rationale for iterative delivery, ELT, replication-first traceability, and reconciliation-driven validation is synthesised in Chapter 2 (see Table 2.2).
+The project adopts an iterative and incremental development approach aligned with Agile principles, where functionality is delivered in small increments and continuously validated against expected outputs (Beck et al., 2001; Schwaber & Sutherland, 2020). This choice is suitable for report reconstruction because requirements and edge cases emerge progressively during parity validation, and the cost of rework is reduced when changes are applied in smaller, validated iterations (Pressman & Maxim, 2014; Sommerville, 2015). The academic rationale for iterative delivery, ELT, replication-first traceability, and reconciliation-driven validation is synthesised in Chapter 2 (see Table 2.3).
 
 ## Phases within the Chosen Methodology
 

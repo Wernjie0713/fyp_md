@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This chapter presents the analysis and design of the proposed Sales and Payment Analytics Platform. The chapter translates the problem statement and objectives into concrete requirements and design artefacts, including system analysis, system requirements, current system analysis, and detailed system design. The academic basis for the design choices (replication-first traceability, ELT, semantic layers, reconciliation, and iterative delivery) is grounded in Chapter 2 (see Table 2.2), while Chapter 3 describes the methodology used to execute and validate the proposed design.
+This chapter presents the analysis and design of the proposed Sales and Payment Analytics Platform. The chapter translates the problem statement and objectives into concrete requirements and design artefacts, including system analysis, system requirements, current system analysis, and detailed system design. The academic basis for the design choices (replication-first traceability, ELT, semantic layers, reconciliation, and iterative delivery) is grounded in Chapter 2 (see Table 2.3), while Chapter 3 describes the methodology used to execute and validate the proposed design.
 
 ## System Analysis
 
@@ -80,7 +80,7 @@ The proposed system is organised into four logical layers: a source layer (exter
 
 ### Component Explanations
 
-Table 4.4 summarises each component’s responsibility and key design considerations. The rationale for replication-first traceability, schema-on-read transformations, and reconciliation-driven validation is grounded in Chapter 2 (see Table 2.2).
+Table 4.4 summarises each component’s responsibility and key design considerations. The rationale for replication-first traceability, schema-on-read transformations, and reconciliation-driven validation is grounded in Chapter 2 (see Table 2.3).
 
 | Component | Responsibility | Key design considerations |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ The portal is designed to mirror the existing user workflow for continuity repor
 
 *Figure 4.5: Portal navigation and report workflow (illustrative)*
 
-Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
+Interface design requirements prioritise consistent parameter controls across reports (with report-specific extensions), tabular presentation aligned to expected vendor export structures, and export outputs that support downstream reconciliation. These priorities are consistent with the reporting portal workflow and interface considerations discussed in Chapter 2, Section 2.4. Portal design details are refined iteratively based on stakeholder feedback during validation cycles (see Chapter 3, Section 3.3.6).
 
 ### Summary
 
