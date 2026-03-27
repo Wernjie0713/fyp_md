@@ -63,7 +63,7 @@ Upon meeting validation criteria for a module, the corresponding API and portal 
 
 Feedback is collected from Finance and Operations users to identify usability issues, missing data elements, and any residual discrepancies observed during real workflows. Feedback is documented as traceable change requests and triaged into parity defects that require rule correction and enhancements that adjust workflows or presentation without changing core financial meaning. Where feedback changes acceptance criteria or reveals new edge cases, the iteration returns to Phase 1 for the affected module so that requirements artefacts are updated and the revised logic is validated again with retained evidence.
 
-Figure 3.2 complements the phase-oriented methodology by showing the high-level operational workflow of the platform, from data replication and ELT through semantic/API processing to report delivery in the portal. This view links the development phases described above to the end-to-end technical flow implemented and validated during the project.
+As shown in Figure 3.2, the high-level operational workflow of the proposed platform begins with data extraction and replication from the external POS environment, followed by ELT processing into the company-owned SQL Server replica, semantic/API-based report reconstruction, and final report delivery through the internal reporting portal to Finance and Operations users. This view links the development phases described above to the end-to-end technical flow implemented and validated during the project.
 
 ![Figure 3.2: High-level system workflow (data replication to report delivery)](#)
 
@@ -71,7 +71,7 @@ Figure 3.2 complements the phase-oriented methodology by showing the high-level 
 
 ## Project Schedule (Gantt Plan for FYPi1 and FYPi2)
 
-For planning and tracking purposes, the overall project timeline is expressed as Weeks 1 to 28, where Weeks 1 to 14 correspond to SCSP 4233 (FYPi1) and Weeks 15 to 28 correspond to SCSP 4234 (FYPi2). Table 3.2 summarises the planned sequencing and the current status as of Week 28, showing that the earlier part of the project emphasises problem formulation, literature review, and methodology/design preparation, while the later stages focus on replication foundations, report reconstruction, portal integration, deployment, and subsequent operational enhancements such as automation and performance evaluation.
+For planning and tracking purposes, the overall project timeline is expressed as Weeks 1 to 28, where Weeks 1 to 14 correspond to SCSP 4233 (FYPi1) and Weeks 15 to 28 correspond to SCSP 4234 (FYPi2). Table 3.2 summarises the planned sequencing and the current status as of Week 28. The schedule indicates that the earlier part of the project emphasises problem formulation, literature review, and methodology/design preparation, while the later stages focus on replication foundations, report reconstruction, portal integration, deployment, and subsequent operational enhancements such as automation and performance evaluation. It also shows that, by Week 28, the project has completed the earlier planning-oriented work packages, established the manual replication foundation, and deployed the development environment, while report reconstruction and portal integration remain in progress.
 
 | Work package | Weeks (planned) | Key outputs | Status (as of Week 28) |
 | --- | --- | --- | --- |
@@ -89,11 +89,11 @@ For planning and tracking purposes, the overall project timeline is expressed as
 
 ## System Requirement Analysis: Hardware and Software
 
-The platform requirements are described at a practical level to support replication workloads, concurrent report queries, and operational monitoring in a cloud-hosted environment. Table 3.3 summarises the high-level hardware requirements, while Table 3.4 summarises the software components and their roles within the platform. Final sizing depends on replication scope, refresh cadence, and expected user concurrency and should be validated iteratively during performance evaluation.
+The platform requirements are described at a practical level to support replication workloads, concurrent report queries, and operational monitoring in a cloud-hosted environment. Table 3.3 summarises the high-level hardware requirements, while Table 3.4 summarises the software components and their roles within the platform. Together, these tables indicate that the platform is designed around practical operational sufficiency rather than production-scale optimisation, and that final sizing should still be validated iteratively against replication scope, refresh cadence, and expected user concurrency during performance evaluation.
 
 ### Hardware Requirements
 
-At the hardware level, the platform requires sufficient compute, memory, storage, network stability, and environment availability to support replication, API serving, and stakeholder validation activities. Table 3.3 summarises these requirements at a high level.
+At the hardware level, the platform requires sufficient compute, memory, storage, network stability, and environment availability to support replication, API serving, and stakeholder validation activities. As summarised in Table 3.3, the hardware requirements are framed around dependable execution of replication and ELT tasks, responsive report generation, and stable access for iterative stakeholder review.
 
 | Resource | Requirement (high-level) | Justification |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ At the hardware level, the platform requires sufficient compute, memory, storage
 
 ### Software Requirements
 
-At the software level, the platform depends on a relational database, a Python-based ELT environment, an API framework, a frontend framework, and version control tooling. Table 3.4 summarises the main software components and their roles in supporting the proposed platform.
+At the software level, the platform depends on a relational database, a Python-based ELT environment, an API framework, a frontend framework, and version control tooling. As summarised in Table 3.4, these components collectively support the end-to-end workflow of data replication, report logic reconstruction, portal-based report delivery, and traceable change management.
 
 | Component | Role in the platform | Notes |
 | --- | --- | --- |
