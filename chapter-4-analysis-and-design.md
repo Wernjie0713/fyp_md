@@ -109,7 +109,7 @@ The non-functional requirements are summarised in Table 4.3.
 
 ### Constraints and Assumptions
 
-The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3闁?.2.7).
+The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3�?.2.7).
 
 ## Current System Analysis
 
@@ -123,9 +123,9 @@ The current reporting workflow relies on a vendor-managed reporting portal as th
 
 ### System Architecture
 
-The proposed system is organised into four logical layers: a source layer (external POS environment), a replication layer (ELT extraction and load), a semantic/API layer (reconstructed report logic exposed via RESTful endpoints), and a presentation layer (web portal for report access and export). This layered design supports traceability and governance by centralising report rules at the semantic layer and operating on replicated data under organisational control (see Chapter 2, Sections 2.2.4闁?.2.5).
+The proposed system is organised as an end-to-end analytical flow comprising six connected stages: vendor-managed POS data sources, selective replication and ELT, a company-owned SQL Server replica, a semantic/API layer, a reporting portal, and Finance and Operations users. This structure preserves source-aligned data in the replica while centralising report rules, validation logic, and delivery behaviour at the FastAPI service layer, consistent with the replication- and semantic-layer rationale discussed in Chapter 2, Sections 2.2.4-2.2.5.
 
-As shown in Figure 4.3, data flows from the vendor-managed POS environment through the replication and SQL Server layers into the semantic/API layer before being exposed to Finance and Operations users through the reporting portal. The figure therefore illustrates how report delivery is shifted from a vendor-managed reporting path to a company-controlled analytical path while preserving separation between storage, business-rule processing, and presentation.
+As shown in Figure 4.3, the architecture begins with vendor-managed transactional data and vendor report exports, which feed a selective, boundary-based replication and ELT process into the company-owned SQL Server replica. The FastAPI semantic layer then applies report rules and validation over the replicated data before the reporting portal presents report lists, parameter-driven retrieval, tabular outputs, and export functions to Finance and Operations users. In this way, the figure illustrates how continuity reporting is delivered through a company-controlled path while preserving separation between data acquisition, storage, business-rule processing, and presentation.
 
 ![Figure 4.3: Proposed logical architecture of the analytics platform](#)
 
