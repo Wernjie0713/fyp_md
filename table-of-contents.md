@@ -64,8 +64,9 @@
     - 4.5.3.5 Security Considerations ..... 34
     - 4.5.3.6 Report Logic Reconstruction Pattern and Representative Examples ..... 35
     - 4.5.4 Database Design ..... 36
-    - 4.5.5 Interface Design ..... 37
-    - 4.5.6 Summary ..... 38
+    - 4.5.5 Business Rule Reconstruction for the Fifteen Targeted Reports ..... 37
+    - 4.5.6 Interface Design ..... 37
+    - 4.5.7 Summary ..... 38
 - REFERENCES ..... 39
 - APPENDIX ..... 42
   - Appendix A: Report Specifications ..... 42

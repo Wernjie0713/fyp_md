@@ -164,6 +164,14 @@ Table 4.5 summarises the conceptual entities required by the targeted reports. P
 
 *Table 4.5: Conceptual data dictionary (summary)*
 
+### Business Rule Reconstruction for the Fifteen Targeted Reports
+
+Although the replicated database preserves source-aligned transactional structures, the business rules for the fifteen targeted sales and payment reports are reconstructed and applied within the semantic/API layer rather than embedded in the storage layer. This separation is consistent with Chapter 2, Section 2.2.5, where duplicated data are retained for traceability while report-specific logic is centralised above the database layer for maintainability and auditability.
+
+The semantic/API design supports the fifteen targeted reports through a common service pattern. Each report is exposed through a dedicated endpoint, but follows a shared response structure based on flat-list outputs, common parameter parsing behaviour, and consistent export handling. Shared parameter logic is reused where reports expose the same option sets, while report-specific extensions allow additional filters such as item division, group name, or department when required.
+
+In this project, business-rule reconstruction refers to inferring vendor-equivalent reporting rules from observed portal outputs and implementing those rules as SQL queries executed by FastAPI over the 1:1 replicated data. The semantic/API layer therefore applies report-specific selection, grouping, aggregation, and formatting logic without changing the underlying replicated structure. Appendix A documents the detailed per-report specifications for the fifteen targeted reports, including rule inputs, parameters, expected outputs, and validation scope. Within the main design chapter, the emphasis is therefore on the shared reconstruction pattern and service-layer responsibilities rather than repeating each individual report specification in full.
+
 ### Interface Design
 
 The portal is designed to mirror the existing user workflow for continuity reporting while providing consistent filtering and export behaviour. The primary interaction is: authenticate, select report, set parameters (outlet/date range and report-specific filters), view results with totals/subtotals, and export for reconciliation.
