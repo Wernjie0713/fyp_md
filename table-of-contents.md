@@ -25,7 +25,8 @@
   - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 11
   - 2.4 Workflow and Interface Considerations for Operational Reporting Portals ..... 13
   - 2.5 Technology Used ..... 14
-  - 2.6 Summary (Synthesis and Rationale Map) ..... 15
+  - 2.6 Synthesis and Rationale Map ..... 15
+  - 2.7 Summary ..... 15
 - Chapter 3 METHODOLOGY ..... 16
   - 3.1 Introduction ..... 16
   - 3.2 Methodology Choice and Justification ..... 16

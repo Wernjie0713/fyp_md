@@ -97,9 +97,9 @@ Taken together, these sources suggest that a sales and payment reporting portal 
 
 The proposed platform is implemented using Microsoft SQL Server for the replicated transactional schema and a Python-based ELT workflow for extraction and loading. Report reconstruction is implemented at the service layer using FastAPI to expose RESTful endpoints for report retrieval, while the reporting portal is implemented using React to support user workflows for parameter selection, tabular viewing, and export (FastAPI, n.d.; React, n.d.). The REST architectural style provides the guiding principles for the API interface (Fielding, 2000). These technologies are selected as engineering choices that support maintainability and iterative development within the organisational environment, while the academic justification for the overall architectural approach is grounded in the literature synthesised in Sections 2.2 and 2.3.
 
-## Summary (Synthesis and Rationale Map)
+## Synthesis and Rationale Map
 
-This chapter reviewed key concepts and prior work relevant to vendor-managed sales and payment reporting environments, replication-based analytical stores, ELT workflows, schema-on-read and database design, semantic layers, workflow and interface considerations for operational reporting portals, reverse engineering and black-box validation, data quality and reconciliation, and iterative development. Table 2.3 summarises how these literature-backed concepts justify the proposed approach in an evidence-based manner.
+Table 2.3 synthesises how the literature reviewed in this chapter supports the proposed approach. The synthesis links each major design or methodological choice to its underlying academic rationale, thereby making the basis for the proposed platform explicit and traceable.
 
 | Method/design choice | Rationale grounded in literature | Key sources |
 | --- | --- | --- |
@@ -113,3 +113,7 @@ This chapter reviewed key concepts and prior work relevant to vendor-managed sal
 | Cloud dependency risk and lock-in considerations | Vendor dependence can introduce availability/security/change-management risks and lock-in costs; continuity designs mitigate exposure. | Mell & Grance (2011); Badger et al. (2012); Jansen & Grance (2011); Armbrust et al. (2010) |
 
 *Table 2.3: Synthesis / rationale map linking proposed choices to literature*
+
+## Summary
+
+This chapter reviewed key concepts and prior work relevant to vendor-managed sales and payment reporting environments, replication-based analytical stores, ELT workflows, schema-on-read and database design, semantic layers, workflow and interface considerations for operational reporting portals, reverse engineering and black-box validation, data quality and reconciliation, and iterative development. Taken together, the literature supports a continuity-oriented reporting platform that prioritises data fidelity, reconciliation, controlled report delivery, and iterative refinement. The next chapter presents the methodology used to implement and validate the proposed approach.
