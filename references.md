@@ -30,8 +30,6 @@ Kimball, R., & Ross, M. (2013). *The data warehouse toolkit: The definitive guid
 
 Kleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O'Reilly Media.
 
-Matloobtalab, M., & Ferati, M. (2025). User perspectives and usability insights in a self-service portal. *International Journal of Web Portals, 15*(1), 1-24. https://doi.org/10.4018/IJWP.372057
-
 Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (NIST Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
 
 Microsoft. (2026). *Paginated reports in the Power BI service*. Microsoft Learn. https://learn.microsoft.com/en-us/power-bi/explore-reports/end-user-paginated-report

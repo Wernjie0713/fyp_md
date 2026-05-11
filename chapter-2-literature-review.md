@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This chapter reviews scholarly and standards-based literature that grounds the proposed Sales and Payment Analytics Platform as a company-owned reporting redundancy system for an externally managed point-of-sale (POS) reporting portal. The review is structured to support an evidence-based proposal: fundamental concepts are introduced first, then related work and comparative discussion are synthesised to justify the chosen architecture and validation approach, followed by a discussion of reporting portal workflow and interface considerations and a brief discussion of the technologies selected for implementation.
+This chapter reviews scholarly and standards-based literature that grounds the proposed Sales and Payment Analytics Platform as a company-owned reporting redundancy system for an externally managed point-of-sale (POS) reporting portal. The review is structured to support an evidence-based proposal: fundamental concepts are introduced first, then related work and comparative discussion are synthesised to justify the chosen architecture and validation approach, followed by a brief discussion of the technologies selected for implementation.
 
 ## Fundamental Theory and Concepts
 
@@ -84,8 +84,8 @@ Taken together, these sources suggest that a sales and payment reporting portal 
 
 | Design consideration | Supporting source(s) | Relevance to the proposed platform |
 | --- | --- | --- |
-| Report catalogue and navigation | Oracle (2023); Matloobtalab & Ferati (2025); Microsoft (2026) | Users should be able to locate relevant reports efficiently from a structured list or menu. |
-| Parameter specification before query execution | Oracle (2023); Microsoft (2026) | Report retrieval should support explicit parameter entry such as outlet, date range, and status before output generation. |
+| Report catalogue and navigation | Oracle (2023); Matloobtalab & Ferati (2025) | Users should be able to locate relevant reports efficiently from a structured list or menu. |
+| Parameter specification before query execution | Oracle (2023) | Report retrieval should support explicit parameter entry such as outlet, date range, and status before output generation. |
 | Readable tabular output for operational checking | Few (2012) | Sales and payment reporting often requires exact values for checking, reconciliation, and follow-up action rather than visual summaries alone. |
 | Filtering and progressive inspection of results | Shneiderman (1996); Oracle (2023) | Users should be able to narrow report outputs and inspect relevant details without unnecessary interface complexity. |
 | Consistency of prompts, labels, and interaction flow | Matloobtalab & Ferati (2025) | Consistent controls across reports reduce learning effort and improve usability for recurring operational tasks. |
@@ -114,6 +114,6 @@ Table 2.3 synthesises how the literature reviewed in this chapter supports the p
 
 *Table 2.3: Synthesis / rationale map linking proposed choices to literature*
 
-## Summary
+## Synthesis and Rationale Map
 
 This chapter reviewed key concepts and prior work relevant to vendor-managed sales and payment reporting environments, replication-based analytical stores, ELT workflows, schema-on-read and database design, semantic layers, workflow and interface considerations for operational reporting portals, reverse engineering and black-box validation, data quality and reconciliation, and iterative development. Taken together, the literature supports a continuity-oriented reporting platform that prioritises data fidelity, reconciliation, controlled report delivery, and iterative refinement. The next chapter presents the methodology used to implement and validate the proposed approach.

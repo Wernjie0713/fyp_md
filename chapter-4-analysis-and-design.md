@@ -1,4 +1,4 @@
-# Analysis And Design
+ï»¿# Analysis And Design
 
 ## Introduction
 
@@ -109,7 +109,7 @@ The non-functional requirements are summarised in Table 4.3.
 
 ### Constraints and Assumptions
 
-The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3é—?.2.7).
+The platform is designed under several constraints and assumptions. Access to the external POS environment is restricted and may be read-only. The current project phase targets sales and payment reporting for a defined set of high-priority reports, and the platform does not implement write-back to the vendor POS system. The replication cadence is designed to support operational reporting needs rather than real-time transactional processing. Design decisions in this chapter therefore prioritise traceability, repeatability, and operational controls for continuity reporting (see Chapter 2, Sections 2.2.3-2.2.7).
 
 ## Current System Analysis
 
@@ -171,11 +171,7 @@ Operational controls are designed to support reliability and recovery. These con
 
 The API layer acts as a semantic layer that encapsulates reconstructed business rules and provides a stable interface to the reporting portal. Endpoints follow a consistent report pattern (illustrative), such as:
 
-GET /reports/<report_name>
-?start_date=YYYY-MM-DD
-&end_date=YYYY-MM-DD
-&location_keys=...(optional)
-&... (other optional parameters)
+GET /reports/<report_name> ?start_date=YYYY-MM-DD &end_date=YYYY-MM-DD &location_keys=...(optional) &... (other optional parameters)
 
 For each endpoint, the design specifies required and optional parameters (including defaults aligned to the portal workflow), the output schema (fields, totals/subtotals, and formatting rules), and the validation approach (parity checks against vendor exports and cross-report reconciliation). This design directly reflects the semantic-layer and service-interface concepts discussed in Chapter 2, Section 2.2.5: replicated data are retained close to source structure for traceability, while report-specific business rules, derived fields, and delivery logic are centralised at the API layer. The API adopts a RESTful interface style to support standardised access and to decouple report consumption from underlying storage design, thereby keeping report logic more maintainable, versioned, and auditable.
 
@@ -252,3 +248,4 @@ Interface design requirements prioritise consistent parameter controls across re
 ### Summary
 
 This chapter presented the system analysis, requirements, current system workflow, and the proposed design for the analytics platform. The design emphasises traceability, parity validation, and continuity reporting through replication-first data management, a semantic/API layer for report logic, and a portal interface that supports export-driven reconciliation. The next stage of work is to continue implementing and validating the remaining targeted reports and to introduce replication automation and operational monitoring as described in Chapter 3.
+

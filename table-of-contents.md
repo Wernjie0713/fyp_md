@@ -2,76 +2,93 @@
 
 - ABSTRACT ..... II
 - ABSTRAK ..... III
+- TABLE OF CONTENT ..... IV
+- LIST OF TABLES ..... VIII
+- LIST OF FIGURES ..... X
 - Chapter 1 INTRODUCTION ..... 1
   - 1.1 Introduction ..... 1
   - 1.2 Problem Background ..... 2
   - 1.3 Problem Statement ..... 3
   - 1.4 Project Aim ..... 3
-  - 1.5 Project Objectives ..... 3
+  - 1.5 Project Objectives ..... 4
   - 1.6 Project Scope ..... 4
   - 1.7 Project Importance ..... 5
   - 1.8 Report Organization ..... 6
-- Chapter 2 LITERATRE REVIEW ..... 7
+- Chapter 2 LITERATURE REVIEW ..... 7
   - 2.1 Introduction ..... 7
   - 2.2 Fundamental Theory and Concepts ..... 7
     - 2.2.1 Sales and Payment Reporting in Vendor-Managed POS Environments ..... 7
     - 2.2.2 Data Warehousing and Replication-Based Analytical Stores ..... 8
-    - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads ..... 8
+    - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads ..... 9
     - 2.2.4 Replication, Availability, and Consistency Considerations ..... 9
-    - 2.2.5 Schema-on-Read, Database Design, Semantic Layers, and Service Interfaces ..... 9
-    - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports ..... 10
-    - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 10
-    - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 11
-  - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 11
-  - 2.4 Workflow and Interface Considerations for Operational Reporting Portals ..... 13
-  - 2.5 Technology Used ..... 14
-  - 2.6 Synthesis and Rationale Map ..... 15
-  - 2.7 Summary ..... 15
-- Chapter 3 METHODOLOGY ..... 16
-  - 3.1 Introduction ..... 16
-  - 3.2 Methodology Choice and Justification ..... 16
-  - 3.3 Phases within the Iterative and Incremental Development Methodology ..... 17
-    - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback) ..... 19
-    - 3.3.2 Phase 2: System Design ..... 20
-    - 3.3.3 Phase 3: Implementation ..... 20
-    - 3.3.4 Phase 4: Testing & Validation (Parity and Reconciliation) ..... 21
-    - 3.3.5 Phase 5: Deployment ..... 22
-    - 3.3.6 Phase 6: Review & Feedback ..... 22
-  - 3.4 Project Schedule (Gantt Plan for FYPi1 and FYPi2) ..... 23
-  - 3.5 System Requirement Analysis: Hardware and Software ..... 24
-    - 3.5.1 Hardware Requirements ..... 24
-    - 3.5.2 Software Requirements ..... 25
-  - 3.6 Summary ..... 26
-- Chapter 4 ANALYSIS AND DESIGN ..... 27
-  - 4.1 Introduction ..... 27
-  - 4.2 System Analysis ..... 27
-    - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments) ..... 27
-    - 4.2.2 Stakeholders and Role-Based View ..... 28
-    - 4.2.3 System Requirements Gathering Techniques ..... 28
-    - 4.2.4 Use Case Diagram ..... 28
-    - 4.2.5 User Requirement Outcomes ..... 29
-  - 4.3 System Requirements ..... 29
-    - 4.3.1 Functional Requirements ..... 29
-    - 4.3.2 Non-Functional Requirements ..... 29
-    - 4.3.3 Constraints and Assumptions ..... 30
-  - 4.4 Current System Analysis ..... 30
-  - 4.5 System Design ..... 31
-    - 4.5.1 System Architecture ..... 31
-    - 4.5.2 Component Explanations ..... 32
-    - 4.5.3 Data Engineering and API Design ..... 32
-    - 4.5.3.1 Data Sources and Replication Boundary ..... 32
-    - 4.5.3.2 Refresh Cadence and Idempotent Load Pattern ..... 33
-    - 4.5.3.3 Error Handling, Logging, and Monitoring ..... 33
-    - 4.5.3.4 API Endpoint Pattern and Semantic Layer Responsibilities ..... 34
-    - 4.5.3.5 Security Considerations ..... 34
-    - 4.5.3.6 Report Logic Reconstruction Pattern and Representative Examples ..... 35
-    - 4.5.4 Database Design ..... 36
-    - 4.5.5 Business Rule Reconstruction for the Fifteen Targeted Reports ..... 37
-    - 4.5.6 Interface Design ..... 37
-    - 4.5.7 Summary ..... 38
-- REFERENCES ..... 39
-- APPENDIX ..... 42
-  - Appendix A: Report Specifications ..... 42
-    - A.1 Specification Template (per report) ..... 42
-    - A.2 Target Report Index (15 reports) ..... 43
-    - A.2 Target Report Index (15 reports) ..... 44
+    - 2.2.5 Schema-on-Read, Database Design, Semantic Layers, and Service Interfaces ..... 10
+    - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports ..... 11
+    - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 11
+    - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 12
+  - 2.3 Related Previous Researches/Systems and Comparative Discussion ..... 12
+  - 2.4 Workflow and Interface Considerations for Operational Reporting Portals ..... 14
+  - 2.5 Technology Used ..... 16
+  - 2.6 Synthesis and Rationale Map ..... 17
+  - 2.7 Synthesis and Rationale Map ..... 18
+- Chapter 3 METHODOLOGY ..... 19
+  - 3.1 Introduction ..... 19
+  - 3.2 Methodology Choice and Justification ..... 19
+  - 3.3 Phases within the Iterative and Incremental Development Methodology ..... 20
+    - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback) ..... 22
+    - 3.3.2 Phase 2: System Design ..... 23
+    - 3.3.3 Phase 3: Implementation ..... 24
+    - 3.3.4 Phase 4: Testing & Validation (Parity and Reconciliation) ..... 25
+    - 3.3.5 Phase 5: Deployment ..... 26
+    - 3.3.6 Phase 6: Review & Feedback ..... 26
+  - 3.4 Project Schedule (Gantt Plan for FYPi1 and FYPi2) ..... 27
+  - 3.5 System Requirement Analysis: Hardware and Software ..... 28
+    - 3.5.1 Hardware Requirements ..... 29
+    - 3.5.2 Software Requirements ..... 29
+  - 3.6 Summary ..... 30
+- Chapter 4 ANALYSIS AND DESIGN ..... 31
+  - 4.1 Introduction ..... 31
+  - 4.2 System Analysis ..... 31
+    - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments) ..... 31
+    - 4.2.2 Stakeholders and Role-Based View ..... 32
+    - 4.2.3 System Requirements Gathering Techniques ..... 32
+    - 4.2.4 Use Case Diagram ..... 33
+    - 4.2.5 User Requirement Outcomes ..... 34
+  - 4.3 System Requirements ..... 34
+    - 4.3.1 Functional Requirements (FR) ..... 34
+    - 4.3.2 Non-Functional Requirements (NFR) ..... 35
+    - 4.3.3 Constraints and Assumptions ..... 35
+  - 4.4 Current System Analysis ..... 36
+  - 4.5 System Design ..... 36
+    - 4.5.1 System Architecture ..... 36
+    - 4.5.2 Component Explanations ..... 37
+    - 4.5.3 Data Engineering and API Design ..... 38
+      - 4.5.3.1 Data Sources and Replication Boundary ..... 38
+      - 4.5.3.2 Refresh Cadence and Idempotent Load Pattern ..... 39
+      - 4.5.3.3 Error Handling, Logging, and Monitoring ..... 40
+      - 4.5.3.4 API Endpoint Pattern and Semantic Layer Responsibilities ..... 41
+      - 4.5.3.5 Security Considerations ..... 42
+      - 4.5.3.6 Report Logic Reconstruction Pattern and Representative Examples ..... 42
+    - 4.5.4 Database Design ..... 43
+    - 4.5.5 Business Rule Reconstruction for the Fifteen Targeted Reports ..... 45
+    - 4.5.6 Interface Design ..... 46
+    - 4.5.7 Summary ..... 48
+- REFERENCES ..... 49
+- Appendix A: Report Specifications ..... 52
+  - A.1 Specification Template (per report) ..... 52
+  - A.2 Target Report Index (15 reports) ..... 53
+  - A.3 Report Specifications (to be completed iteratively) ..... 54
+    - R01: Daily Sales Summary ..... 54
+    - R02: Payment Type (All Payment) ..... 55
+    - R03: Sales Return Report ..... 56
+    - R04: Sales Cancelled Report ..... 57
+    - R05: DELETED Items Report ..... 58
+    - R06: Sale Delivery (By Sales Type) Ex Tax Calculation ..... 59
+    - R07: MB Cash Voucher (with Barcode) Redemption Report ..... 60
+    - R08: MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report ..... 61
+    - R09: Product Mix Report ..... 62
+    - R10: Discount Remark Report ..... 62
+    - R11: Delivery-FoodPanda,Grabfood,ShopeeFood ..... 63
+    - R12: Foodpanda Sales ..... 63
+    - R13: Foodpanda Discount ..... 64
+    - R14: Mobile Ordering Sales ..... 65
+    - R15: Pickup & Declaration Report ..... 65
