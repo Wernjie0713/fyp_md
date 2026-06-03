@@ -360,7 +360,132 @@ The following implementation updates occurred after the earlier planning discuss
 - The report includes an admin-managed promotion item category configuration layer.
 - For the FYP report, this should usually be described at a higher level as a customised company-requested report, not as a detailed admin configuration implementation unless Chapter 5 needs an example of extended functionality.
 
-## 11. Final Drafting Guardrails
+## 11. Chapter Planning Rules For Final Report
+
+The final report will include two additional chapters after Chapter 4:
+
+- Chapter 5: `Implementation & Testing`
+- Chapter 6: `Conclusion`
+
+The provided university template should be interpreted using the development-project path, not the research-project path.
+
+### 11.1 Chapter 5 Template To Follow
+
+Use the development version of Chapter 5:
+
+1. `5.1 Introduction`
+2. `5.2 System Development`
+3. `5.3 Coding of the system's main functions/Process`
+4. `5.4 Summary`
+
+Ignore the research-style Chapter 5 structure:
+
+- `Results and Analysis`
+- `Results`
+- `Analysis`
+
+### 11.2 Chapter 6 Template To Follow
+
+Use the conclusion chapter structure:
+
+1. `6.1 Introduction`
+2. `6.2 System Contribution/Achievement`
+3. `6.3 System Constraint`
+4. `6.4 Future Suggestion`
+5. `6.5 Summary`
+
+### 11.3 Chapter 1 Boundary
+
+Chapter 1 should remain general and introductory.
+
+Do not mention exact report counts such as `19 reports`, `16 of 19`, or `3 customised reports` in Chapter 1 objectives, aim, or scope.
+
+Preferred general wording for Chapter 1:
+
+- `selected sales and payment reports`
+- `company-requested reporting modules`
+- `targeted operational reports`
+- `vendor-aligned sales and payment reports`
+
+Chapter 1 should frame the problem, aim, objectives, scope boundary, and significance without becoming a report-outcome chapter.
+
+### 11.4 Chapter 4 Boundary
+
+Chapter 4 should include an overview of:
+
+- the formal report set
+- the customised reports
+- how these reports fit into the system analysis and design
+
+Chapter 4 should be more specific than the current proposal draft, which is too general about report coverage. However, it should remain an overview chapter and should refer detailed report specifications to Appendix A.
+
+Chapter 4 should not duplicate Chapter 5 implementation journeys, validation steps, or testing evidence.
+
+### 11.5 Chapter 5 Boundary
+
+Chapter 5 is the main chapter for detailed implementation and testing.
+
+Chapter 5 should include:
+
+- system development overview
+- ETL and replication process
+- handling of missing data and report mismatches
+- report backend reconstruction process
+- frontend portal and admin functionality implementation
+- overview of each report, with more detail than Chapter 4 but less than Appendix A
+- selected report implementation examples
+- backend report accuracy validation
+- UAT / system testing
+- black-box testing and white-box testing where applicable
+
+For selected report implementation examples, choose 1 to 3 reports. A suitable pattern is:
+
+- one formal-scope report example
+- one customised report example
+- optionally one ETL/data-quality or unresolved-report example if useful
+
+The selected examples should show how the implementation journey worked without exposing sensitive company information.
+
+When explaining backend report validation, describe one report validation process in detail as an example, then state that the same validation approach was applied across report modules.
+
+### 11.6 Chapter 6 Boundary
+
+Chapter 6 should focus on:
+
+- system contribution and achievement
+- system constraints
+- future suggestions
+- final conclusion
+
+Chapter 6 should not repeat detailed implementation steps from Chapter 5. It should interpret the project outcome, limitations, and future direction at a higher level.
+
+### 11.7 Public-Safety Rule For Chapter 5
+
+Chapter 5 may be detailed because it records what was implemented and how it was tested, but it must remain public-safe.
+
+Acceptable details:
+
+- SQL Server reporting database
+- FastAPI backend
+- React portal
+- source-to-replica validation
+- report parity validation
+- admin-managed ETL automation
+- data-quality checks
+- high-level mismatch investigation and resolution process
+
+Avoid details such as:
+
+- credentials
+- tokens
+- VPN details
+- passwords
+- secret file paths
+- exact server access instructions
+- operational runbook commands unless academically necessary
+- overly specific internal endpoint or database table detail unless needed for design explanation
+
+## 12. Final Drafting Guardrails
 
 When updating the final report:
 
@@ -369,6 +494,10 @@ When updating the final report:
 - use `Marrybrown Sales and Payment Analytics Platform` as the main system name
 - use `redundancy` only as a supporting architectural/continuity concept where appropriate
 - write every section as final academic FYP content suitable for university submission
+- keep Chapter 1 general and avoid exact report counts there
+- use Chapter 4 for report-category and custom-report overview, with details referred to Appendix A
+- use Chapter 5 for detailed implementation, ETL, report-building journey, validation, UAT, black-box testing, and white-box testing
+- use Chapter 6 for contribution, constraints, future suggestions, and conclusion
 - do not write in internal handover, runbook, or repository-governance style
 - do not quietly rewrite the proposal history
 - do not hide unresolved reports, but describe them precisely as documented limitations
