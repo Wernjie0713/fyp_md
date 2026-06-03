@@ -22,3 +22,14 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Reflected the same architecture, implementation, validation, and limitation points as the English abstract.
 - Removed the old proposal-specific report count and replaced it with general wording about selected sales and payment reports.
 - Polished several Malay phrases to improve academic formality while preserving the same meaning as the English abstract.
+
+### chapter-1-introduction.md
+
+- Rewrote Chapter 1 from proposal-stage wording into final-report wording while preserving the existing academic structure.
+- Changed the main system framing to `Marrybrown Sales and Payment Analytics Platform` and reduced `redundancy` to a supporting continuity concept instead of the main identity of the project.
+- Revised the problem framing to emphasise vendor dependency, limited internal control over report logic, and the need for a company-controlled reporting platform.
+- Updated the project aim and objectives to remove exact report-count commitments and keep the chapter at a general introductory level.
+- Rebuilt the project scope section to describe the final platform boundary, included components, and exclusions instead of internship progress tracking.
+- Replaced the old Week 28 progress table with a final-report scope-boundary table.
+- Updated the figure wording from a proposed architecture comparison to a comparison between the original vendor-dependent arrangement and the implemented internal platform.
+- Updated the report organisation section to include Chapter 5 `Implementation & Testing` and Chapter 6 `Conclusion`.
