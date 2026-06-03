@@ -2,6 +2,8 @@
 
 Date: 2026-05-14
 
+Updated: 2026-06-03
+
 Purpose: record the agreed writing-style rules, terminology decisions, and report-scope arrangement decisions for the Marrybrown final report so later AI handoff, audit, or revision work stays aligned. All future changes should directly produce final-version academic FYP report content, not internal project handover content.
 
 ## 1. Source Basis Reviewed
@@ -26,6 +28,7 @@ The following materials were reviewed before making the decisions in this note:
 - `marrybrown_api/docs/PRODUCT_MIX_WITH_MODIFIER_WITHOUT_ETL_REPORT_JOURNEY.md`
 - `marrybrown_api/docs/ROBLOX_FREE_CHICKEN_BURGER_COMBO_SALES_REPORT_JOURNEY.md`
 - `marrybrown_api/docs/VOUCHER_CAMPAIGN_REWARD_SALES_REPORT_JOURNEY.md`
+- `marrybrown_api/docs/PROMOTION_ITEM_ADDITIONAL_PURCHASE_REPORT_API.md`
 - `marrybrown_api/archive/docs/DAILY_SALES_SUMMARY_API.md`
 - `marrybrown_api/archive/docs/DISCOUNT_REMARK_REPORT_API.md`
 
@@ -138,49 +141,51 @@ This keeps the final report honest without making the wording sound careless or 
 
 ## 3. Primary Framing Decision
 
-The word `redundancy` is too narrow to be the main label for the final report.
+The previous plan to replace `redundancy` with `company-owned reporting continuity and report reconstruction platform` as the main label has been superseded after supervisor feedback.
 
-Primary framing term to use:
+Current supervisor-aligned naming decision:
 
-- `company-owned reporting continuity and report reconstruction platform`
-
-Shorter acceptable fallback term:
-
-- `vendor-aligned report reconstruction platform`
+- use a specific system name as the main label:
+  - `Marrybrown Sales and Payment Analytics Platform`
 
 Guidance:
 
-- `redundancy` may still appear secondarily when explaining continuity benefits, but it should not be the main descriptor of the project.
-- The final report should emphasise that the work involved replicated data, reverse engineering, report reconstruction, validation against vendor outputs, and a better internal portal, not mere copying of the vendor system.
+- Use `Marrybrown Sales and Payment Analytics Platform` when referring to the implemented system.
+- The term `redundancy` may still be used where it describes continuity or alternative-access purpose, but it should not make the system sound like a simple copy of the vendor portal.
+- The report should explain that the platform was implemented as a new internal system with replicated data, reconstructed backend report logic, customised report modules, and a web portal.
+- Avoid overcorrecting by removing every use of `redundancy`. Instead, anchor the project around the named platform and use `redundancy` only as a supporting architectural concept where appropriate.
 
 Recommended framing sentence:
 
-`This project developed a company-owned reporting continuity and report reconstruction platform for Marrybrown by replicating selected source-system data into an internal SQL Server reporting warehouse, reconstructing vendor-aligned report logic through a FastAPI semantic layer, and delivering validated report access through a web portal.`
+`This project developed the Marrybrown Sales and Payment Analytics Platform, an internal reporting system that replicates selected source-system data into a Microsoft SQL Server reporting database, reconstructs vendor-aligned sales and payment report logic through a FastAPI backend, and provides report search, viewing, export, and administration functions through a React-based web portal.`
 
 Academic-use reminder:
 
-- this framing is for the university report itself
-- do not surround it with handover-oriented wording such as `runbook`, `operational ownership`, or `maintenance mode` unless a specific chapter requires concise discussion of deployment or support context
+- The named platform should make clear that the project produced a real implemented system, not only a redundancy copy.
+- Do not present the project mainly as generic BI, machine learning, or exploratory analytics.
+- Do not use internal handover wording such as `runbook`, `operational ownership`, or `maintenance mode` unless a specific chapter requires concise discussion of deployment or support context.
 
 ## 4. Report-Scope Arrangement Decision
 
-Do not flatten all reports into one list. The final report should separate report scope into four layers:
+The previous concern about changing the appendix from the proposal 15-report list has been superseded by supervisor feedback. Because the proposal main chapters did not individually name the 15 reports and referred readers to the appendix, the appendix can be updated freely to reflect the final implementation scope.
 
-1. `Proposal-stage planning set (15 reports)`
-2. `Formal implementation/business scope (19 reports)`
-3. `Additional custom/internal reports outside the formal 19`
-4. `Final delivery classification`
+Current appendix/report-scope decision:
 
-This separation is required because:
+- keep the final appendix centred on the 19-report implementation scope
+- state that 16 of the 19 reports were successfully implemented
+- state that 3 of the 19 reports were not fully closed
+- explain the reason for the 3 unresolved reports in academic limitation language
+- separately mention that 3 additional customised reports were implemented based on company requests
 
-- the proposal appendix used a 15-report planning set that included `Daily Sales Summary`
-- the real implementation/business scope is the 19-report vendor/Finance set
-- the active API surface later also included custom reports such as Roblox and Voucher Campaign
-- rewriting the history of the scope after the fact would be weaker than documenting the scope evolution clearly
+Important:
+
+- It is no longer necessary to preserve the proposal-stage 15-report planning set as a major appendix layer.
+- It is acceptable to update the appendix to the final 19-report scope because the proposal main chapters only referred to the appendix for report details.
+- The final report should still remain honest about the 3 unresolved reports and should avoid wording such as `failed`.
 
 ## 5. Proposal-Stage Planning Set (15 Reports)
 
-This list is historical only. It should be described as the proposal-stage planning set, not as the final authoritative scope table.
+This proposal-stage planning set must not be mentioned in the final report.
 
 1. Daily Sales Summary
 2. Payment Type (All Payment)
@@ -200,8 +205,9 @@ This list is historical only. It should be described as the proposal-stage plann
 
 Important note:
 
-- This proposal-stage 15 was a planning set and does not match the final formal business scope exactly.
-- `Daily Sales Summary` was used in the proposal planning appendix but is not part of the final retained active handover surface.
+- Do not mention the proposal-stage 15-report planning set in the final report.
+- Do not mention `Daily Sales Summary` in the final report.
+- Use the 19-report implementation/business scope as the report-scope basis instead.
 
 ## 6. Formal Implementation / Business Scope (19 Reports)
 
@@ -229,8 +235,8 @@ This is the formal report-scope baseline to use when writing the final report.
 
 Important note:
 
-- Reports 1 to 18 reflect the company-requested vendor scope.
-- Report 19 is the additional Finance request and is part of the formal implementation/business scope.
+- The 19 reports should be presented together as the formal implementation/business scope.
+- Do not separate report 19 as an additional Finance request in the final report.
 
 ## 7. Additional Custom / Internal Reports Outside The Formal 19
 
@@ -238,15 +244,14 @@ These should be documented separately from the formal 19:
 
 - Roblox Free Chicken Burger Combo Sales
 - Voucher Campaign & Reward Sales
-
-Historical / non-retained extra:
-
-- Daily Sales Summary
+- Promotion Item Additional Purchase Report
 
 Guidance:
 
-- `Roblox Free Chicken Burger Combo Sales` and `Voucher Campaign & Reward Sales` should be described as additional custom reports developed beyond the baseline vendor-parity scope.
-- `Daily Sales Summary` should not be mixed back into the formal final scope table. If mentioned, it should be described only as a historical extra / early internal implementation that was later removed from the final retained active handover surface.
+- `Roblox Free Chicken Burger Combo Sales`, `Voucher Campaign & Reward Sales`, and `Promotion Item Additional Purchase Report` should be described as additional customised reports developed based on company requests.
+- These reports should be positioned as extra delivered work beyond the 19-report baseline scope.
+- `Promotion Item Additional Purchase Report` includes an admin-managed configuration layer for promotion item categories, but this admin detail is probably too specific for the main FYP narrative unless needed in Chapter 5 implementation details.
+- `Daily Sales Summary` should not be mentioned in the final report.
 
 ## 8. Final Delivery Classification To Use During Drafting
 
@@ -289,12 +294,14 @@ For `Product Mix with modifier without ETL`, the final decision is:
 
 - Roblox Free Chicken Burger Combo Sales
 - Voucher Campaign & Reward Sales
+- Promotion Item Additional Purchase Report
 
-These should be positioned as additive work beyond the baseline vendor/Finance scope, not mixed into the formal 19.
+These should be positioned as customised reports implemented based on company requests beyond the 19-report scope, not mixed into the formal 19.
 
-### 8.4 Historical extra not part of final retained active surface
+### 8.4 Reports To Exclude From Final Report Discussion
 
 - Daily Sales Summary
+- Proposal-stage planning set (15 reports)
 
 ## 9. How The Reports Should Be Arranged In The Final Report
 
@@ -302,41 +309,73 @@ Recommended arrangement:
 
 ### In the main body
 
-- explain the proposal-stage 15 only briefly as historical planning context
-- explain that implementation-stage business scope was confirmed against the real 19-report set
-- state the final outcome using the actual delivery classification, not the old Week 28 planning table
-- mention additional custom reports separately as extra implemented work
+- use the 19-report implementation scope as the main final-report reporting scope
+- state the final outcome as 16 successfully implemented reports out of the 19-report scope
+- state the 3 not-fully-closed reports as documented limitations
+- mention the 3 customised reports separately as company-requested additional work
+- do not mention the proposal-stage 15-report planning set or Daily Sales Summary
 
 ### In the appendix
 
-Do not keep the old 15-report appendix structure as the final authoritative status table, but do keep report-by-report academic specification tables.
+The appendix may be updated from the old 15-report proposal appendix to the final 19-report scope.
 
 Recommended appendix arrangement:
 
-1. short note on the proposal-stage 15-report planning set
-2. main table for the formal 19-report implementation/business scope with final classification
-3. separate short subsection for additional custom/internal reports
-4. report specification tables for the formal-scope reports in final-report style
-5. optional short note that `Daily Sales Summary` was a historical extra and is not part of the final retained active scope
+1. main table for the 19-report implementation scope with final status
+2. short explanation that 16 reports were successfully implemented and 3 were not fully closed
+3. report specification tables for the 19 reports in final-report style
+4. separate subsection for the 3 customised reports implemented based on company requests
 
 Appendix rule:
 
 - per-report detail tables like the proposal appendix are still needed
 - however, they must be rewritten as final-report specification tables, not Week 28 planning placeholders
 - avoid sections whose only purpose is to tell the reader which internal repo docs to consult
+- do not include the proposal-stage 15-report planning set
+- do not include Daily Sales Summary
 
-## 10. Final Drafting Guardrails
+## 10. Updated Implementation Context To Carry Forward
+
+The following implementation updates occurred after the earlier planning discussion and should be considered when writing the final report.
+
+### 10.1 Data Quality Check For Portal-Triggered Replication
+
+- A data-quality check layer was added for portal-triggered replication.
+- Admin users can trigger or review quality checks for sales sync windows.
+- Quality checks compare source and replicated data for the selected window and support quality re-check and repair requests.
+- This can be mentioned in the final report as part of implementation, testing, or operational reliability, especially in Chapter 5.
+- Avoid exposing internal endpoint names, table names, or worker implementation details unless the chapter specifically requires technical design detail.
+
+### 10.2 Automated ETL And Admin Automation Management
+
+- Daily dated ETL and nightly retained-reference automation were implemented as scheduled ETL capabilities.
+- A portal admin automation-management page was also implemented so non-technical admin users can view automation status and request enable, disable, or schedule changes.
+- The automation-control worker and Windows Task Scheduler integration are implementation details; they can be summarised academically as scheduled ETL automation with admin portal control.
+- This update means the final report should not describe unattended ETL as merely planned unless discussing historical development phases.
+
+### 10.3 Promotion Item Additional Purchase Report
+
+- A third customised report was implemented: `Promotion Item Additional Purchase Report`.
+- The report analyses sale-level additional-purchase behaviour for configured promotion items.
+- The report includes an admin-managed promotion item category configuration layer.
+- For the FYP report, this should usually be described at a higher level as a customised company-requested report, not as a detailed admin configuration implementation unless Chapter 5 needs an example of extended functionality.
+
+## 11. Final Drafting Guardrails
 
 When updating the final report:
 
 - preserve the proposal's author voice
 - convert status wording to final-report tense
-- use `company-owned reporting continuity and report reconstruction platform` as the main framing term
+- use `Marrybrown Sales and Payment Analytics Platform` as the main system name
+- use `redundancy` only as a supporting architectural/continuity concept where appropriate
 - write every section as final academic FYP content suitable for university submission
 - do not write in internal handover, runbook, or repository-governance style
 - do not quietly rewrite the proposal history
 - do not hide unresolved reports, but describe them precisely as documented limitations
-- do not let `Daily Sales Summary` distort the formal final scope
-- do not mix custom reports such as Roblox or Voucher Campaign into the formal 19 unless the scope model is intentionally changed and this note is updated first
+- use the 19-report scope as the main final-report appendix/report scope
+- state that 16 of the 19 reports were implemented successfully and 3 were not fully closed
+- mention the 3 customised reports separately as company-requested additional work
+- do not mention `Daily Sales Summary` in the final report
+- do not mention the proposal-stage 15-report planning set in the final report
 
 If future scope decisions change any report classification again, update this note before continuing any large-scale final-report rewrite.
