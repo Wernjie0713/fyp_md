@@ -33,3 +33,13 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Replaced the old Week 28 progress table with a final-report scope-boundary table.
 - Updated the figure wording from a proposed architecture comparison to a comparison between the original vendor-dependent arrangement and the implemented internal platform.
 - Updated the report organisation section to include Chapter 5 `Implementation & Testing` and Chapter 6 `Conclusion`.
+
+### chapter-2-literature-review.md
+
+- Revised Chapter 2 from proposal-oriented wording to final-report wording while preserving the literature review structure.
+- Changed the main framing from a `proposed` redundancy system to the implemented `Marrybrown Sales and Payment Analytics Platform` as a company-owned reporting platform.
+- Reduced the use of `redundancy` as the main system identity and kept continuity language as supporting architectural context.
+- Updated the comparative discussion and table wording so they refer to the architecture adopted in the project rather than a proposed platform.
+- Retitled `Related Previous Researches/Systems and Comparative Discussion` to `Related Studies/Systems and Comparative Discussion` for more natural academic phrasing.
+- Retitled `Technology Used` to `Technology Selection Considerations` and rewrote the section so it supports the literature-grounded architecture without becoming an implementation chapter.
+- Fixed the duplicated ending heading by keeping `Synthesis and Rationale Map` for Table 2.3 and renaming the final section to `Summary`.

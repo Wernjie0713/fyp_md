@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This chapter reviews scholarly and standards-based literature that grounds the proposed Sales and Payment Analytics Platform as a company-owned reporting redundancy system for an externally managed point-of-sale (POS) reporting portal. The review is structured to support an evidence-based proposal: fundamental concepts are introduced first, then related work and comparative discussion are synthesised to justify the chosen architecture and validation approach, followed by a brief discussion of the technologies selected for implementation.
+This chapter reviews scholarly and standards-based literature relevant to the Marrybrown Sales and Payment Analytics Platform as a company-owned reporting platform for an externally managed point-of-sale (POS) reporting environment. The review is structured to establish the theoretical and practical basis for the architecture and validation approach used in this project. Fundamental concepts are introduced first, followed by related studies and comparative discussion, workflow and interface considerations, and a brief discussion of the technology choices aligned to the literature.
 
 ## Fundamental Theory and Concepts
 
@@ -16,7 +16,7 @@ The literature also highlights lock-in effects in cloud adoption, where switchin
 
 Data warehousing literature frames a data warehouse as an integrated repository designed to support reporting and analysis rather than operational transaction processing (Inmon, 2005; Kimball & Ross, 2013). For sales and payment analytics platforms, this repository forms the database foundation for storing duplicated transactional data in a form that remains queryable for reporting while preserving a clear relationship to operational records. Traditional designs frequently apply modelling and transformation choices (e.g., dimensional modelling) to optimise analytical queries, but such transformations can increase complexity and may obscure traceability to source records if governance is weak.
 
-For reporting redundancy, an alternative design is a fidelity-first replicated analytical store that preserves the structure and content of source transactional tables. This approach prioritises traceability and simplifies reconciliation by reducing ambiguity about how report outputs relate to replicated source records. In practice, the choice between an optimised dimensional model and a replicated fidelity-first store depends on the primary objective: performance optimisation versus assured traceability and parity with externally generated reports (Inmon, 2005; Kimball & Ross, 2013).
+For reporting continuity, an alternative design is a fidelity-first replicated analytical store that preserves the structure and content of source transactional tables. This approach prioritises traceability and simplifies reconciliation by reducing ambiguity about how report outputs relate to replicated source records. In practice, the choice between an optimised dimensional model and a replicated fidelity-first store depends on the primary objective: performance optimisation versus assured traceability and parity with externally generated reports (Inmon, 2005; Kimball & Ross, 2013).
 
 ### Data Integration Pipelines: ETL vs ELT and Idempotent Loads
 
@@ -26,7 +26,7 @@ For operational reliability, pipeline design must consider rerun safety and oper
 
 ### Replication, Availability, and Consistency Considerations
 
-Replication is used to improve availability and support resilience by maintaining copies of data across systems. In distributed and replicated systems, trade-offs between consistency, availability, and operational complexity are central design considerations (Kleppmann, 2017). For reporting redundancy, strict real-time consistency is typically not required; instead, the practical objective is timely access to sufficiently recent and internally consistent data, supported by a refresh process and validation evidence that stakeholders can trust during reporting-intensive periods.
+Replication is used to improve availability and support resilience by maintaining copies of data across systems. In distributed and replicated systems, trade-offs between consistency, availability, and operational complexity are central design considerations (Kleppmann, 2017). For reporting continuity platforms, strict real-time consistency is typically not required; instead, the practical objective is timely access to sufficiently recent and internally consistent data, supported by a refresh process and validation evidence that stakeholders can trust during reporting-intensive periods.
 
 Accordingly, replication design in reporting contexts is commonly paired with operational controls (e.g., rerun capability, logging, and post-load checks) to manage failure recovery and to provide confidence in the replicated state. These controls support both day-to-day reporting and the investigative workflows that arise when discrepancies are detected.
 
@@ -52,15 +52,15 @@ Data quality management literature discusses practical techniques for assessing 
 
 Iterative development approaches emphasise incremental delivery and feedback-driven refinement (Beck et al., 2001). Scrum formalises iterative planning and review through time-boxed cycles and continuous refinement (Schwaber & Sutherland, 2020). In software engineering practice, iterative approaches are commonly recommended when requirements are uncertain or when continuous validation is required to manage risk (Pressman & Maxim, 2014; Sommerville, 2015). In report reconstruction projects, requirements and edge cases often emerge during parity validation, which makes iterative delivery suitable for progressively stabilising business rules while retaining validation evidence.
 
-## Related Previous Researches/Systems and Comparative Discussion
+## Related Studies/Systems and Comparative Discussion
 
-Related literature on vendor-managed reporting environments, organisation-controlled reporting repositories, and schema-on-read analytical platforms provides a comparative basis for the proposed approach. Cloud computing literature recognises vendor dependency and lock-in as concerns that can affect cost, portability, governance, and operational control (Armbrust et al., 2010; Badger et al., 2012). Data warehousing literature explains how organisation-controlled repositories can improve reporting reliability and analytical access (Inmon, 2005; Kimball & Ross, 2013). Survey work on data lakes and schema-on-read practices further highlights the value of preserving raw data and applying transformations flexibly at the consumption layer (Azzabi et al., 2024).
+Related literature on vendor-managed reporting environments, organisation-controlled reporting repositories, and schema-on-read analytical platforms provides a comparative basis for the architecture adopted in this project. Cloud computing literature recognises vendor dependency and lock-in as concerns that can affect cost, portability, governance, and operational control (Armbrust et al., 2010; Badger et al., 2012). Data warehousing literature explains how organisation-controlled repositories can improve reporting reliability and analytical access (Inmon, 2005; Kimball & Ross, 2013). Survey work on data lakes and schema-on-read practices further highlights the value of preserving raw data and applying transformations flexibly at the consumption layer (Azzabi et al., 2024).
 
 However, fewer sources provide detailed guidance on reconstructing proprietary vendor reporting logic while demonstrating report-level parity through defensible validation artefacts. This creates a practical gap for organisations that require continuity reporting but must operate without full access to vendor calculation definitions.
 
-Table 2.1 provides a comparative discussion between a vendor-managed reporting portal and a company-owned redundancy platform, highlighting the trade-offs that motivate the proposed approach.
+Table 2.1 provides a comparative discussion between a vendor-managed reporting portal and a company-owned reporting platform, highlighting the trade-offs that motivate the architecture adopted in this project.
 
-| Criterion | Vendor-managed portal only | Company-owned redundancy platform (proposed) |
+| Criterion | Vendor-managed portal only | Company-owned reporting platform |
 | --- | --- | --- |
 | Availability and continuity | Reporting access depends on vendor service availability and change management (Badger et al., 2012; Jansen & Grance, 2011). | Provides an alternative reporting path by operating on replicated data under organisational control (Kleppmann, 2017). |
 | Data transparency and traceability | Users typically interact through portal views and exports; traceability to raw transactions may be limited by vendor interface constraints. | Fidelity-first replication supports traceability from report outputs to replicated source records (Inmon, 2005). |
@@ -68,11 +68,11 @@ Table 2.1 provides a comparative discussion between a vendor-managed reporting p
 | Validation burden | Vendor portal is treated as the reference, but internal validation is limited to exported outputs. | Requires black-box parity validation and reconciliation evidence to build trust in reconstructed logic (Myers et al., 2011; Wang & Strong, 1996). |
 | Cost and complexity | Lower internal build complexity, but potential lock-in and dependency costs (Armbrust et al., 2010). | Higher engineering and validation effort initially; benefits depend on sustained operational use and governance. |
 
-*Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned redundancy reporting*
+*Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned reporting*
 
-Data warehousing literature, together with research on schema-on-read practices, also motivates a design trade-off between transformation-heavy analytical models and replication-first designs. Dimensional modelling supports analytical performance and standardised business views, whereas replication-first designs prioritise traceability and parity alignment to source representations (Inmon, 2005; Kimball & Ross, 2013). For continuity reporting where parity and reconciliation are primary goals, the proposed approach adopts replication for fidelity and applies transformations at the semantic layer, consistent with schema-on-read principles (Azzabi et al., 2024).
+Data warehousing literature, together with research on schema-on-read practices, also motivates a design trade-off between transformation-heavy analytical models and replication-first designs. Dimensional modelling supports analytical performance and standardised business views, whereas replication-first designs prioritise traceability and parity alignment to source representations (Inmon, 2005; Kimball & Ross, 2013). For continuity-oriented reporting where parity and reconciliation are primary goals, the architecture used in this project adopts replication for fidelity and applies transformations at the semantic layer, consistent with schema-on-read principles (Azzabi et al., 2024).
 
-Based on this synthesis, the proposed approach combines a fidelity-first replicated datastore to support traceability and reconciliation, an ELT workflow with idempotent refresh to support safe reruns and late adjustments, a semantic/API layer for centralised business rules and service delivery, reverse engineering with black-box parity validation to infer and validate proprietary behaviour, and iterative development practices to manage emerging edge cases (Azzabi et al., 2024; Beck et al., 2001; Chikofsky & Cross, 1990; Kleppmann, 2017; Myers et al., 2011; Wang & Strong, 1996).
+Based on this synthesis, the project architecture combines a fidelity-first replicated datastore to support traceability and reconciliation, an ELT workflow with idempotent refresh to support safe reruns and late adjustments, a semantic/API layer for centralised business rules and service delivery, reverse engineering with black-box parity validation to infer and validate proprietary behaviour, and iterative development practices to manage emerging edge cases (Azzabi et al., 2024; Beck et al., 2001; Chikofsky & Cross, 1990; Kleppmann, 2017; Myers et al., 2011; Wang & Strong, 1996).
 
 ## Workflow and Interface Considerations for Operational Reporting Portals
 
@@ -80,9 +80,9 @@ In operational sales and payment reporting, interaction is typically organised a
 
 Usability literature on self-service portals further suggests that routine operational tasks benefit from clear navigation, understandable prompts, consistent interaction patterns, and reduced effort in repeated use (Matloobtalab & Ferati, 2025). In addition, Shneiderman's information-seeking framework highlights the practical importance of filtering and details-on-demand when users must narrow a large report space or inspect a result set progressively according to immediate task needs (Shneiderman, 1996). Within a reporting portal, these considerations translate into structured report selection, predictable parameter controls, and result views that support progressive inspection without unnecessary visual or procedural complexity.
 
-Taken together, these sources suggest that a sales and payment reporting portal should prioritise report discoverability, parameter-driven retrieval, readable tabular outputs, and export support for reconciliation-oriented work. This interpretation is consistent with the practical workflow observed in vendor-managed reporting environments and provides a conceptual basis for the portal requirements and interface decisions discussed in Chapter 4. Table 2.2 summarises the reporting portal design considerations most relevant to the proposed platform.
+Taken together, these sources suggest that a sales and payment reporting portal should prioritise report discoverability, parameter-driven retrieval, readable tabular outputs, and export support for reconciliation-oriented work. This interpretation is consistent with the practical workflow observed in vendor-managed reporting environments and provides a conceptual basis for the portal requirements and interface decisions discussed in Chapter 4. Table 2.2 summarises the reporting portal design considerations most relevant to the implemented platform.
 
-| Design consideration | Supporting source(s) | Relevance to the proposed platform |
+| Design consideration | Supporting source(s) | Relevance to the implemented platform |
 | --- | --- | --- |
 | Report catalogue and navigation | Oracle (2023); Matloobtalab & Ferati (2025) | Users should be able to locate relevant reports efficiently from a structured list or menu. |
 | Parameter specification before query execution | Oracle (2023) | Report retrieval should support explicit parameter entry such as outlet, date range, and status before output generation. |
@@ -91,15 +91,15 @@ Taken together, these sources suggest that a sales and payment reporting portal 
 | Consistency of prompts, labels, and interaction flow | Matloobtalab & Ferati (2025) | Consistent controls across reports reduce learning effort and improve usability for recurring operational tasks. |
 | Export support for reconciliation and offline review | Oracle (2023); Microsoft (2026) | Retrieved report outputs should be exportable to support reconciliation, sharing, and further offline review. |
 
-*Table 2.2: Reporting portal workflow and interface considerations for the proposed platform*
+*Table 2.2: Reporting portal workflow and interface considerations for the implemented platform*
 
-## Technology Used
+## Technology Selection Considerations
 
-The proposed platform is implemented using Microsoft SQL Server for the replicated transactional schema and a Python-based ELT workflow for extraction and loading. Report reconstruction is implemented at the service layer using FastAPI to expose RESTful endpoints for report retrieval, while the reporting portal is implemented using React to support user workflows for parameter selection, tabular viewing, and export (FastAPI, n.d.; React, n.d.). The REST architectural style provides the guiding principles for the API interface (Fielding, 2000). These technologies are selected as engineering choices that support maintainability and iterative development within the organisational environment, while the academic justification for the overall architectural approach is grounded in the literature synthesised in Sections 2.2 and 2.3.
+Within the implemented platform, Microsoft SQL Server, a Python-based ELT workflow, FastAPI, and React were selected as engineering technologies that fit the literature-grounded architectural direction established in this chapter. SQL Server supports the company-managed reporting repository, the Python-based ELT workflow supports controlled extraction and refresh, FastAPI supports RESTful service delivery for reconstructed reports, and React supports parameter-driven retrieval, tabular viewing, and export workflows for internal users (FastAPI, n.d.; React, n.d.; Fielding, 2000). This section is included to connect the literature-grounded architecture to the actual technology stack adopted in the project, while detailed implementation discussion is reserved for Chapters 4 and 5.
 
 ## Synthesis and Rationale Map
 
-Table 2.3 synthesises how the literature reviewed in this chapter supports the proposed approach. The synthesis links each major design or methodological choice to its underlying academic rationale, thereby making the basis for the proposed platform explicit and traceable.
+Table 2.3 synthesises how the literature reviewed in this chapter supports the architectural and methodological choices adopted in this project. The synthesis links each major design or methodological choice to its underlying academic rationale, thereby making the basis for the implemented platform explicit and traceable.
 
 | Method/design choice | Rationale grounded in literature | Key sources |
 | --- | --- | --- |
@@ -112,8 +112,8 @@ Table 2.3 synthesises how the literature reviewed in this chapter supports the p
 | Data quality and reconciliation checks | Fitness-for-use for financial reporting depends on accuracy, completeness, and consistency; reconciliation operationalises quality assurance. | Wang & Strong (1996); International Organization for Standardization (2008); Batini & Scannapieco (2006) |
 | Cloud dependency risk and lock-in considerations | Vendor dependence can introduce availability/security/change-management risks and lock-in costs; continuity designs mitigate exposure. | Mell & Grance (2011); Badger et al. (2012); Jansen & Grance (2011); Armbrust et al. (2010) |
 
-*Table 2.3: Synthesis / rationale map linking proposed choices to literature*
+*Table 2.3: Synthesis / rationale map linking adopted choices to literature*
 
-## Synthesis and Rationale Map
+## Summary
 
-This chapter reviewed key concepts and prior work relevant to vendor-managed sales and payment reporting environments, replication-based analytical stores, ELT workflows, schema-on-read and database design, semantic layers, workflow and interface considerations for operational reporting portals, reverse engineering and black-box validation, data quality and reconciliation, and iterative development. Taken together, the literature supports a continuity-oriented reporting platform that prioritises data fidelity, reconciliation, controlled report delivery, and iterative refinement. The next chapter presents the methodology used to implement and validate the proposed approach.
+This chapter reviewed key concepts and prior work relevant to vendor-managed sales and payment reporting environments, replication-based analytical stores, ELT workflows, schema-on-read and database design, semantic layers, workflow and interface considerations for operational reporting portals, reverse engineering and black-box validation, data quality and reconciliation, and iterative development. Taken together, the literature supports an internal reporting platform that prioritises data fidelity, reconciliation, controlled report delivery, and iterative refinement. The next chapter presents the methodology used in this project to implement and validate that approach.
