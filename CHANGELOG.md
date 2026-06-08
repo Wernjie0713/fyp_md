@@ -43,3 +43,13 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Retitled `Related Previous Researches/Systems and Comparative Discussion` to `Related Studies/Systems and Comparative Discussion` for more natural academic phrasing.
 - Retitled `Technology Used` to `Technology Selection Considerations` and rewrote the section so it supports the literature-grounded architecture without becoming an implementation chapter.
 - Fixed the duplicated ending heading by keeping `Synthesis and Rationale Map` for Table 2.3 and renaming the final section to `Summary`.
+
+### chapter-3-methodology.md
+
+- Rewrote Chapter 3 from proposal-stage methodology wording into final-report methodology wording.
+- Changed the main framing to the implemented `Marrybrown Sales and Payment Analytics Platform` and removed outdated proposal-era references to a `proposed` platform.
+- Updated the iterative phase descriptions so they describe the executed development and validation approach rather than planned future work.
+- Replaced outdated manual-only and future-automation wording with final-report descriptions of controlled sync, scheduled ETL, administrative automation control, and data-quality checking support.
+- Revised the testing and validation section to reflect parity validation, reconciliation, source-to-replica quality checks, black-box comparison, white-box review, and operational acceptability checks in final-report tense.
+- Rebuilt the project schedule section into a detailed 40-week Gantt-style schedule aligned to the iterative and incremental methodology, replacing the old Week 28 tracking and forbidden `15 reports` planning references.
+- Renamed `System Requirement Analysis: Hardware and Software` to `Implementation Environment Requirements` and rewrote the section to describe the actual project environment more appropriately for a final report.
