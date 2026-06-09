@@ -53,3 +53,15 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Revised the testing and validation section to reflect parity validation, reconciliation, source-to-replica quality checks, black-box comparison, white-box review, and operational acceptability checks in final-report tense.
 - Rebuilt the project schedule section into a detailed 40-week Gantt-style schedule aligned to the iterative and incremental methodology, replacing the old Week 28 tracking and forbidden `15 reports` planning references.
 - Renamed `System Requirement Analysis: Hardware and Software` to `Implementation Environment Requirements` and rewrote the section to describe the actual project environment more appropriately for a final report.
+
+### chapter-4-analysis-and-design.md
+
+- Rewrote Chapter 4 from proposal-stage design framing into final-report design framing.
+- Changed the chapter to use `Marrybrown Sales and Payment Analytics Platform` as the implemented system name and removed outdated `proposed platform` wording.
+- Revised the stakeholder, requirement, and constraint sections so they reflect the implemented reporting platform rather than an earlier planning-stage scope.
+- Added a report-coverage overview that summarises the formal implementation/business-scope reports by functional group and separately identifies the additional customised reports, while keeping detailed specifications in Appendix A.
+- Removed forbidden old-scope references such as the proposal-stage `15 reports`, `Daily Sales Summary`, and the internal appendix filename reference.
+- Reworked the replication and refresh design sections to reflect controlled refresh processes, scheduled ETL support, portal-triggered operations, and data-quality checking at design level without turning the chapter into an implementation diary.
+- Replaced the earlier representative-example treatment with a shorter report-reconstruction overview so Chapter 4 remains at design level and leaves detailed implementation examples to Chapter 5.
+- Updated the interface design section so it briefly acknowledges role-restricted administrative views such as user administration and refresh-related operational oversight without over-expanding the admin implementation details.
+- Updated the interface and summary sections so the chapter now transitions correctly into Chapter 5 `Implementation & Testing` instead of describing future implementation work.
