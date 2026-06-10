@@ -1,303 +1,395 @@
 # Appendix A: Report Specifications
 
-## Appendix A: Report Specifications
+This appendix summarises the report specifications for the Marrybrown Sales and Payment Analytics Platform. The formal implementation and business scope comprised 19 sales and payment reports. Of these, 16 reports were implemented and validated for the retained final scope, while 3 reports were not fully closed after reverse engineering and parity validation against the vendor portal. In addition, 3 customised reports were implemented based on company requests beyond the formal 19-report scope.
 
-This appendix organises report-level specifications for the 15 targeted sales and payment reports. As of Week 28 of the internship, seven report APIs have been implemented and validated, while the remaining reports are planned for subsequent iterations. Where a specification is incomplete, fields are marked as [TBD] and will be completed iteratively as the corresponding module is implemented and validated.
+## A.1 Formal Implementation and Business Scope Report Index
 
-### A.1 Specification Template (per report)
+| ID | Report | Report group | Final status | Notes |
+| --- | --- | --- | --- | --- |
+| R01 | Sale Delivery (By Sales Type) Ex Tax Calculation | Delivery and ordering channels | Implemented and validated | Delivered as a vendor-aligned delivery sales and ex-tax reporting module. |
+| R02 | Payment Type (All Payment) | Payment and voucher reconciliation | Implemented and validated | Delivered as a payment-method reconciliation report. |
+| R03 | Product Mix Report | Product, stock, and cost analysis | Not fully closed | Reverse engineering and parity validation were not sufficient to isolate the remaining profit logic required for final closure. |
+| R04 | Delivery - FoodPanda, Grabfood, ShopeeFood | Delivery and ordering channels | Implemented and validated | Delivered as a delivery-channel sales reporting module. |
+| R05 | Pickup & Declaration Report | Sales and exception control | Implemented and validated | Delivered as a session-level sales, declaration, and collection control report. |
+| R06 | Stock Variance Report (Latest) | Product, stock, and cost analysis | Implemented and validated | Delivered as an inventory variance monitoring report. |
+| R07 | Discount Remark Report | Discount monitoring | Not fully closed | Reverse engineering and parity validation were not sufficient to isolate the remaining profit logic required for final closure. |
+| R08 | Foodpanda Sales | Delivery and ordering channels | Implemented and validated | Delivered as a channel-specific item-level sales report. |
+| R09 | DELETED Items Report | Sales and exception control | Implemented and validated | Delivered as a void-item audit report. |
+| R10 | Sales Return Report | Sales and exception control | Implemented and validated | Delivered as an item-return review and reconciliation report. |
+| R11 | [SOK] Each Kiosk Transaction Report | Sales and exception control | Implemented and validated | Delivered as a kiosk transaction monitoring report. |
+| R12 | Sales Cancelled Report | Sales and exception control | Implemented and validated | Delivered as a cancelled-sales audit report. |
+| R13 | Xilnex - Monthly Checking - COGS by Item (By Sales Type) | Product, stock, and cost analysis | Implemented and validated | Delivered as an item-level monthly cost-of-goods checking report. |
+| R14 | Foodpanda Discount | Delivery and ordering channels | Implemented and validated | Delivered as a discount-focused Foodpanda reporting module. |
+| R15 | Mobile Ordering Sales | Delivery and ordering channels | Implemented and validated | Delivered as a mobile-ordering sales report. |
+| R16 | Average SOS Report (New) | Service and operational timing | Implemented and validated | Delivered as a store-level service-duration monitoring report. |
+| R17 | MB Cash Voucher (with Barcode) Redemption Report | Payment and voucher reconciliation | Implemented and validated | Delivered as a barcode voucher redemption report. |
+| R18 | MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report | Payment and voucher reconciliation | Implemented and validated | Delivered as a staff and cash voucher redemption control report. |
+| R19 | Product Mix with modifier without ETL | Product, stock, and cost analysis | Not fully closed | Reverse engineering and parity validation were not sufficient to isolate the remaining profit logic required for final closure. |
 
-| Field | Description |
-| --- | --- |
-| Report name | [TBD] |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] (required/optional, defaults) |
-| Output (summary) | [TBD] (key fields, totals/subtotals) |
-| Data sources | [TBD] (replicated tables/modules) |
-| Key business rules | [TBD] (filters, inclusion/exclusion, edge cases) |
-| Validation approach | [TBD] (parity checks, reconciliation rules, acceptance criteria) |
-| Implementation status | [TBD] (e.g., planned; implemented and validated) |
-| Evidence artefacts | [TBD] (e.g., vendor export filenames, internal API documentation) |
+*Table A.1: Formal implementation and business scope report index*
 
-*Table A.1: Report specification template fields*
+## A.2 Additional Customised Reports
 
-### A.2 Target Report Index (15 reports)
-
-This index lists the 15 targeted reports and provides a convenient place to track implementation and validation status during iterative development.
-
-| ID | Report | Status (Week 28) | Notes / Evidence |
+| ID | Customised report | Reporting purpose | Final status |
 | --- | --- | --- | --- |
-| R01 | Daily Sales Summary | Implemented and validated | Internal API documentation (confidential; not included in this report). |
-| R02 | Payment Type (All Payment) | Implemented and validated | Internal API documentation (confidential; not included in this report). |
-| R03 | Sales Return Report | Implemented and validated | Internal API documentation (confidential; not included in this report). |
-| R04 | Sales Cancelled Report | Implemented and validated | Validation artefacts retained (baseline exports and comparison outputs). |
-| R05 | DELETED Items Report | Planned | [TBD] |
-| R06 | Sale Delivery (By Sales Type) Ex Tax Calculation | Implemented and validated | Validation artefacts retained (baseline exports and comparison outputs). |
-| R07 | MB Cash Voucher (with Barcode) Redemption Report | Implemented and validated | Validation artefacts retained (baseline exports and comparison outputs). |
-| R08 | MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report | Implemented and validated | Validation artefacts retained (baseline exports and comparison outputs). |
-| R09 | Product Mix Report | Planned | [TBD] |
-| R10 | Discount Remark Report | Planned | [TBD] |
-| R11 | Delivery-FoodPanda,Grabfood,ShopeeFood | Planned | [TBD] |
-| R12 | Foodpanda Sales | Planned | [TBD] |
-| R13 | Foodpanda Discount | Planned | [TBD] |
-| R14 | Mobile Ordering Sales | Planned | [TBD] |
-| R15 | Pickup & Declaration Report | Planned | [TBD] |
+| C01 | Roblox Free Chicken Burger Combo Sales | Tracks a company-requested promotional sales scenario for campaign monitoring and checking. | Implemented and validated |
+| C02 | Voucher Campaign & Reward Sales | Tracks campaign- and reward-related voucher sales activity requested during implementation. | Implemented and validated |
+| C03 | Promotion Item Additional Purchase Report | Analyses additional-purchase behaviour for selected promotion items requested by the company. | Implemented and validated |
 
-*Table A.2: Target report index (15 reports) and status summary (Week 28)*
+*Table A.2: Additional customised reports implemented beyond the formal 19-report scope*
 
-### A.3 Report Specifications (to be completed iteratively)
+## A.3 Detailed Report Specifications for the Formal 19-Report Scope
 
-#### R01: Daily Sales Summary
-
-| Field | Description |
-| --- | --- |
-| Report name | Daily Sales Summary |
-| Business purpose | To provide a daily, outlet-level summary of sales and profit figures for operational monitoring and finance reconciliation, supporting continuity when the vendor portal is unavailable. |
-| Primary users | Finance and Operations (reporting and reconciliation users). |
-| Parameters | Business date range (required); optional outlet/location filter list; optional sales status filters aligned with baseline portal behaviour. |
-| Output (summary) | Per business date and outlet: sales total and profit total, with optional grand totals across the selected scope. |
-| Data sources | Replicated sales transactions and cost/profit attributes (where available), plus outlet/location reference data. |
-| Key business rules | Business date is used for scoping; status selection follows baseline portal logic; returns and cancellations are treated consistently with baseline behaviour; totals are computed over the filtered set. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Internal API documentation and validation artefacts retained (confidential; not included in this report). |
-
-*Table A.3: Report specification fields for R01 (Daily Sales Summary)*
-
-#### R02: Payment Type (All Payment)
-
-| Field | Description |
-| --- | --- |
-| Report name | Payment Type (All Payment) |
-| Business purpose | To summarise collections by payment method for the chosen period and outlets, supporting cash-up and payment reconciliation activities. |
-| Primary users | Finance and Operations (payment reconciliation users). |
-| Parameters | Business date range (required); optional outlet/location filter list; optional sales status filters; optional payment status filter (defaults to saved/posted payments). |
-| Output (summary) | Collection totals grouped by payment method (and optionally by outlet), including overall total collection for the selected scope. |
-| Data sources | Replicated payment transactions linked to sales and outlet/location records, plus payment method reference or mapping logic. |
-| Key business rules | Split payments are allocated per sale; only qualifying payment statuses are included; sales status filters exclude void/cancelled records as appropriate; payment method categories are normalised to match baseline portal groupings. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Internal API documentation and validation artefacts retained (confidential; not included in this report). |
-
-*Table A.4: Report specification fields for R02 (Payment Type (All Payment)*
-
-#### R03: Sales Return Report
-
-| Field | Description |
-| --- | --- |
-| Report name | Sales Return Report |
-| Business purpose | To list returned items and transactions within the selected period, enabling audit, inventory adjustment support, and reconciliation of return values against baseline exports. |
-| Primary users | Finance and Operations (exception review and reconciliation), with secondary use by store operations. |
-| Parameters | Business date range (required); optional outlet/location filter list; optional sales status filters; optional item classification filters (type, category, group, division). |
-| Output (summary) | Row-level return entries including outlet, date, return document or sale reference, original sale reference (where applicable), item identifier and name, quantity, and net return amount. |
-| Data sources | Replicated return transactions linked to original sales where applicable, plus item master and outlet/location reference data. |
-| Key business rules | Only return-type transactions are included; item filters follow baseline portal semantics; row grouping and merge behaviour is aligned with the portal output; net return amount follows the baseline calculation and normalisation rules. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Internal API documentation and validation artefacts retained (confidential; not included in this report). |
-
-*Table A.5: Report specification fields for R03 (Sales Return Report)*
-
-#### R04: Sales Cancelled Report
-
-| Field | Description |
-| --- | --- |
-| Report name | Sales Cancelled Report |
-| Business purpose | To provide an audit trail of cancelled or voided sales within the selected period, supporting internal control checks and exception review. |
-| Primary users | Finance and Operations (audit and exception review users). |
-| Parameters | Business date range (required); optional outlet/location filter list; optional item classification filters (type, category, group, division). |
-| Output (summary) | Cancelled sale entries including outlet, date, sale reference, quantity, net sold value, and cancellation metadata (cancelled by, remark, cancellation date and location). |
-| Data sources | Replicated sales transactions with cancellation markers and related metadata, plus outlet/location and item reference data (where required by filters). |
-| Key business rules | Only cancelled/voided transactions within the scoped business date range are included; text fields are normalised for strict parity (e.g., blank and trimming behaviour); filter behaviour mirrors baseline portal semantics. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Validation artefacts retained (baseline exports and comparison outputs). |
-
-*Table A.6: Report specification fields for R04 (Sales Cancelled Report)*
-
-#### R05: DELETED Items Report
-
-| Field | Description |
-| --- | --- |
-| Report name | DELETED Items Report |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
-
-*Table A.7: Report specification fields for R05 (DELETED Items Report)*
-
-#### R06: Sale Delivery (By Sales Type) Ex Tax Calculation
+### R01: Sale Delivery (By Sales Type) Ex Tax Calculation
 
 | Field | Description |
 | --- | --- |
 | Report name | Sale Delivery (By Sales Type) Ex Tax Calculation |
-| Business purpose | To break down delivery-related sales by sales type and delivery category, and to report tax-exclusive (ex-tax) totals required for finance checking and reconciliation. |
-| Primary users | Finance and Operations (periodic delivery sales checking). |
-| Parameters | Business date range (required); optional outlet/location filter list; optional sales status filters; optional payment status filter (defaults aligned with baseline portal behaviour). |
-| Output (summary) | Hierarchical breakdown by date and outlet, with further grouping by sales type and delivery category, reporting sales totals and tax-exclusive (ex-tax) metrics for each group. |
-| Data sources | Replicated sales transactions and payment records, delivery channel indicators, outlet/location reference data, and tax-related fields needed for ex-tax computation. |
-| Key business rules | Ex-tax is computed from tax-inclusive values using the baseline formula; grouping levels match the baseline report structure; merge logic avoids double-counting when multiple sources overlap; default status filters follow baseline portal behaviour. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Validation artefacts retained (baseline exports and comparison outputs). |
+| Business purpose | To analyse delivery-related sales by sales type and delivery channel while presenting tax-exclusive values required for finance checking and channel reconciliation. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status and payment status filters; optional advanced search conditions where detailed transaction filtering is needed. |
+| Output summary | Returns grouped rows by date, store, sales type, sales return type, and delivery type, with transaction quantity, sales totals, tax-exclusive amounts, tax amount, payment-bucket amounts, and summary totals. |
+| Data scope | Replicated sales records, payment records, location data, and supporting customer-search metadata where relevant to advanced search. |
+| Key business rules | Delivery and payment metrics are reconstructed through merged sales-side and payment-side logic; grouping follows vendor-aligned delivery hierarchy; monetary totals are normalised after aggregation; all-zero rows are suppressed from the final output. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports using matched reporting windows and filter selections. |
+| Final status | Implemented and validated. |
 
-*Table A.8: Report specification fields for R06 (Sale Delivery (By Sales Type) Ex Tax Calculation)*
+*Table A.3: Detailed specification for R01*
 
-#### R07: MB Cash Voucher (with Barcode) Redemption Report
-
-| Field | Description |
-| --- | --- |
-| Report name | MB Cash Voucher (with Barcode) Redemption Report |
-| Business purpose | To track redemption of barcode-based cash vouchers, supporting voucher liability monitoring and reconciliation against baseline exports. |
-| Primary users | Finance and Operations (voucher reconciliation users), with secondary use by marketing or promotion owners. |
-| Parameters | Business date range (required); optional outlet/location filter list; optional filter to include or exclude specific voucher variants to mirror baseline portal checkbox behaviour. |
-| Output (summary) | Voucher redemption entries including redemption date, outlet, voucher identifier (barcode), voucher category, and linked sale or reference identifiers, with summary counts and totals for reconciliation. |
-| Data sources | Replicated voucher and payment/redemption records linked to sales, plus outlet/location reference data. |
-| Key business rules | Voucher types and identifiers are normalised to match baseline categories; portal checkbox behaviour is reproduced; deduplication prevents fan-out duplicates caused by joins; legacy and null-date edge cases are handled consistently with baseline behaviour. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Validation artefacts retained (baseline exports and comparison outputs). |
-
-*Table A.9: Report specification fields for R07 (MB Cash Voucher (with Barcode) Redemption Report)*
-
-#### R08: MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report
+### R02: Payment Type (All Payment)
 
 | Field | Description |
 | --- | --- |
-| Report name | MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report |
-| Business purpose | To track redemption of staff e-vouchers and selected cash voucher variants that use barcodes, supporting controlled staff benefit monitoring and finance reconciliation. |
-| Primary users | Finance and Operations (voucher reconciliation), with secondary use by HR or administrators responsible for staff voucher programmes. |
-| Parameters | Business date range (required); optional outlet/location filter list; optional filter to include or exclude specific voucher variants to mirror baseline portal checkbox behaviour. |
-| Output (summary) | Voucher redemption entries including redemption date, outlet, voucher identifier (barcode), voucher type (staff e-voucher vs cash voucher), and linked sale or reference identifiers, with summary counts and totals for reconciliation. |
-| Data sources | Replicated voucher and payment/redemption records linked to sales, plus outlet/location reference data. |
-| Key business rules | Voucher codes and types are normalised (including format and casing) to match baseline categories; portal checkbox behaviour is reproduced; deduplication prevents fan-out duplicates caused by joins; historical and legacy records follow baseline date-scope behaviour. |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Implemented and validated (Week 28). |
-| Evidence artefacts | Validation artefacts retained (baseline exports and comparison outputs). |
+| Report name | Payment Type (All Payment) |
+| Business purpose | To provide a detailed breakdown of sales collections by payment method for reconciliation, outlet review, and month-end checking. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status filter; optional payment status filter. |
+| Output summary | Returns rows grouped by store, order source, payment method, device, card type, and reference, with total collection and payment-bucket amounts. |
+| Data scope | Replicated payment records, sales records, and outlet reference data. |
+| Key business rules | Payment rows are grouped to reproduce portal payment presentation; payment-method categories are normalised into cash, card, voucher, e-wallet, and other buckets; return sales and non-qualifying records are excluded according to report rules. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports across selected date ranges and store scopes. |
+| Final status | Implemented and validated. |
 
-*Table A.10: Report specification fields for R08 (MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report)*
+*Table A.4: Detailed specification for R02*
 
-#### R09: Product Mix Report
+### R03: Product Mix Report
 
 | Field | Description |
 | --- | --- |
 | Report name | Product Mix Report |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
+| Business purpose | To present item-level product sales composition for management review, quantity checking, and profit-related analysis. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); expected outlet scope and item-related optional filters consistent with product-level reporting requirements. |
+| Output summary | Intended to return item-level grouped sales rows with quantity, value, and profit-related measures. |
+| Data scope | Replicated sales records, sales item records, item master data, and supporting reference data required for product-level grouping and profit-related calculations. |
+| Key business rules | The report depends on correct product-level grouping, item classification, and profit-related derivation consistent with portal behaviour. |
+| Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
+| Final status | Not fully closed. |
 
-*Table A.11: Report specification fields for R09 (Product Mix Report)*
+*Table A.5: Detailed specification for R03*
 
-#### R10: Discount Remark Report
-
-| Field | Description |
-| --- | --- |
-| Report name | Discount Remark Report |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
-
-*Table A.12: Report specification fields for R10 (Discount Remark Report)*
-
-#### R11: Delivery-FoodPanda,Grabfood,ShopeeFood
+### R04: Delivery - FoodPanda, Grabfood, ShopeeFood
 
 | Field | Description |
 | --- | --- |
-| Report name | Delivery-FoodPanda,Grabfood,ShopeeFood |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
+| Report name | Delivery - FoodPanda, Grabfood, ShopeeFood |
+| Business purpose | To provide delivery-channel sales visibility across the main third-party ordering platforms used in the reporting scope. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status filter; optional item-related filters such as type, category, group name, item division, and brand where applicable. |
+| Output summary | Returns delivery-channel sales rows and totals aligned to platform-specific sales activity across FoodPanda, GrabFood, and ShopeeFood. |
+| Data scope | Replicated sales records, sales item records, item master data, outlet reference data, and delivery-related sales attributes. |
+| Key business rules | Channel classification must follow delivery-type logic consistent with portal output; item filters must behave consistently across channels; rows outside the required delivery scope are excluded. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for selected channels, date ranges, and outlet scopes. |
+| Final status | Implemented and validated. |
 
-*Table A.13: Report specification fields for R11 (Delivery-FoodPanda,Grabfood,ShopeeFood)*
+*Table A.6: Detailed specification for R04*
 
-#### R12: Foodpanda Sales
-
-| Field | Description |
-| --- | --- |
-| Report name | Foodpanda Sales |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
-
-*Table A.14: Report specification fields for R12 (Foodpanda Sales)*
-
-#### R13: Foodpanda Discount
-
-| Field | Description |
-| --- | --- |
-| Report name | Foodpanda Discount |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
-
-*Table A.15: Report specification fields for R13 (Foodpanda Discount)*
-
-#### R14: Mobile Ordering Sales
-
-| Field | Description |
-| --- | --- |
-| Report name | Mobile Ordering Sales |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
-
-*Table A.16: Report specification fields for R14 (Mobile Ordering Sales)*
-
-#### R15: Pickup & Declaration Report
+### R05: Pickup & Declaration Report
 
 | Field | Description |
 | --- | --- |
 | Report name | Pickup & Declaration Report |
-| Business purpose | [TBD] |
-| Primary users | [TBD] |
-| Parameters | [TBD] |
-| Output (summary) | [TBD] |
-| Data sources | [TBD] |
-| Key business rules | [TBD] |
-| Validation approach | Parity validation against vendor exports (see Chapter 3 Section 3.3.4). |
-| Implementation status | Planned (as of Week 28). |
-| Evidence artefacts | [TBD] |
+| Business purpose | To monitor cashier session-level sales, collection, declaration, and short/excess behaviour for operational and reconciliation control. |
+| Primary users | Finance, Operations, and supervisory users involved in cash-control checking. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status filter; optional payment status filter. |
+| Output summary | Returns session-level rows containing sales totals, payment collections, declaration amounts, short/excess values, safe-deposit totals, and register-float totals. |
+| Data scope | Replicated sales records, payment records, register-log records, denomination-related records, and outlet/session reference data. |
+| Key business rules | Multiple source branches are regrouped into the portal-visible session shape; short/excess is derived from internal movement and declaration totals; zero-only grouped rows are suppressed from the final output. |
+| Validation approach | Report output was validated through strict parity comparison against vendor workbook exports for matched date ranges and status scopes. |
+| Final status | Implemented and validated. |
 
-*Table A.17: Report specification fields for R15 (Pickup & Declaration Report)*
+*Table A.7: Detailed specification for R05*
+
+### R06: Stock Variance Report (Latest)
+
+| Field | Description |
+| --- | --- |
+| Report name | Stock Variance Report (Latest) |
+| Business purpose | To present outlet-level inventory variance by item so that stock discrepancies can be reviewed and followed up operationally. |
+| Primary users | Operations, inventory, and Finance users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional type, category, and group-name filters; optional advanced search over item and store attributes. |
+| Output summary | Returns grouped rows by store and item, including opening stock, received quantity, purchase return, wastage, transfer, staff meal, expected sold quantity, expected and physical closing stock, variance quantity, and variance amount. |
+| Data scope | Replicated stock, stock-take, stock-received, sales, sales item, item master, vendor, and outlet-related records. |
+| Key business rules | Inventory movement, stockcheck, and sold-quantity logic are combined to produce the latest variance view; grouping follows vendor-visible item hierarchy; advanced search is applied before final grouping. |
+| Validation approach | Report output was validated against vendor workbook exports and cross-checked across source, replica, API, and frontend output for the validated scope. |
+| Final status | Implemented and validated. |
+
+*Table A.8: Detailed specification for R06*
+
+### R07: Discount Remark Report
+
+| Field | Description |
+| --- | --- |
+| Report name | Discount Remark Report |
+| Business purpose | To provide visibility into discount usage and associated remarks for checking, review, and exception follow-up. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); expected outlet scope and discount-related optional filters consistent with discount-level reporting. |
+| Output summary | Intended to return discount-related rows with sales context, discount information, remarks, and profit-related measures. |
+| Data scope | Replicated sales records, sales item records, discount-related fields, and supporting item and outlet reference data. |
+| Key business rules | The report depends on accurate discount-level grouping, remark handling, and profit-related derivation consistent with portal behaviour. |
+| Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
+| Final status | Not fully closed. |
+
+*Table A.9: Detailed specification for R07*
+
+### R08: Foodpanda Sales
+
+| Field | Description |
+| --- | --- |
+| Report name | Foodpanda Sales |
+| Business purpose | To provide item-level Foodpanda sales visibility for channel-specific operational checking and reconciliation. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status filter; optional sales type, type, category, group name, item division, and brand filters. |
+| Output summary | Returns item-level Foodpanda sales rows including date, location, customer and cashier metadata, delivery type, sales reference, quantity, and net and gross sold amounts. |
+| Data scope | Replicated sales records, sales item records, item master data, location data, and supporting recipe or package-related reference paths needed by the validated logic. |
+| Key business rules | Only rows within the intended Foodpanda delivery scope are retained; delivery-type and item-filter behaviour is aligned to portal semantics; row structure remains item-level for checking and export purposes. |
+| Validation approach | Report output was validated through strict parity comparison against vendor portal exports across multiple windows and filtered scenarios. |
+| Final status | Implemented and validated. |
+
+*Table A.10: Detailed specification for R08*
+
+### R09: DELETED Items Report
+
+| Field | Description |
+| --- | --- |
+| Report name | DELETED Items Report |
+| Business purpose | To provide an audit view of deleted or voided items for operational control and exception review. |
+| Primary users | Finance, Operations, and supervisory users. |
+| Parameters | Start date and end date (required); optional outlet scope. |
+| Output summary | Returns item-level void rows including location, sales number, void time, item code, item name, void person, void reason, perform type, void quantity, and void amount. |
+| Data scope | Replicated void-item records, sales item records, sales records, item master data, and outlet reference data. |
+| Key business rules | The report is constrained to the portal-aligned void-item scope; void quantity and amount are aggregated at the report-row level; ordering is stabilised to keep consistent row presentation. |
+| Validation approach | Report output was validated through strict parity comparison against vendor portal export output for matched date windows. |
+| Final status | Implemented and validated. |
+
+*Table A.11: Detailed specification for R09*
+
+### R10: Sales Return Report
+
+| Field | Description |
+| --- | --- |
+| Report name | Sales Return Report |
+| Business purpose | To list returned items and related values for reconciliation, outlet review, and exception control. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status filter; optional item-related filters such as type, category, group name, and item division where applicable. |
+| Output summary | Returns item-level return rows containing sales and return references, item details, quantities, and monetary return values. |
+| Data scope | Replicated sales records, return-related sales item records, item master data, and outlet reference data. |
+| Key business rules | Only return-scope transactions are included; item filtering and row grouping must reproduce portal behaviour; return values are presented in export-ready tabular form. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes and item-filter conditions. |
+| Final status | Implemented and validated. |
+
+*Table A.12: Detailed specification for R10*
+
+### R11: [SOK] Each Kiosk Transaction Report
+
+| Field | Description |
+| --- | --- |
+| Report name | [SOK] Each Kiosk Transaction Report |
+| Business purpose | To present kiosk transaction records for channel monitoring, transaction review, and operational follow-up. |
+| Primary users | Operations and Finance users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional transaction or item-related filters where applicable to kiosk-report usage. |
+| Output summary | Returns kiosk transaction rows aligned to the required portal transaction view, including kiosk-related transaction context and monetary values. |
+| Data scope | Replicated sales records, payment records where required, outlet reference data, and kiosk-related transactional attributes. |
+| Key business rules | Kiosk transactions are isolated according to the defined channel logic; output retains the required transaction-level visibility for checking and export. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for the retained kiosk-report scope. |
+| Final status | Implemented and validated. |
+
+*Table A.13: Detailed specification for R11*
+
+### R12: Sales Cancelled Report
+
+| Field | Description |
+| --- | --- |
+| Report name | Sales Cancelled Report |
+| Business purpose | To provide an audit trail of cancelled sales for exception control, follow-up, and reconciliation review. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional item-related filters where applicable. |
+| Output summary | Returns cancelled-sales rows containing outlet, date, sales reference, quantity, sold value, and cancellation-related details such as cancelling user and remarks. |
+| Data scope | Replicated sales records, cancellation metadata, item-related records where required by filtering, and outlet reference data. |
+| Key business rules | Only cancelled or voided sales within the selected date scope are included; output ordering and textual normalisation follow portal display behaviour. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes. |
+| Final status | Implemented and validated. |
+
+*Table A.14: Detailed specification for R12*
+
+### R13: Xilnex - Monthly Checking - COGS by Item (By Sales Type)
+
+| Field | Description |
+| --- | --- |
+| Report name | Xilnex - Monthly Checking - COGS by Item (By Sales Type) |
+| Business purpose | To support monthly checking of item-level cost of goods sold by sales type for Finance review and cost monitoring. |
+| Primary users | Finance users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales type and item-related filters where applicable. |
+| Output summary | Returns item-level rows grouped by sales type, with quantity, value, and cost-related fields required for monthly COGS checking. |
+| Data scope | Replicated sales records, sales item records, item master data, cost-related attributes, and outlet reference data. |
+| Key business rules | Cost and sales-type grouping must remain consistent with the validated monthly-checking view; item-level output is retained for checking rather than reduced to a dashboard summary. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for the retained monthly-checking scope. |
+| Final status | Implemented and validated. |
+
+*Table A.15: Detailed specification for R13*
+
+### R14: Foodpanda Discount
+
+| Field | Description |
+| --- | --- |
+| Report name | Foodpanda Discount |
+| Business purpose | To provide discount-level visibility for Foodpanda-related transactions so that channel discount behaviour can be reviewed and reconciled. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status and item-related filters where applicable. |
+| Output summary | Returns Foodpanda discount rows and totals aligned to the portal's discount-focused reporting view for the channel. |
+| Data scope | Replicated sales records, sales item records, discount-related fields, item master data, and outlet reference data. |
+| Key business rules | Only Foodpanda-scope transactions are included; discount grouping and item-filter behaviour must remain aligned to the validated channel-report rules. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for matched Foodpanda reporting windows. |
+| Final status | Implemented and validated. |
+
+*Table A.16: Detailed specification for R14*
+
+### R15: Mobile Ordering Sales
+
+| Field | Description |
+| --- | --- |
+| Report name | Mobile Ordering Sales |
+| Business purpose | To provide sales visibility for mobile-ordering transactions as a distinct ordering channel within the reporting platform. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status and item-related filters where applicable. |
+| Output summary | Returns mobile-ordering sales rows and totals aligned to the required portal reporting view for the channel. |
+| Data scope | Replicated sales records, sales item records, item master data, outlet reference data, and ordering-channel attributes. |
+| Key business rules | Channel classification must distinguish mobile-ordering sales from other sales types; report output remains export-oriented and transaction-traceable. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for matched mobile-ordering scopes. |
+| Final status | Implemented and validated. |
+
+*Table A.17: Detailed specification for R15*
+
+### R16: Average SOS Report (New)
+
+| Field | Description |
+| --- | --- |
+| Report name | Average SOS Report (New) |
+| Business purpose | To monitor average service-order-speed behaviour at store level for operational review of order preparation performance. |
+| Primary users | Operations users, with secondary management and Finance use where required for service-performance review. |
+| Parameters | Start date and end date (required); optional outlet scope; optional sales status and sales type filters; optional single-rule advanced search on selected sales-item identifiers. |
+| Output summary | Returns store-level rows containing order count and preparation-duration measures for the selected reporting scope. |
+| Data scope | Replicated KDS-related records, sales records, sales item records, item reference data where required by advanced search, and outlet reference data. |
+| Key business rules | Preparation duration is derived from KDS order and collection timestamps; item-level timing rows are first grouped to order level and then rolled up to store level using the validated weighting logic; unsupported portal-option filters remain excluded from active analytical use. |
+| Validation approach | Report output was validated through parity comparison against vendor portal output for the retained report scope. |
+| Final status | Implemented and validated. |
+
+*Table A.18: Detailed specification for R16*
+
+### R17: MB Cash Voucher (with Barcode) Redemption Report
+
+| Field | Description |
+| --- | --- |
+| Report name | MB Cash Voucher (with Barcode) Redemption Report |
+| Business purpose | To track redemption of barcode-based cash vouchers for voucher control and reconciliation. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional voucher-variant inclusion logic where required by the report behaviour. |
+| Output summary | Returns voucher redemption rows including redemption date, outlet, voucher identifier, voucher category, linked sales reference, and reconciliation-related totals or counts. |
+| Data scope | Replicated voucher-related payment or redemption records, linked sales records, and outlet reference data. |
+| Key business rules | Voucher identifiers and categories are normalised to match portal grouping; duplicated joins are suppressed so that redemption rows remain parity-aligned. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports using matched date ranges and outlet scopes. |
+| Final status | Implemented and validated. |
+
+*Table A.19: Detailed specification for R17*
+
+### R18: MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report
+
+| Field | Description |
+| --- | --- |
+| Report name | MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report |
+| Business purpose | To monitor redemption of staff e-vouchers and selected barcode cash vouchers for controlled checking and reconciliation. |
+| Primary users | Finance and Operations users, with secondary administrative interest where staff-benefit monitoring is required. |
+| Parameters | Start date and end date (required); optional outlet scope; optional voucher-variant inclusion logic where required by the report behaviour. |
+| Output summary | Returns voucher redemption rows including redemption date, outlet, voucher identifier, voucher type, linked sales reference, and reconciliation-related totals or counts. |
+| Data scope | Replicated voucher-related payment or redemption records, linked sales records, and outlet reference data. |
+| Key business rules | Staff and cash voucher variants must be grouped consistently with portal behaviour; duplicated rows are suppressed and legacy variations are normalised into the retained voucher categories. |
+| Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes. |
+| Final status | Implemented and validated. |
+
+*Table A.20: Detailed specification for R18*
+
+### R19: Product Mix with modifier without ETL
+
+| Field | Description |
+| --- | --- |
+| Report name | Product Mix with modifier without ETL |
+| Business purpose | To extend product-mix analysis with modifier-level detail for checking sales composition and profit-related behaviour at a more detailed reporting level. |
+| Primary users | Finance and Operations users. |
+| Parameters | Start date and end date (required); expected outlet scope and item-related optional filters consistent with modifier-level product reporting. |
+| Output summary | Intended to return modifier-aware product-mix rows with quantity, value, and profit-related measures. |
+| Data scope | Replicated sales records, sales item records, modifier-related transactional fields, item master data, and supporting reference data needed for modifier-level grouping. |
+| Key business rules | The report depends on correct modifier-level grouping and profit-related derivation consistent with portal behaviour. |
+| Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
+| Final status | Not fully closed. |
+
+*Table A.21: Detailed specification for R19*
+
+## A.4 Detailed Specifications for Additional Customised Reports
+
+### C01: Roblox Free Chicken Burger Combo Sales
+
+| Field | Description |
+| --- | --- |
+| Report name | Roblox Free Chicken Burger Combo Sales |
+| Business purpose | To track a campaign-specific promotional sales scenario requested by the company for monitoring and follow-up. |
+| Primary users | Finance, Operations, and campaign-monitoring users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional campaign-related or transaction filters where applicable to the implemented report view. |
+| Output summary | Returns campaign-related sales rows and totals aligned to the required promotional sales scenario. |
+| Data scope | Replicated sales records, sales item records, and supporting item and outlet reference data required for the campaign-specific grouping. |
+| Key business rules | Campaign scope is isolated through report-specific selection logic while reusing the shared platform pattern of parameter handling, tabular output, and export-oriented delivery. |
+| Validation approach | Report output was validated through comparison against the required business expectations and retained portal-aligned checking workflow for the customised scope. |
+| Final status | Implemented and validated. |
+
+*Table A.22: Detailed specification for C01*
+
+### C02: Voucher Campaign & Reward Sales
+
+| Field | Description |
+| --- | --- |
+| Report name | Voucher Campaign & Reward Sales |
+| Business purpose | To provide campaign- and reward-related voucher sales visibility requested by the company beyond the formal report scope. |
+| Primary users | Finance, Operations, and campaign-monitoring users. |
+| Parameters | Start date and end date (required); optional outlet scope; optional campaign or voucher-related filters where applicable. |
+| Output summary | Returns voucher campaign and reward sales rows and totals aligned to the required customised reporting view. |
+| Data scope | Replicated sales records, payment or voucher-related records, and supporting outlet and reference data required for campaign grouping. |
+| Key business rules | Campaign and reward classification logic is applied within the shared semantic layer while preserving the same parameter, export, and tabular reporting pattern used across the main platform. |
+| Validation approach | Report output was validated through comparison against required business expectations and retained checking artefacts for the customised reporting scope. |
+| Final status | Implemented and validated. |
+
+*Table A.23: Detailed specification for C02*
+
+### C03: Promotion Item Additional Purchase Report
+
+| Field | Description |
+| --- | --- |
+| Report name | Promotion Item Additional Purchase Report |
+| Business purpose | To analyse additional-purchase behaviour associated with selected promotion items requested by the company. |
+| Primary users | Finance, Operations, and business users monitoring promotional sales behaviour. |
+| Parameters | Start date and end date (required); optional outlet scope; optional promotion-item or transaction filters where applicable to the implemented view. |
+| Output summary | Returns rows and totals showing additional-purchase behaviour linked to the defined promotion-item scope. |
+| Data scope | Replicated sales records, sales item records, and supporting item and outlet reference data needed for promotion-item grouping and comparison. |
+| Key business rules | The report uses report-specific promotion-item selection logic while retaining the same shared platform pattern of parameter-driven retrieval, tabular results, and export-ready output. |
+| Validation approach | Report output was validated through comparison against required business expectations and retained checking artefacts for the customised scope. |
+| Final status | Implemented and validated. |
+
+*Table A.24: Detailed specification for C03*

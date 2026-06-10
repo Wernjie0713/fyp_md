@@ -65,6 +65,7 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Replaced the earlier representative-example treatment with a shorter report-reconstruction overview so Chapter 4 remains at design level and leaves detailed implementation examples to Chapter 5.
 - Updated the interface design section so it briefly acknowledges role-restricted administrative views such as user administration and refresh-related operational oversight without over-expanding the admin implementation details.
 - Updated the interface and summary sections so the chapter now transitions correctly into Chapter 5 `Implementation & Testing` instead of describing future implementation work.
+- Added a separate `Service and operational timing` report group for `Average SOS Report (New)` so the Chapter 4 report-classification table matches the implemented API behaviour more accurately.
 
 ### chapter-5-implementation-and-testing.md
 
@@ -103,3 +104,14 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Framed the system contribution around delivery of a real company-usable internal reporting platform, report reconstruction with validation discipline, operational usability, and architectural extensibility.
 - Documented the main constraints in academic limitation language, including replicated-data dependence, black-box vendor logic, unresolved profit-related report areas, performance variation across report families, and the fact that the platform should not be treated as a full replacement for every vendor capability.
 - Added future suggestions that follow naturally from the delivered system, including further parity work on unresolved logic, stronger historical data reliability, selective performance refinement, controlled report expansion, and continued administrative monitoring improvement.
+
+### appendix-a-report-specifications.md
+
+- Replaced the old proposal-era appendix structure with a final-report appendix structure aligned to the agreed final scope.
+- Removed outdated proposal wording such as `15 targeted reports`, `Week 28`, `[TBD]`, and iterative-planning language.
+- Rebuilt the appendix around the formal 19-report implementation and business scope, clearly distinguishing the 16 implemented-and-validated reports from the 3 reports that were not fully closed.
+- Added a separate section for the 3 additional customised reports implemented beyond the formal 19-report scope.
+- Rewrote all per-report specification tables in final-report academic style so they describe business purpose, users, parameters, outputs, data scope, key business rules, validation approach, and final status without internal handover language.
+- Kept the appendix public-safe by avoiding confidential file references, internal validation artefact names, runbook instructions, and proposal-stage planning notes.
+- Corrected the `Average SOS Report (New)` description during the API-alignment pass so it reflects the implemented store-level service-duration logic rather than an inventory interpretation.
+- Updated the report-group classification for `Average SOS Report (New)` to `Service and operational timing` so the appendix index and Chapter 4 grouping stay consistent with the active API implementation.
