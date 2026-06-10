@@ -95,3 +95,11 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Updated the main memory note to include Chapter 5 performance-writing rules.
 - Recorded that performance discussion should be framed as implementation evidence of tuning and operational usability improvement, not as a formal vendor-versus-platform benchmark unless controlled side-by-side timing evidence exists.
 - Recorded that compact tables are appropriate for the Chapter 5 performance subsection and that `Payment Type (All Payment)` is the strongest supported example.
+
+### chapter-6-conclusion.md
+
+- Created a new Chapter 6 markdown file from scratch using the agreed final-report conclusion structure: `6.1 Introduction`, `6.2 System Contribution/Achievement`, `6.3 System Constraint`, `6.4 Future Suggestion`, and `6.5 Summary`.
+- Wrote the chapter as an interpretive conclusion chapter rather than as an implementation repeat of Chapter 5.
+- Framed the system contribution around delivery of a real company-usable internal reporting platform, report reconstruction with validation discipline, operational usability, and architectural extensibility.
+- Documented the main constraints in academic limitation language, including replicated-data dependence, black-box vendor logic, unresolved profit-related report areas, performance variation across report families, and the fact that the platform should not be treated as a full replacement for every vendor capability.
+- Added future suggestions that follow naturally from the delivered system, including further parity work on unresolved logic, stronger historical data reliability, selective performance refinement, controlled report expansion, and continued administrative monitoring improvement.
