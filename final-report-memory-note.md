@@ -448,6 +448,20 @@ The selected examples should show how the implementation journey worked without 
 
 When explaining backend report validation, describe one report validation process in detail as an example, then state that the same validation approach was applied across report modules.
 
+Performance-writing rule for Chapter 5:
+
+- a short performance subsection may be included in Chapter 5 as part of implementation outcome
+- performance discussion must be written as implementation evidence of query tuning and operational usability improvement
+- performance discussion must not be written as a formal benchmark against the vendor portal unless a controlled side-by-side vendor-vs-platform timing record exists
+- the strongest supported example is `Payment Type (All Payment)`
+- compact comparison tables are appropriate in this subsection
+- one main table should show the strongest measured before/after example
+- one smaller supporting table may summarise a few additional report timing observations
+- the subsection should explicitly state that the purpose of the performance work was to reduce timeout risk, improve response consistency, and keep report workflows operationally usable
+- avoid overloading the chapter with too many timing numbers
+- avoid claiming that the whole platform is generally faster than the vendor portal
+- if a timing result is mixed or regressed for some filter shapes, state that honestly
+
 ### 11.6 Chapter 6 Boundary
 
 Chapter 6 should focus on:

@@ -65,3 +65,33 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Replaced the earlier representative-example treatment with a shorter report-reconstruction overview so Chapter 4 remains at design level and leaves detailed implementation examples to Chapter 5.
 - Updated the interface design section so it briefly acknowledges role-restricted administrative views such as user administration and refresh-related operational oversight without over-expanding the admin implementation details.
 - Updated the interface and summary sections so the chapter now transitions correctly into Chapter 5 `Implementation & Testing` instead of describing future implementation work.
+
+### chapter-5-implementation-and-testing.md
+
+- Created a new Chapter 5 markdown file from scratch using the university development-project structure: `5.1 Introduction`, `5.2 System Development`, `5.3 Coding of the system's main functions/Process`, and `5.4 Summary`.
+- Wrote the chapter in final-report academic style and positioned it as the main implementation and testing chapter rather than a design-overview chapter.
+- Documented the implemented system across the SQL Server reporting database and ETL layer, the FastAPI semantic/API layer, the React portal layer, and the supporting admin and operational functions.
+- Recorded the formal report implementation coverage, including the retained formal-scope reports, the not-fully-closed report areas, and the additional customised reports.
+- Included two selected implementation examples: `Payment Type (All Payment)` as the formal-scope example and `Voucher Campaign & Reward Sales Report` as the customised-report example.
+- Added a `5.3.5 Query Performance Observation` subsection to document performance tuning as an implementation outcome rather than as a vendor-benchmark claim.
+- Added compact timing comparison tables under the performance subsection, using `Payment Type (All Payment)` as the strongest main example and selected supporting observations from other report families.
+- Added separate testing subsections for report accuracy validation, combined black-box testing and User Acceptance Testing, and white-box testing.
+- Inserted placeholder figure references for the planned Chapter 5 testing workbook so the later Excel artifact and the markdown chapter can be kept aligned.
+- Updated the testing evidence plan to use detailed one-sheet-per-test-case workbook evidence, with `PV` IDs for report accuracy validation, `TC` IDs for UAT/black-box test cases, and `WB` IDs for white-box test cases.
+- Replaced the earlier three broad testing placeholders with detailed figure placeholders from `Figure 5.1` to `Figure 5.33`, matching the detailed testing workbook structure.
+- Added under-table captions for the Chapter 5 timing tables and updated the chapter summary so it now mentions recorded performance-tuning observations explicitly.
+
+### chapter-5-testing-evidence-detailed.xlsx
+
+- Created a detailed Chapter 5 testing evidence workbook for the Chapter 5 implementation and testing section.
+- Added a `Testing_Summary` sheet that maps every evidence case to its testing category, status, retest requirement, and figure number.
+- Added `PV01` to `PV08` report accuracy validation sheets using a comparison-oriented reconciliation layout suited to parity validation against vendor portal or approved business reference outputs.
+- Added `TC01` to `TC16` UAT/black-box test-case sheets using the university-style user test-case layout and the user's preferred `TC` numbering convention.
+- Added `WB01` to `WB09` white-box test-case sheets using an internal-checkpoint layout focused on logic paths, controlled conditions, and boundary-case review.
+- Kept the workbook public-safe by using role-based tester labels, general filter descriptions, and no credentials, private server details, or operational secrets.
+
+### final-report-memory-note.md
+
+- Updated the main memory note to include Chapter 5 performance-writing rules.
+- Recorded that performance discussion should be framed as implementation evidence of tuning and operational usability improvement, not as a formal vendor-versus-platform benchmark unless controlled side-by-side timing evidence exists.
+- Recorded that compact tables are appropriate for the Chapter 5 performance subsection and that `Payment Type (All Payment)` is the strongest supported example.
