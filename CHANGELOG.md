@@ -115,3 +115,11 @@ This changelog records major final-report drafting changes made inside `fypi_md_
 - Kept the appendix public-safe by avoiding confidential file references, internal validation artefact names, runbook instructions, and proposal-stage planning notes.
 - Corrected the `Average SOS Report (New)` description during the API-alignment pass so it reflects the implemented store-level service-duration logic rather than an inventory interpretation.
 - Updated the report-group classification for `Average SOS Report (New)` to `Service and operational timing` so the appendix index and Chapter 4 grouping stay consistent with the active API implementation.
+
+### table-of-contents.md, list-of-figures.md, list-of-tables.md
+
+- Rebuilt the table of contents so it matches the final chapter headings, subsection names, Chapter 5 and Chapter 6 structure, and the revised Appendix A layout.
+- Rebuilt the list of figures so it now reflects the final figure captions used in Chapters 1, 3, 4, and 5 instead of old proposal-stage figure names.
+- Rebuilt the list of tables so it now reflects the final table captions used across Chapters 1 to 5 and Appendix A instead of the old proposal-stage table list.
+- Removed outdated proposal-era entries such as `proposed platform`, `redundancy architecture`, `Week 28`, `15 reports`, and the earlier Appendix A template/index structure from the front-matter support files.
+- Verified that the final front-matter lists now align with the current report body, including the detailed Chapter 5 testing figures and the final 19-report Appendix A specification set.

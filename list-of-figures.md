@@ -1,13 +1,46 @@
 # List of Figures
 
-- Figure 1.1: Comparison of Current Vendor Dependency vs. Proposed Redundancy Architecture ..... 5
+- Figure 1.1: Comparison of Original Vendor-Dependent Reporting Arrangement and Implemented Internal Reporting Platform ..... 5
 - Figure 3.1: Iterative Workflow for Analytics Platform Development ..... 22
 - Figure 3.2: High-level system workflow (data replication to report delivery) ..... 29
-- Figure 4.1: Use case diagram for the proposed Sales and Payment Analytics Platform (illustrative) ..... 35
+- Figure 4.1: Use case diagram for the Marrybrown Sales and Payment Analytics Platform (illustrative) ..... 35
 - Figure 4.2: Current vendor-dependent reporting workflow (simplified) ..... 38
-- Figure 4.3: Proposed logical architecture of the analytics platform ..... 39
-- Figure 4.4: Proposed boundary-based refresh and report-serving sequence (illustrative) ..... 42
+- Figure 4.3: Logical architecture of the analytics platform ..... 39
+- Figure 4.4: Boundary-based refresh and report-serving sequence (illustrative) ..... 42
 - Figure 4.5: Simplified conceptual data model for sales and payment reporting (illustrative) ..... 46
-- Figure 4.6: Report list view prototype (illustrative) ..... 48
-- Figure 4.7: Reporting view prototype (illustrative) ..... 49
+- Figure 4.6: Report list interface (illustrative) ..... 48
+- Figure 4.7: Reporting interface (illustrative) ..... 49
 - Figure 4.8: Portal navigation and report workflow (illustrative) ..... 50
+- Figure 5.1: PV01 Payment Type (All Payment) report accuracy validation ..... 62
+- Figure 5.2: PV02 Sales Return Report accuracy validation ..... 62
+- Figure 5.3: PV03 Sales Cancelled Report accuracy validation ..... 62
+- Figure 5.4: PV04 Sale Delivery Ex Tax report accuracy validation ..... 62
+- Figure 5.5: PV05 MB Cash Voucher redemption accuracy validation ..... 62
+- Figure 5.6: PV06 Voucher Campaign and Reward Sales accuracy validation ..... 62
+- Figure 5.7: PV07 Portal-triggered data quality validation ..... 63
+- Figure 5.8: PV08 Product Mix and discount profit logic validation boundary ..... 63
+- Figure 5.9: TC01 user login with valid credentials ..... 64
+- Figure 5.10: TC02 Reports Hub access ..... 64
+- Figure 5.11: TC03 report parameter loading ..... 64
+- Figure 5.12: TC04 Payment Type report query ..... 64
+- Figure 5.13: TC05 report totals review ..... 64
+- Figure 5.14: TC06 report output export ..... 65
+- Figure 5.15: TC07 advanced search behaviour ..... 65
+- Figure 5.16: TC08 Sales Return Report query ..... 65
+- Figure 5.17: TC09 customised report query ..... 65
+- Figure 5.18: TC10 normal-user admin restriction ..... 66
+- Figure 5.19: TC11 admin Data Sync access ..... 66
+- Figure 5.20: TC12 manual sync request submission ..... 66
+- Figure 5.21: TC13 sync progress review ..... 66
+- Figure 5.22: TC14 data-quality re-check workflow ..... 67
+- Figure 5.23: TC15 Automation Control review ..... 67
+- Figure 5.24: TC16 User Management workflow ..... 67
+- Figure 5.25: WB01 API parameter validation ..... 69
+- Figure 5.26: WB02 Payment Type grouping logic ..... 69
+- Figure 5.27: WB03 boundary-based ETL rerun ..... 69
+- Figure 5.28: WB04 staged refresh safety ..... 69
+- Figure 5.29: WB05 source-to-replica data quality check ..... 70
+- Figure 5.30: WB06 quality repair request flow ..... 70
+- Figure 5.31: WB07 report export mapping ..... 70
+- Figure 5.32: WB08 role-based access restriction ..... 70
+- Figure 5.33: WB09 automation-control request handling ..... 71
