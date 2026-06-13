@@ -260,6 +260,12 @@ Figure 4.8 provides a simplified workflow view of the overall portal interaction
 
 *Figure 4.8: Portal navigation and report workflow (illustrative)*
 
+Because the delivered system also included role-restricted operational administration, the interface design was not limited to ordinary report-consumption pages alone. As illustrated in Figure 4.9, the administrative interface design groups Data Sync, Automation Control, and User Management into a controlled support surface so that authorised users can handle replication follow-up, automation oversight, and access administration within the same portal environment. This figure should be presented at overview level and should exclude sensitive operational details such as internal hostnames, user emails, or private infrastructure identifiers.
+
+![Figure 4.9: Administrative interface overview (illustrative)](#)
+
+*Figure 4.9: Administrative interface overview (illustrative)*
+
 Interface design requirements prioritise consistent parameter controls across reports, tabular presentation aligned to expected output structures, and export outputs that support downstream reconciliation. These priorities are consistent with the workflow and interface considerations for operational reporting portals discussed in Chapter 2. Portal design details were refined iteratively based on stakeholder feedback during development and validation cycles.
 
 ### Summary

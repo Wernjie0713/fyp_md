@@ -1,122 +1,122 @@
 # Table of Contents
 
-- ABSTRACT ..... II
-- ABSTRAK ..... III
-- TABLE OF CONTENTS ..... IV
-- LIST OF TABLES ..... VIII
-- LIST OF FIGURES ..... X
-- Chapter 1 INTRODUCTION ..... 1
-  - 1.1 Introduction ..... 1
-  - 1.2 Problem Background ..... 2
-  - 1.3 Problem Statement ..... 3
-  - 1.4 Project Aim ..... 3
-  - 1.5 Project Objectives ..... 4
-  - 1.6 Project Scope ..... 4
-  - 1.7 Project Importance ..... 5
-  - 1.8 Report Organization ..... 6
-- Chapter 2 LITERATURE REVIEW ..... 7
-  - 2.1 Introduction ..... 7
-  - 2.2 Fundamental Theory and Concepts ..... 7
-    - 2.2.1 Sales and Payment Reporting in Vendor-Managed POS Environments ..... 7
-    - 2.2.2 Data Warehousing and Replication-Based Analytical Stores ..... 8
-    - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads ..... 9
-    - 2.2.4 Replication, Availability, and Consistency Considerations ..... 9
-    - 2.2.5 Schema-on-Read, Database Design, Semantic Layers, and Service Interfaces ..... 10
-    - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports ..... 11
-    - 2.2.7 Data Quality and Reconciliation for Financial Reporting ..... 11
-    - 2.2.8 Iterative Development Approaches for Evolving Requirements ..... 12
-  - 2.3 Related Studies/Systems and Comparative Discussion ..... 12
-  - 2.4 Workflow and Interface Considerations for Operational Reporting Portals ..... 14
-  - 2.5 Technology Selection Considerations ..... 16
-  - 2.6 Synthesis and Rationale Map ..... 17
-  - 2.7 Summary ..... 18
-- Chapter 3 METHODOLOGY ..... 19
-  - 3.1 Introduction ..... 19
-  - 3.2 Methodology Choice and Justification ..... 19
-  - 3.3 Phases within the Iterative and Incremental Development Methodology ..... 20
-    - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback) ..... 22
-    - 3.3.2 Phase 2: System Design ..... 23
-    - 3.3.3 Phase 3: Implementation ..... 24
-    - 3.3.4 Phase 4: Testing and Validation (Parity and Reconciliation) ..... 25
-    - 3.3.5 Phase 5: Deployment ..... 26
-    - 3.3.6 Phase 6: Review and Feedback ..... 26
-  - 3.4 Project Schedule (Gantt Plan for the 40-Week Internship Period) ..... 27
-  - 3.5 Implementation Environment Requirements ..... 28
-    - 3.5.1 Hardware Requirements ..... 29
-    - 3.5.2 Software Requirements ..... 29
-  - 3.6 Summary ..... 30
-- Chapter 4 ANALYSIS AND DESIGN ..... 31
-  - 4.1 Introduction ..... 31
-  - 4.2 System Analysis ..... 31
-    - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments) ..... 31
-    - 4.2.2 Stakeholders and Role-Based View ..... 32
-    - 4.2.3 System Requirements Gathering Techniques ..... 32
-    - 4.2.4 Use Case Diagram ..... 33
-    - 4.2.5 User Requirement Outcomes ..... 34
-  - 4.3 System Requirements ..... 34
-    - 4.3.1 Functional Requirements (FR) ..... 34
-    - 4.3.2 Non-Functional Requirements (NFR) ..... 35
-    - 4.3.3 Constraints and Assumptions ..... 35
-  - 4.4 Current System Analysis ..... 36
-  - 4.5 System Design ..... 36
-    - 4.5.1 System Architecture ..... 36
-    - 4.5.2 Component Explanations ..... 37
-    - 4.5.3 Report Coverage Overview ..... 38
-    - 4.5.4 Data Engineering and API Design ..... 39
-    - 4.5.5 Database Design ..... 43
-    - 4.5.6 Business Rule Reconstruction for the Formal Report Set ..... 45
-    - 4.5.7 Interface Design ..... 46
-    - 4.5.8 Summary ..... 48
-- Chapter 5 IMPLEMENTATION AND TESTING ..... 49
-  - 5.1 Introduction ..... 49
-  - 5.2 System Development ..... 49
-    - 5.2.1 Development Overview ..... 49
-    - 5.2.2 Reporting Database and ETL Development ..... 50
-    - 5.2.3 Backend API Development ..... 51
-    - 5.2.4 Frontend Portal Development ..... 52
-    - 5.2.5 Administrative and Operational Functions ..... 53
-    - 5.2.6 Report Implementation Coverage ..... 54
-  - 5.3 Coding of the system's main functions/Process ..... 55
-    - 5.3.1 Data Replication and Refresh Process ..... 55
-    - 5.3.2 Report Reconstruction Process ..... 56
-    - 5.3.3 Selected Implementation Example: Payment Type (All Payment) ..... 57
-    - 5.3.4 Selected Implementation Example: Voucher Campaign & Reward Sales Report ..... 58
-    - 5.3.5 Query Performance Observation ..... 59
-    - 5.3.6 Report Accuracy Validation ..... 61
-    - 5.3.7 Black-Box Testing and User Acceptance Testing ..... 63
-    - 5.3.8 White-Box Testing ..... 68
-  - 5.4 Summary ..... 71
-- Chapter 6 CONCLUSION ..... 72
-  - 6.1 Introduction ..... 72
-  - 6.2 System Contribution/Achievement ..... 72
-  - 6.3 System Constraint ..... 74
-  - 6.4 Future Suggestion ..... 76
-  - 6.5 Summary ..... 78
-- REFERENCES ..... 79
-- Appendix A: Report Specifications ..... 82
-  - A.1 Formal Implementation and Business Scope Report Index ..... 82
-  - A.2 Additional Customised Reports ..... 83
-  - A.3 Detailed Report Specifications for the Formal 19-Report Scope ..... 84
-    - R01: Sale Delivery (By Sales Type) Ex Tax Calculation ..... 84
-    - R02: Payment Type (All Payment) ..... 85
-    - R03: Product Mix Report ..... 86
-    - R04: Delivery - FoodPanda, Grabfood, ShopeeFood ..... 87
-    - R05: Pickup & Declaration Report ..... 88
-    - R06: Stock Variance Report (Latest) ..... 89
-    - R07: Discount Remark Report ..... 90
-    - R08: Foodpanda Sales ..... 91
-    - R09: DELETED Items Report ..... 92
-    - R10: Sales Return Report ..... 93
-    - R11: [SOK] Each Kiosk Transaction Report ..... 94
-    - R12: Sales Cancelled Report ..... 95
-    - R13: Xilnex - Monthly Checking - COGS by Item (By Sales Type) ..... 96
-    - R14: Foodpanda Discount ..... 97
-    - R15: Mobile Ordering Sales ..... 98
-    - R16: Average SOS Report (New) ..... 99
-    - R17: MB Cash Voucher (with Barcode) Redemption Report ..... 100
-    - R18: MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report ..... 101
-    - R19: Product Mix with modifier without ETL ..... 102
-  - A.4 Detailed Specifications for Additional Customised Reports ..... 103
-    - C01: Roblox Free Chicken Burger Combo Sales ..... 103
-    - C02: Voucher Campaign & Reward Sales ..... 104
-    - C03: Promotion Item Additional Purchase Report ..... 105
+- ABSTRACT
+- ABSTRAK
+- TABLE OF CONTENTS
+- LIST OF TABLES
+- LIST OF FIGURES
+- Chapter 1 INTRODUCTION
+  - 1.1 Introduction
+  - 1.2 Problem Background
+  - 1.3 Problem Statement
+  - 1.4 Project Aim
+  - 1.5 Project Objectives
+  - 1.6 Project Scope
+  - 1.7 Project Importance
+  - 1.8 Report Organization
+- Chapter 2 LITERATURE REVIEW
+  - 2.1 Introduction
+  - 2.2 Fundamental Theory and Concepts
+    - 2.2.1 Sales and Payment Reporting in Vendor-Managed POS Environments
+    - 2.2.2 Data Warehousing and Replication-Based Analytical Stores
+    - 2.2.3 Data Integration Pipelines: ETL vs ELT and Idempotent Loads
+    - 2.2.4 Replication, Availability, and Consistency Considerations
+    - 2.2.5 Schema-on-Read, Database Design, Semantic Layers, and Service Interfaces
+    - 2.2.6 Reverse Engineering and Black-Box Validation of Legacy Reports
+    - 2.2.7 Data Quality and Reconciliation for Financial Reporting
+    - 2.2.8 Iterative Development Approaches for Evolving Requirements
+  - 2.3 Related Studies/Systems and Comparative Discussion
+  - 2.4 Workflow and Interface Considerations for Operational Reporting Portals
+  - 2.5 Technology Selection Considerations
+  - 2.6 Synthesis and Rationale Map
+  - 2.7 Summary
+- Chapter 3 METHODOLOGY
+  - 3.1 Introduction
+  - 3.2 Methodology Choice and Justification
+  - 3.3 Phases within the Iterative and Incremental Development Methodology
+    - 3.3.1 Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback)
+    - 3.3.2 Phase 2: System Design
+    - 3.3.3 Phase 3: Implementation
+    - 3.3.4 Phase 4: Testing and Validation (Parity and Reconciliation)
+    - 3.3.5 Phase 5: Deployment
+    - 3.3.6 Phase 6: Review and Feedback
+  - 3.4 Project Schedule (Gantt Plan for the 40-Week Internship Period)
+  - 3.5 Implementation Environment Requirements
+    - 3.5.1 Hardware Requirements
+    - 3.5.2 Software Requirements
+  - 3.6 Summary
+- Chapter 4 ANALYSIS AND DESIGN
+  - 4.1 Introduction
+  - 4.2 System Analysis
+    - 4.2.1 Case Study Context (Continuity Reporting for Sales and Payments)
+    - 4.2.2 Stakeholders and Role-Based View
+    - 4.2.3 System Requirements Gathering Techniques
+    - 4.2.4 Use Case Diagram
+    - 4.2.5 User Requirement Outcomes
+  - 4.3 System Requirements
+    - 4.3.1 Functional Requirements (FR)
+    - 4.3.2 Non-Functional Requirements (NFR)
+    - 4.3.3 Constraints and Assumptions
+  - 4.4 Current System Analysis
+  - 4.5 System Design
+    - 4.5.1 System Architecture
+    - 4.5.2 Component Explanations
+    - 4.5.3 Report Coverage Overview
+    - 4.5.4 Data Engineering and API Design
+    - 4.5.5 Database Design
+    - 4.5.6 Business Rule Reconstruction for the Formal Report Set
+    - 4.5.7 Interface Design
+    - 4.5.8 Summary
+- Chapter 5 IMPLEMENTATION AND TESTING
+  - 5.1 Introduction
+  - 5.2 System Development
+    - 5.2.1 Development Overview
+    - 5.2.2 Reporting Database and ETL Development
+    - 5.2.3 Backend API Development
+    - 5.2.4 Frontend Portal Development
+    - 5.2.5 Administrative and Operational Functions
+    - 5.2.6 Report Implementation Coverage
+  - 5.3 Coding of the system's main functions/Process
+    - 5.3.1 Data Replication and Refresh Process
+    - 5.3.2 Report Reconstruction Process
+    - 5.3.3 Selected Implementation Example: Payment Type (All Payment)
+    - 5.3.4 Selected Implementation Example: Voucher Campaign & Reward Sales Report
+    - 5.3.5 Query Performance Observation
+    - 5.3.6 Report Accuracy Validation
+    - 5.3.7 Black-Box Testing and User Acceptance Testing
+    - 5.3.8 White-Box Testing
+  - 5.4 Summary
+- Chapter 6 CONCLUSION
+  - 6.1 Introduction
+  - 6.2 System Contribution/Achievement
+  - 6.3 System Constraint
+  - 6.4 Future Suggestion
+  - 6.5 Summary
+- REFERENCES
+- Appendix A: Report Specifications
+  - A.1 Formal Implementation and Business Scope Report Index
+  - A.2 Additional Customised Reports
+  - A.3 Detailed Report Specifications for the Formal 19-Report Scope
+    - R01: Sale Delivery (By Sales Type) Ex Tax Calculation
+    - R02: Payment Type (All Payment)
+    - R03: Product Mix Report
+    - R04: Delivery - FoodPanda, Grabfood, ShopeeFood
+    - R05: Pickup & Declaration Report
+    - R06: Stock Variance Report (Latest)
+    - R07: Discount Remark Report
+    - R08: Foodpanda Sales
+    - R09: DELETED Items Report
+    - R10: Sales Return Report
+    - R11: [SOK] Each Kiosk Transaction Report
+    - R12: Sales Cancelled Report
+    - R13: Xilnex - Monthly Checking - COGS by Item (By Sales Type)
+    - R14: Foodpanda Discount
+    - R15: Mobile Ordering Sales
+    - R16: Average SOS Report (New)
+    - R17: MB Cash Voucher (with Barcode) Redemption Report
+    - R18: MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report
+    - R19: Product Mix with modifier without ETL
+  - A.4 Detailed Specifications for Additional Customised Reports
+    - C01: Roblox Free Chicken Burger Combo Sales
+    - C02: Voucher Campaign & Reward Sales
+    - C03: Promotion Item Additional Purchase Report

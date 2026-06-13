@@ -2,6 +2,24 @@
 
 This changelog records major final-report drafting changes made inside `fypi_md_split`.
 
+## 2026-06-13
+
+### chapter-5-implementation-and-testing.md
+
+- Revised the Chapter 5 implementation-figure arrangement so the implementation evidence now uses `Figure 5.1` to `Figure 5.7`, while the testing evidence continues from `Figure 5.8` onward.
+- Renamed the implementation figures to use formal descriptive captions and removed the earlier `workflow evidence` phrasing from the implementation-figure treatment.
+- Rewrote the figure-reference paragraphs for `Figure 5.1` to `Figure 5.6` so they read as continuous subsection content rather than as detached image-description sentences.
+- Refined the `Figure 5.7` explanation so it functions as part of the `Report Reconstruction Process` discussion instead of sounding like an isolated AI-style description of the image itself.
+- Updated the administrative and replication-process wording so the figure references support the academic argument of each subsection more directly.
+- Swapped the `Figure 5.5` and `Figure 5.6` ordering so the chapter now matches the revised intended sequence: reference-table refresh first, followed by dated sales-data replication and data-quality review.
+
+### table-of-contents.md, list-of-figures.md, list-of-tables.md
+
+- Rebuilt the table of contents so it matches the current report structure, including the latest Chapter 5 subsection headings and the current Appendix A layout.
+- Rebuilt the list of figures so it reflects the current figure captions and numbering used across the report, including `Figure 4.9`, the Chapter 5 implementation figures `Figure 5.1` to `Figure 5.7`, and the testing figures through `Figure 5.40`.
+- Rebuilt the list of tables so it remains aligned with the current table captions used across Chapters 1 to 5 and Appendix A.
+- Removed page numbers from the markdown front-matter index files so they no longer preserve stale values before the final document pagination is refreshed in Word.
+
 ## 2026-06-03
 
 ### abstract.md
