@@ -2,6 +2,26 @@
 
 This changelog records major final-report drafting changes made inside `fypi_md_split`.
 
+## 2026-06-15
+
+### chapter-4-analysis-and-design.md
+
+- Added an explicit reference to `Table 4.1` in Subchapter `4.2.2` so the stakeholder discussion now points directly to the corresponding summary table.
+- Added an explicit reference to `Figure 4.2` in Subchapter `4.4` so the current-system discussion now points directly to the vendor-dependent workflow figure.
+- Renamed Subchapter `4.5.4.1` from `Data Sources and Replication Boundary` to `Data Sources and Boundary`.
+- Revised the corresponding `4.5.4.1` boundary paragraph to remove the specific `Replication` wording while preserving the same design meaning.
+- Removed the `illustrative` label from the captions of `Figure 4.4` to `Figure 4.9`.
+- Updated the caption of `Table 4.7` by removing `(summary)` so it now reads `Conceptual data dictionary`.
+
+### chapter-5-implementation-and-testing.md
+
+- Removed the earlier standalone `5.2.1 Development Overview` heading and merged its content directly into `5.2 System Development`, causing the subsequent subsection numbering to shift upward at the same level.
+- Shortened the `5.1 Introduction` wording by removing the extra implementation-scope sentence and retaining only the public-safe framing sentence after the opening paragraph.
+- Refined the `Figure 5.1` discussion in `Frontend Portal Development` so the figure reference now reads more directly as continuous academic prose.
+- Renamed the selected implementation subsection titles to `Payment Type Report Development` and `Voucher Campaign & Reward Sales Report Development`.
+- Retained `Query Performance Observation` in its original later position after the two report-development subsections.
+- Added one short discussion sentence for every testing figure from `Figure 5.8` to `Figure 5.40`, using the corresponding `PV`, `TC`, and `WB` sheets in `chapter-5-testing-evidence-detailed.xlsx` so each figure is now introduced and discussed briefly in the chapter text.
+
 ## 2026-06-13
 
 ### chapter-5-implementation-and-testing.md

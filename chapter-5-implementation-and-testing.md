@@ -4,11 +4,9 @@
 
 This chapter presents the implementation and testing of the Marrybrown Sales and Payment Analytics Platform. Whereas Chapter 4 described the analysis and design of the platform, this chapter records how the implemented platform was developed across the reporting database and ETL layer, the FastAPI semantic/API layer, and the React-based portal layer. It also documents the validation and testing activities used to confirm report accuracy, user-facing behaviour, and internal processing reliability.
 
-The chapter focuses on the completed implementation rather than on design intent alone. Accordingly, attention is given to the reporting-database replication process, report reconstruction workflow, frontend report delivery, administrative functions, report implementation coverage, and the testing approach used to evaluate the retained report set and additional customised reports. To keep the chapter academically appropriate and public-safe, implementation details are presented at technical level without exposing credentials, secret configurations, or operationally sensitive access instructions.
+To keep the chapter academically appropriate and public-safe, implementation details are presented at technical level without exposing credentials, secret configurations, or operationally sensitive access instructions.
 
 ## System Development
-
-### Development Overview
 
 The implemented platform was developed as a multi-layer internal reporting system intended to reduce operational dependence on a vendor-managed reporting portal while preserving report traceability and validation discipline. The completed implementation consists of three primary layers. First, selected source-system data were replicated into a company-managed Microsoft SQL Server reporting database through controlled ETL processes. Second, report logic was reconstructed in a FastAPI backend that acted as a semantic/API layer over the replicated data. Third, a React-based reporting portal was implemented to provide authenticated report access, filtering, export functions, and selected administrative tools.
 
@@ -36,7 +34,7 @@ The frontend portal was implemented using React and was designed to provide auth
 
 Frontend development relied on shared report architecture rather than isolated page-specific implementations. A report registry, shared page shell, shared filters panel, grouped-table component, export toolbar, and supporting hooks were reused across report modules. This reduced duplication and made it feasible to add new formal-scope reports and additional customised reports through a consistent frontend pattern. The report-list view, report-query view, grouped-table behaviour, advanced search support, and export actions were therefore developed as reusable platform capabilities rather than as unrelated page fragments.
 
-This user-facing reporting pattern is reflected in Figure 5.1 through a sanitised composite view that combines the Reports Hub with a representative report-query page. The figure represents the actual portal flow retained in the implementation: users begin from the catalogue of available reports, move into the selected module to define the required parameters, and then review grouped output through the shared query interface. Read in this way, the figure supports the main implementation point of this subsection, namely that the portal was developed as a consistent report-execution surface rather than as a collection of unrelated dashboard screens.
+This user-facing reporting pattern is reflected in Figure 5.1 through a sanitised composite view that combines the Reports Hub with a representative report-query page. The figure represents the actual portal flow retained in the implementation: users begin from the catalogue of available reports, move into the selected module to define the required parameters, and then review grouped output through the shared query interface. Figure 5.1 therefore shows that the portal was developed as a consistent report-execution surface rather than as a collection of unrelated dashboard screens.
 
 ![Figure 5.1: Reports Hub and representative report-query interface](#)
 
@@ -106,7 +104,7 @@ This reconstruction pattern is summarised in Figure 5.7. The figure represents t
 
 *Figure 5.7: Sanitised illustration of report reconstruction logic*
 
-### Selected Implementation Example: Payment Type (All Payment)
+### Payment Type Report Development
 
 The Payment Type (All Payment) report is a suitable formal-scope example because it was operationally important, highly sensitive to row-level grouping behaviour, and representative of the reverse-engineering work required by the project. The purpose of this report was to provide a detailed breakdown of payment collections by store, order source, payment method, device, card type, and reference. The challenge was not merely to total payment rows, but to reconstruct the same grouping and display behaviour expected from the vendor portal with exactness sufficient for reconciliation work.
 
@@ -114,7 +112,7 @@ Implementation began by identifying the required payment-, sales-, and location-
 
 The more difficult part of the implementation lay in the reference-grouping behaviour. Payment references could appear in multiple case variants, while portal output would still present them under a single preferred display value. Additional care was also required for payment-method categorisation, exclusion of return-sales behaviour, handling of zero-time anomalies, and consistent inclusion of payment rows in the correct collection totals. These issues made the report representative of the wider project challenge: the output could not be matched reliably through naive grouping alone, and several rounds of reverse engineering and refinement were required before parity could be accepted.
 
-### Selected Implementation Example: Voucher Campaign & Reward Sales Report
+### Voucher Campaign & Reward Sales Report Development
 
 The Voucher Campaign & Reward Sales Report is a suitable customised-report example because it demonstrates that the implemented platform supported not only vendor-aligned report reconstruction, but also additional company-requested analysis built on the same architecture. This report was developed as a dynamic report family for eligible voucher campaigns and points rewards, while keeping the earlier Roblox-specific report intact as a separate implemented report.
 
@@ -166,34 +164,42 @@ For the Payment Type (All Payment) report, this validation process was especiall
 
 The same validation pattern was applied across the wider retained report surface. For each report module, parity validation used traceable filter conditions and visible output comparison rather than unsupported assumptions about hidden vendor logic. This validation discipline was a defining characteristic of the project because it anchored report acceptance to evidence rather than to superficial interface completion. The detailed validation evidence is represented by the `PV` test cases shown in Figures 5.8 to 5.15.
 
+Figure 5.8 shows the comparison-based validation used to check payment grouping, totals, and export consistency for the Payment Type report.
 ![Figure 5.8: PV01 Payment Type (All Payment) report accuracy validation](#)
 
 *Figure 5.8: PV01 Payment Type (All Payment) report accuracy validation*
 
+Figure 5.9 records the validation of return retrieval, negative-value handling, and related report totals for the Sales Return Report.
 ![Figure 5.9: PV02 Sales Return Report accuracy validation](#)
 
 *Figure 5.9: PV02 Sales Return Report accuracy validation*
 
+Figure 5.10 presents the validation of cancellation-related rows, output fields, and export behaviour for the Sales Cancelled Report.
 ![Figure 5.10: PV03 Sales Cancelled Report accuracy validation](#)
 
 *Figure 5.10: PV03 Sales Cancelled Report accuracy validation*
 
+Figure 5.11 shows the reconciliation used to verify delivery sales calculation excluding tax under aligned outlet and date filters.
 ![Figure 5.11: PV04 Sale Delivery Ex Tax report accuracy validation](#)
 
 *Figure 5.11: PV04 Sale Delivery Ex Tax report accuracy validation*
 
+Figure 5.12 records the validation of voucher redemption rows, grouped totals, and period-based filtering for the MB Cash Voucher report.
 ![Figure 5.12: PV05 MB Cash Voucher redemption accuracy validation](#)
 
 *Figure 5.12: PV05 MB Cash Voucher redemption accuracy validation*
 
+Figure 5.13 shows the validation of customised campaign filtering, reward grouping, and campaign-level totals for the Voucher Campaign & Reward Sales report.
 ![Figure 5.13: PV06 Voucher Campaign and Reward Sales accuracy validation](#)
 
 *Figure 5.13: PV06 Voucher Campaign and Reward Sales accuracy validation*
 
+Figure 5.14 presents the validation evidence for portal-triggered data-quality checking after a manual sync window.
 ![Figure 5.14: PV07 Portal-triggered data quality validation](#)
 
 *Figure 5.14: PV07 Portal-triggered data quality validation*
 
+Figure 5.15 documents the remaining profit-logic limitation that prevented final closure for Product Mix related reporting and Discount Remark reporting.
 ![Figure 5.15: PV08 Product Mix and discount profit logic validation boundary](#)
 
 *Figure 5.15: PV08 Product Mix and discount profit logic validation boundary*
@@ -208,66 +214,82 @@ The UAT and black-box testing outcomes were intended to show that the implemente
 
 The detailed UAT and black-box test cases are shown in Figures 5.16 to 5.31.
 
+Figure 5.16 shows the functional acceptance check for valid user login and protected portal access.
 ![Figure 5.16: TC01 user login with valid credentials](#)
 
 *Figure 5.16: TC01 user login with valid credentials*
 
+Figure 5.17 records the test confirming that an authenticated user can open the Reports Hub and review available report categories.
 ![Figure 5.17: TC02 Reports Hub access](#)
 
 *Figure 5.17: TC02 Reports Hub access*
 
+Figure 5.18 presents the test used to confirm that common report parameters can be entered before report generation.
 ![Figure 5.18: TC03 report parameter loading](#)
 
 *Figure 5.18: TC03 report parameter loading*
 
+Figure 5.19 shows the user-facing test for generating the Payment Type report through the portal workflow.
 ![Figure 5.19: TC04 Payment Type report query](#)
 
 *Figure 5.19: TC04 Payment Type report query*
 
+Figure 5.20 records the review of grouped rows, subtotals, and grand totals after report generation.
 ![Figure 5.20: TC05 report totals review](#)
 
 *Figure 5.20: TC05 report totals review*
 
+Figure 5.21 shows the test confirming that generated report output can be exported for operational use.
 ![Figure 5.21: TC06 report output export](#)
 
 *Figure 5.21: TC06 report output export*
 
+Figure 5.22 presents the test for advanced search or table filtering over multi-row report output.
 ![Figure 5.22: TC07 advanced search behaviour](#)
 
 *Figure 5.22: TC07 advanced search behaviour*
 
+Figure 5.23 records the user-facing retrieval test for the Sales Return Report under selected filters.
 ![Figure 5.23: TC08 Sales Return Report query](#)
 
 *Figure 5.23: TC08 Sales Return Report query*
 
+Figure 5.24 shows the acceptance test for generating a customised company-requested report through the portal.
 ![Figure 5.24: TC09 customised report query](#)
 
 *Figure 5.24: TC09 customised report query*
 
+Figure 5.25 presents the access-control test confirming that normal users are restricted from admin-only pages.
 ![Figure 5.25: TC10 normal-user admin restriction](#)
 
 *Figure 5.25: TC10 normal-user admin restriction*
 
+Figure 5.26 records the test showing that an authorised admin user can open the Data Sync page and review sync controls.
 ![Figure 5.26: TC11 admin Data Sync access](#)
 
 *Figure 5.26: TC11 admin Data Sync access*
 
+Figure 5.27 shows the workflow test for submitting a portal-triggered manual sync request.
 ![Figure 5.27: TC12 manual sync request submission](#)
 
 *Figure 5.27: TC12 manual sync request submission*
 
+Figure 5.28 presents the test used to monitor sync progress after a manual request has been submitted.
 ![Figure 5.28: TC13 sync progress review](#)
 
 *Figure 5.28: TC13 sync progress review*
 
+Figure 5.29 records the test for triggering or reviewing a post-sync data-quality re-check.
 ![Figure 5.29: TC14 data-quality re-check workflow](#)
 
 *Figure 5.29: TC14 data-quality re-check workflow*
 
+Figure 5.30 shows the acceptance check for reviewing and managing ETL automation controls from the portal.
 ![Figure 5.30: TC15 Automation Control review](#)
 
 *Figure 5.30: TC15 Automation Control review*
 
+Figure 5.31 presents the test confirming that admin users can review and manage portal users according to role and status.
 ![Figure 5.31: TC16 User Management workflow](#)
 
 *Figure 5.31: TC16 User Management workflow*
@@ -278,38 +300,47 @@ White-box testing was used to evaluate selected internal processing logic that c
 
 This form of testing was relevant because a report can appear correct from the interface while still containing internal weaknesses in parameter interpretation, refresh-window replacement logic, or grouped output construction. By checking selected internal logic paths explicitly, the implementation could be reviewed not only at output level but also at process level. In academic terms, this strengthened the credibility of the completed system because it demonstrated that testing attention was given to both visible behaviour and the underlying logic that produced that behaviour. The detailed white-box test cases are shown in Figures 5.32 to 5.40.
 
+Figure 5.32 shows the internal validation checks applied to report parameters before backend execution proceeds.
 ![Figure 5.32: WB01 API parameter validation](#)
 
 *Figure 5.32: WB01 API parameter validation*
 
+Figure 5.33 records the internal review of payment grouping and total-calculation logic in the Payment Type report path.
 ![Figure 5.33: WB02 Payment Type grouping logic](#)
 
 *Figure 5.33: WB02 Payment Type grouping logic*
 
+Figure 5.34 presents the rerun logic review used to confirm that repeated ETL execution does not duplicate reporting output.
 ![Figure 5.34: WB03 boundary-based ETL rerun](#)
 
 *Figure 5.34: WB03 boundary-based ETL rerun*
 
+Figure 5.35 shows the internal checkpoint review for staged refresh windows and controlled historical completeness handling.
 ![Figure 5.35: WB04 staged refresh safety](#)
 
 *Figure 5.35: WB04 staged refresh safety*
 
+Figure 5.36 records the internal logic checks used to detect completeness or consistency issues after replication.
 ![Figure 5.36: WB05 source-to-replica data quality check](#)
 
 *Figure 5.36: WB05 source-to-replica data quality check*
 
+Figure 5.37 presents the internal workflow review from detected data issue through repair-related follow-up and recheck.
 ![Figure 5.37: WB06 quality repair request flow](#)
 
 *Figure 5.37: WB06 quality repair request flow*
 
+Figure 5.38 shows the internal review used to confirm consistency between displayed report data and exported output.
 ![Figure 5.38: WB07 report export mapping](#)
 
 *Figure 5.38: WB07 report export mapping*
 
+Figure 5.39 records the access-control logic review protecting administrative routes and backend operations.
 ![Figure 5.39: WB08 role-based access restriction](#)
 
 *Figure 5.39: WB08 role-based access restriction*
 
+Figure 5.40 presents the controlled request-handling review for automation-management actions in the admin workflow.
 ![Figure 5.40: WB09 automation-control request handling](#)
 
 *Figure 5.40: WB09 automation-control request handling*
