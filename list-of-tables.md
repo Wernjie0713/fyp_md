@@ -14,7 +14,7 @@
 - Table 4.4: Component responsibilities and design considerations
 - Table 4.5: Formal implementation/business-scope report groups and design implications
 - Table 4.6: Additional customised reports and their relationship to the shared platform design
-- Table 4.7: Conceptual data dictionary (summary)
+- Table 4.7: Conceptual data dictionary
 - Table 5.1: Recorded timing observations for Payment Type (All Payment)
 - Table 5.2: Selected supporting timing observations across optimised report modules
 - Table A.1: Formal implementation and business scope report index

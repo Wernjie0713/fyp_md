@@ -70,17 +70,16 @@
 - Chapter 5 IMPLEMENTATION AND TESTING
   - 5.1 Introduction
   - 5.2 System Development
-    - 5.2.1 Development Overview
-    - 5.2.2 Reporting Database and ETL Development
-    - 5.2.3 Backend API Development
-    - 5.2.4 Frontend Portal Development
-    - 5.2.5 Administrative and Operational Functions
-    - 5.2.6 Report Implementation Coverage
+    - 5.2.1 Reporting Database and ETL Development
+    - 5.2.2 Backend API Development
+    - 5.2.3 Frontend Portal Development
+    - 5.2.4 Administrative and Operational Functions
+    - 5.2.5 Report Implementation Coverage
   - 5.3 Coding of the system's main functions/Process
     - 5.3.1 Data Replication and Refresh Process
     - 5.3.2 Report Reconstruction Process
-    - 5.3.3 Selected Implementation Example: Payment Type (All Payment)
-    - 5.3.4 Selected Implementation Example: Voucher Campaign & Reward Sales Report
+    - 5.3.3 Payment Type Report Development
+    - 5.3.4 Voucher Campaign & Reward Sales Report Development
     - 5.3.5 Query Performance Observation
     - 5.3.6 Report Accuracy Validation
     - 5.3.7 Black-Box Testing and User Acceptance Testing

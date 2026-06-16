@@ -6,12 +6,12 @@
 - Figure 4.1: Use case diagram for the Marrybrown Sales and Payment Analytics Platform (illustrative)
 - Figure 4.2: Current vendor-dependent reporting workflow (simplified)
 - Figure 4.3: Logical architecture of the analytics platform
-- Figure 4.4: Boundary-based refresh and report-serving sequence (illustrative)
-- Figure 4.5: Simplified conceptual data model for sales and payment reporting (illustrative)
-- Figure 4.6: Report list interface (illustrative)
-- Figure 4.7: Reporting interface (illustrative)
-- Figure 4.8: Portal navigation and report workflow (illustrative)
-- Figure 4.9: Administrative interface overview (illustrative)
+- Figure 4.4: Boundary-based refresh and report-serving sequence
+- Figure 4.5: Simplified conceptual data model for sales and payment reporting
+- Figure 4.6: Report list interface
+- Figure 4.7: Reporting interface
+- Figure 4.8: Portal navigation and report workflow
+- Figure 4.9: Administrative interface overview
 - Figure 5.1: Reports Hub and representative report-query interface
 - Figure 5.2: User Management page
 - Figure 5.3: Data Sync page
