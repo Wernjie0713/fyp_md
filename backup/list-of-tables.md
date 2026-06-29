@@ -1,32 +1,43 @@
 # List of Tables
 
-- Table 1.1: Current progress summary (as of Week 28 of the internship) ..... 7
-- Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned redundancy reporting ..... 15
-- Table 2.2: Reporting portal workflow and interface considerations for the proposed platform ..... 18
-- Table 2.3: Synthesis / rationale map linking proposed choices to literature ..... 20
-- Table 3.1: Phase-level inputs, activities, and evidence artefacts (per report module) ..... 24
-- Table 3.2: Project schedule and status summary (Weeks 1-28) ..... 30
-- Table 3.3: Hardware requirements (high-level) ..... 31
-- Table 3.4: Software requirements (high-level) ..... 32
-- Table 4.1: Stakeholder groups and reporting needs (role-based view) ..... 34
-- Table 4.2: Functional requirements for the proposed platform ..... 37
-- Table 4.3: Non-functional requirements for the proposed platform ..... 37
-- Table 4.4: Component responsibilities and design considerations ..... 40
-- Table 4.5: Conceptual data dictionary (summary) ..... 47
-- Table A.1: Report specification template fields ..... 54
-- Table A.2: Target report index (15 reports) and status summary (Week 28) ..... 56
-- Table A.3: Report specification fields for R01 (Daily Sales Summary) ..... 57
-- Table A.4: Report specification fields for R02 (Payment Type (All Payment) ..... 58
-- Table A.5: Report specification fields for R03 (Sales Return Report) ..... 59
-- Table A.6: Report specification fields for R04 (Sales Cancelled Report) ..... 60
-- Table A.7: Report specification fields for R05 (DELETED Items Report) ..... 61
-- Table A.8: Report specification fields for R06 (Sale Delivery (By Sales Type) Ex Tax Calculation) ..... 62
-- Table A.9: Report specification fields for R07 (MB Cash Voucher (with Barcode) Redemption Report) ..... 63
-- Table A.10: Report specification fields for R08 (MB Staff E-Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report) ..... 64
-- Table A.11: Report specification fields for R09 (Product Mix Report) ..... 64
-- Table A.12: Report specification fields for R10 (Discount Remark Report) ..... 65
-- Table A.13: Report specification fields for R11 (Delivery-FoodPanda,Grabfood,ShopeeFood) ..... 65
-- Table A.14: Report specification fields for R12 (Foodpanda Sales) ..... 66
-- Table A.15: Report specification fields for R13 (Foodpanda Discount) ..... 66
-- Table A.16: Report specification fields for R14 (Mobile Ordering Sales) ..... 67
-- Table A.17: Report specification fields for R15 (Pickup & Declaration Report) ..... 68
+- Table 1.1: High-level project scope boundary
+- Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned reporting
+- Table 2.2: Reporting portal workflow and interface considerations for the implemented platform
+- Table 2.3: Synthesis / rationale map linking adopted choices to literature
+- Table 3.1: Phase-level inputs, activities, and evidence artefacts (per report module)
+- Table 3.2: Detailed Gantt-style project schedule across the 40-week internship period
+- Table 3.3: Hardware requirements (high-level)
+- Table 3.4: Software requirements (high-level)
+- Table 4.1: Stakeholder groups and reporting needs (role-based view)
+- Table 4.2: Functional requirements for the platform
+- Table 4.3: Non-functional requirements for the platform
+- Table 4.4: Component responsibilities and design considerations
+- Table 4.5: Formal implementation/business-scope report groups and design implications
+- Table 4.6: Additional customised reports and their relationship to the shared platform design
+- Table 4.7: Conceptual data dictionary
+- Table 5.1: Recorded timing observations for Payment Type (All Payment)
+- Table 5.2: Selected supporting timing observations across optimised report modules
+- Table A.1: Formal implementation and business scope report index
+- Table A.2: Additional customised reports implemented beyond the formal 19-report scope
+- Table A.3: Detailed specification for R01
+- Table A.4: Detailed specification for R02
+- Table A.5: Detailed specification for R03
+- Table A.6: Detailed specification for R04
+- Table A.7: Detailed specification for R05
+- Table A.8: Detailed specification for R06
+- Table A.9: Detailed specification for R07
+- Table A.10: Detailed specification for R08
+- Table A.11: Detailed specification for R09
+- Table A.12: Detailed specification for R10
+- Table A.13: Detailed specification for R11
+- Table A.14: Detailed specification for R12
+- Table A.15: Detailed specification for R13
+- Table A.16: Detailed specification for R14
+- Table A.17: Detailed specification for R15
+- Table A.18: Detailed specification for R16
+- Table A.19: Detailed specification for R17
+- Table A.20: Detailed specification for R18
+- Table A.21: Detailed specification for R19
+- Table A.22: Detailed specification for C01
+- Table A.23: Detailed specification for C02
+- Table A.24: Detailed specification for C03
