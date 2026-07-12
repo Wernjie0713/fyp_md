@@ -14,13 +14,13 @@ The case study concerns sales and payment reporting in a large-scale food and be
 
 Stakeholders are represented in a role-based manner to clarify reporting needs without asserting an official organisation chart. The stakeholder groups and their main reporting needs are summarised in Table 4.1.
 
+*Table 4.1: Stakeholder groups and reporting needs (role-based view)*
+
 | Stakeholder group | Primary activities | Reporting needs (examples) |
 | --- | --- | --- |
 | Finance users | Reconciliation, month-end closing, audit preparation | Payment breakdowns, voucher redemption visibility, return and cancellation checks, export-ready report outputs |
 | Operations users | Outlet performance monitoring, operational oversight | Outlet-level report access, channel-specific sales views, exception visibility, report filtering by period and location |
 | Internal technical team | Platform maintenance and enhancement | Traceability, rerun support, controlled report-logic updates, replication monitoring, operational administration |
-
-*Table 4.1: Stakeholder groups and reporting needs (role-based view)*
 
 ### System Requirements Gathering Techniques
 
@@ -83,6 +83,8 @@ For the internal technical team, the main outcomes concerned maintainability, tr
 
 The functional requirements are summarised in Table 4.2.
 
+*Table 4.2: Functional requirements for the platform*
+
 | ID | Functional requirement |
 | --- | --- |
 | FR1 | The system shall replicate relevant sales and payment datasets from the external POS environment into a company-owned SQL Server reporting database through controlled refresh processes. |
@@ -92,11 +94,11 @@ The functional requirements are summarised in Table 4.2.
 | FR5 | The system shall expose report logic through an API layer so that the frontend remains decoupled from underlying database structures. |
 | FR6 | The system shall support controlled refresh-related administrative actions, including rerun or follow-up handling for reporting data updates. |
 
-*Table 4.2: Functional requirements for the platform*
-
 ### Non-Functional Requirements (NFR)
 
 The non-functional requirements are summarised in Table 4.3.
+
+*Table 4.3: Non-functional requirements for the platform*
 
 | ID | Non-functional requirement |
 | --- | --- |
@@ -106,8 +108,6 @@ The non-functional requirements are summarised in Table 4.3.
 | NFR4 | Security: the platform shall operate as a read-only reporting environment and implement appropriate access control. |
 | NFR5 | Maintainability: report logic shall be structured to support iterative refinement when edge cases, missing data conditions, or rule changes are discovered. |
 | NFR6 | Auditability: refresh activity, validation outcomes, and report-serving behaviour shall be sufficiently observable to support operational follow-up. |
-
-*Table 4.3: Non-functional requirements for the platform*
 
 ### Constraints and Assumptions
 
@@ -137,6 +137,8 @@ As shown in Figure 4.3, the architecture begins with vendor-managed transactiona
 
 Table 4.4 summarises each component's responsibility and key design considerations. These component-level responsibilities are aligned with the literature reviewed in Chapter 2, particularly the discussions on replication-based analytical stores, ELT workflows, semantic layers, service interfaces, and operational reporting portals.
 
+*Table 4.4: Component responsibilities and design considerations*
+
 | Component | Responsibility | Key design considerations |
 | --- | --- | --- |
 | External POS environment | Source of transactional records and baseline report behaviour | Access constraints; parameter consistency; late corrections |
@@ -145,11 +147,11 @@ Table 4.4 summarises each component's responsibility and key design consideratio
 | FastAPI semantic layer | Encapsulate report rules and expose stable report endpoints | Versioned business rules; parameter validation; consistent metric definitions; controlled access |
 | Reporting portal | Provide internal report access, export, and limited administrative operations | Usability during reporting periods; consistent filtering; totals/subtotals; operational visibility |
 
-*Table 4.4: Component responsibilities and design considerations*
-
 ### Report Coverage Overview
 
 The platform design was not limited to a single dashboard or a small number of isolated queries. It was structured to support a formal implementation scope comprising 19 sales and payment reports, together with three additional customised reports requested during implementation. At design level, these reports can be grouped into several functional categories, as summarised in Table 4.5 and Table 4.6. Detailed per-report specifications are provided in Appendix A.
+
+*Table 4.5: Formal implementation/business-scope report groups and design implications*
 
 | Report category | Formal implementation/business-scope reports | Main design implications |
 | --- | --- | --- |
@@ -160,15 +162,13 @@ The platform design was not limited to a single dashboard or a small number of i
 | Service and operational timing | Average SOS Report (New) | Requires timing-oriented aggregation over KDS-backed sales activity and store-level operational performance interpretation |
 | Discount monitoring | Discount Remark Report | Requires discount-level traceability, remark handling, and alignment between discount records and sales context |
 
-*Table 4.5: Formal implementation/business-scope report groups and design implications*
+*Table 4.6: Additional customised reports and their relationship to the shared platform design*
 
 | Additional customised report | Reporting purpose | Design relationship to the shared platform |
 | --- | --- | --- |
 | Roblox Free Chicken Burger Combo Sales | Tracks a company-requested campaign report for a specific promotional sales scenario | Reuses the same parameter, query, export, and portal delivery pattern as the formal report set |
 | Voucher Campaign & Reward Sales | Tracks voucher-campaign and reward-related sales activity requested during implementation | Extends the shared semantic/API design with campaign-focused grouping and output rules |
 | Promotion Item Additional Purchase Report | Analyses additional-purchase behaviour for configured promotion items | Reuses the shared reporting workflow while extending the design with configurable promotion-item categorisation |
-
-*Table 4.6: Additional customised reports and their relationship to the shared platform design*
 
 ### Data Engineering and API Design
 
@@ -220,6 +220,8 @@ As illustrated in Figure 4.5, the conceptual model centres on sales headers, sal
 
 Table 4.7 summarises the main conceptual entities required by the report set. Physical table names and column names in the replicated schema are vendor-specific; the design intent is to preserve a 1:1 representation while documenting join paths and key attributes used in report logic.
 
+*Table 4.7: Conceptual data dictionary*
+
 | Entity | Purpose in reporting | Representative attributes (conceptual) |
 | --- | --- | --- |
 | Sales (header) | Defines the reporting grain for sales totals, date scoping, and status handling | Sale identifier; business date; outlet/location key; sales status; totals |
@@ -227,8 +229,6 @@ Table 4.7 summarises the main conceptual entities required by the report set. Ph
 | Payment | Supports payment type breakdown, voucher handling, and reconciliation | Sale identifier; payment method; amount; device or reference fields |
 | Location | Maps location identifiers to outlet names and outlet-scope filtering | Location key; location name; hierarchy attributes where applicable |
 | Item master | Provides item metadata and grouping attributes | Item code or name; category; group; division attributes |
-
-*Table 4.7: Conceptual data dictionary*
 
 ### Business Rule Reconstruction for the Formal Report Set
 

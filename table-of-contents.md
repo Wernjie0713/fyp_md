@@ -38,9 +38,9 @@
     - 3.3.2 Phase 2: System Design
     - 3.3.3 Phase 3: Implementation
     - 3.3.4 Phase 4: Testing and Validation (Parity and Reconciliation)
-    - 3.3.5 Phase 5: Deployment
-    - 3.3.6 Phase 6: Review and Feedback
-  - 3.4 Project Schedule (Gantt Plan for the 40-Week Internship Period)
+    - 3.3.5 Phase 5: Review and Feedback
+    - 3.3.6 Deployment and Operationalisation
+  - 3.4 Project Schedule
   - 3.5 Implementation Environment Requirements
     - 3.5.1 Hardware Requirements
     - 3.5.2 Software Requirements

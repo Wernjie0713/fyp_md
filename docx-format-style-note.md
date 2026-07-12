@@ -212,7 +212,7 @@ Interpretation:
 
 ## 8. Table Caption Style
 
-Table captions are placed below the table.
+Table captions are placed above the table, following the supervisor's correction for the final thesis.
 
 ### 8.1 Single-line table caption
 
@@ -220,11 +220,11 @@ Use style:
 
 - `Caption for Table`
 
-Observed formatting:
+Formatting guidance:
 
 - alignment: centered
 - line spacing: single
-- top spacing before caption: about `12 pt`
+- keep a consistent gap between the caption and the table
 
 ### 8.2 Multi-line table caption
 
@@ -232,11 +232,11 @@ Use style:
 
 - `Caption for Table 2 lines`
 
-Observed formatting:
+Formatting guidance:
 
 - alignment: justified
 - line spacing: single
-- top spacing before caption: about `12 pt`
+- keep a consistent gap between the caption and the table
 
 Interpretation:
 
@@ -369,8 +369,7 @@ For the final report `.docx`, preserve this visual pattern:
 3. use `Para 2 lines` for normal paragraphs
 4. use `Para 4 lines` for the last paragraph before the next heading
 5. put figure captions below figures
-6. put table captions below tables
+6. put table captions above tables
 7. keep all content in `Times New Roman 12 pt`
 8. keep tables simple and bordered
 9. keep references in hanging-indent format
-

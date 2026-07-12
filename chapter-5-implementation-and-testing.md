@@ -100,9 +100,9 @@ Although each report had unique business rules, the implemented process remained
 
 This reconstruction pattern is summarised in Figure 5.7. The figure represents the general backend process through which a report request moves from user parameter selection to semantic validation, replicated-data retrieval, dataset joining, grouping and derived-field handling, and final response shaping for portal display and export. Although the detailed query logic differs across report modules, the same high-level reconstruction sequence was retained throughout the implementation. This consistency was important because it allowed the platform to support multiple formal-scope and customised reports within the same semantic/API architecture while preserving traceability for parity validation.
 
-![Figure 5.7: Sanitised illustration of report reconstruction logic](#)
+![Figure 5.7: High-level report reconstruction workflow](#)
 
-*Figure 5.7: Sanitised illustration of report reconstruction logic*
+*Figure 5.7: High-level report reconstruction workflow*
 
 ### Payment Type Report Development
 
@@ -128,6 +128,8 @@ One of the clearest examples was the Payment Type (All Payment) report, where th
 
 Table 5.1 summarises the strongest recorded timing observations for the Payment Type (All Payment) report.
 
+*Table 5.1: Recorded timing observations for Payment Type (All Payment)*
+
 | Tested scope | Before optimisation | After optimisation | Observation |
 |---|---:|---:|---|
 | Single-store, single-day, 4-row case | approximately 63s | approximately 3.3s | substantial reduction after backend query-path refinement |
@@ -135,11 +137,11 @@ Table 5.1 summarises the strongest recorded timing observations for the Payment 
 | Busy single-store, one-day sample after index recovery | not restated in the later log pass | approximately 1.1s | strong practical result after rebuilding disabled sales indexes |
 | All-store, one-day sample after index recovery | not restated in the later log pass | approximately 12.2s | acceptable all-store one-day timing after warehouse-side tuning |
 
-*Table 5.1: Recorded timing observations for Payment Type (All Payment)*
-
 The Payment Type observations indicate that performance improvement was achieved not only through report-query restructuring, but also through supporting warehouse maintenance and index recovery work.
 
 Additional implementation logs recorded similar timing checks for other report families. Table 5.2 presents a compact summary of selected supporting observations.
+
+*Table 5.2: Selected supporting timing observations across optimised report modules*
 
 | Report | Tested scope | Recorded timing change or practical timing | Interpretation |
 |---|---|---|---|
@@ -149,8 +151,6 @@ Additional implementation logs recorded similar timing checks for other report f
 | Sales Return Report | All stores, 2025-01-01 to 2025-01-05 | approximately 5.53s to 6.04s; later portal-side timing around 10s | timing was recorded and operationally acceptable, but not a strong improvement case |
 | Sales Cancelled Report | All stores, 2025-01-01 to 2025-01-05 | approximately 9.86s to 10.56s; later portal-side timing almost 20+s | timing was recorded and operationally acceptable, but not a strong improvement case |
 | Deleted Items | All stores, 2025-01-01 to 2025-01-05 | approximately 8.21s to 7.41s; later portal-side timing almost 8s | small but measurable improvement with acceptable practical timing |
-
-*Table 5.2: Selected supporting timing observations across optimised report modules*
 
 Taken together, the recorded outcomes show that some report paths improved materially, while others improved more modestly or remained relatively heavy for broad all-store reporting windows. Practical portal-side timing checks were also recorded after optimisation to ensure that the observed improvements remained meaningful from the user perspective rather than only at backend execution level.
 
@@ -206,7 +206,7 @@ Figure 5.15 documents the remaining profit-logic limitation that prevented final
 
 ### Black-Box Testing and User Acceptance Testing
 
-Black-box testing and User Acceptance Testing (UAT) were treated together because, in the context of this project, both evaluated the system from the user-facing perspective rather than from the internal code path. These tests focused on whether users could sign in, access reports, enter parameters, retrieve outputs, inspect totals, export data, and use role-restricted administrative functions appropriately. The intent was to verify that the implemented platform supported realistic operational workflows rather than merely exposing technically correct endpoints.
+Black-box testing and User Acceptance Testing (UAT) were treated together because, in the context of this project, both evaluated the system from the user-facing perspective rather than from the internal code path. User Acceptance Testing involved representative Finance and Operations users and members of Marrybrown's Management Information Systems (MIS) team. Finance and Operations users evaluated report access, parameter entry, output retrieval, totals review, and export workflows, while the MIS team acted as administrative and technical representatives in evaluating role-restricted functions such as data-sync administration, data-quality follow-up, automation control, and user management. The intent was to verify that the implemented platform supported realistic operational workflows rather than merely exposing technically correct endpoints.
 
 The test scenarios were structured as test cases using the `TC` prefix, such as `TC01`, `TC02`, and subsequent cases. Core user-facing scenarios included authentication, report-catalogue access, report retrieval with valid filters, export behaviour, access to customised report modules, manual sync submission, data-quality follow-up visibility, automation-control access, and role-restricted administrative behaviour. This structure provided a clear and traceable record of functional acceptance across the implemented user workflows.
 
@@ -294,6 +294,8 @@ Figure 5.31 presents the test confirming that admin users can review and manage 
 
 *Figure 5.31: TC16 User Management workflow*
 
+Overall, the black-box testing and UAT outcomes confirmed that the platform supported the defined user-facing workflows for both reporting and administration. Finance and Operations users were able to access reports, apply parameters, review results, and export outputs, while MIS representatives were able to perform authorised administration-related workflows under role restrictions. These results provided acceptance evidence that the portal's observable behaviour and access controls were appropriate for the project's intended operational scope.
+
 ### White-Box Testing
 
 White-box testing was used to evaluate selected internal processing logic that could not be assessed fully through user-facing behaviour alone. In this project, white-box testing did not aim to provide exhaustive code-coverage measurement. Instead, it focused on the internal logic that had direct impact on report trustworthiness and operational safety, such as request-parameter validation, boundary-based refresh handling, source-to-replica quality-check flow, grouping and aggregation logic in report reconstruction, export-structure consistency, and role-restricted access handling.
@@ -344,6 +346,8 @@ Figure 5.40 presents the controlled request-handling review for automation-manag
 ![Figure 5.40: WB09 automation-control request handling](#)
 
 *Figure 5.40: WB09 automation-control request handling*
+
+Overall, the selected white-box tests confirmed that the reviewed internal logic paths operated as intended, including parameter validation, report grouping, boundary-based ETL reruns, data-quality checking, export mapping, role restriction, and automation request handling. Although these tests did not constitute exhaustive code-coverage measurement, they provided evidence that the internal controls supporting report trustworthiness and operational safety had been evaluated alongside the user-facing workflows. Together with the report-accuracy validation and UAT results, the white-box findings strengthened confidence in the implemented platform within its defined scope.
 
 ## Summary
 

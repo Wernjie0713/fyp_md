@@ -18,7 +18,7 @@
 - Figure 5.4: Automation Control page
 - Figure 5.5: Portal-triggered reference-table refresh and execution tracking
 - Figure 5.6: Portal-triggered dated sales-data replication and data-quality review
-- Figure 5.7: Sanitised illustration of report reconstruction logic
+- Figure 5.7: High-level report reconstruction workflow
 - Figure 5.8: PV01 Payment Type (All Payment) report accuracy validation
 - Figure 5.9: PV02 Sales Return Report accuracy validation
 - Figure 5.10: PV03 Sales Cancelled Report accuracy validation

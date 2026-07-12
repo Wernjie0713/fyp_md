@@ -10,11 +10,13 @@ The project adopted an iterative and incremental development approach aligned wi
 
 ## Phases within the Iterative and Incremental Development Methodology
 
-Work was organised as an iterative and incremental cycle that repeated for each targeted report module and supporting platform function. As illustrated in Figure 3.1, each cycle moved through six recurring phases: requirement analysis, system design, implementation, testing and validation, deployment, and review and feedback, before returning to requirement analysis when additional refinement was required. The phases were structured to preserve traceability from requirement interpretation to implementation and validation evidence, while allowing supporting operational functions such as controlled sync, quality checking, and scheduled automation to be introduced after core report logic had been sufficiently stabilised. Table 3.1 summarises the typical inputs, activities, and evidence artefacts produced in each phase.
+Work was organised as an iterative and incremental cycle that repeated for each targeted report module and supporting platform function. As illustrated in Figure 3.1, each cycle moved through five recurring phases: requirement analysis, system design, implementation, testing and validation, and review and feedback, before returning to requirement analysis when additional refinement was required. Deployment occurred only after a module had met its validation criteria and was therefore treated as a separate controlled operationalisation activity rather than a phase within the recurring loop. This distinction preserved traceability from requirement interpretation to implementation and validation evidence, while allowing supporting operational functions such as controlled sync, quality checking, and scheduled automation to be introduced after core report logic had been sufficiently stabilised. Table 3.1 summarises the typical inputs, activities, and evidence artefacts produced across the recurring phases and the separate deployment activity.
 
 ![Figure 3.1: Iterative Workflow for Analytics Platform Development](#)
 
 *Figure 3.1: Iterative Workflow for Analytics Platform Development*
+
+*Table 3.1: Phase-level inputs, activities, and evidence artefacts (per report module)*
 
 | Phase | Typical inputs | Key activities | Outputs / evidence artefacts (examples) |
 | --- | --- | --- | --- |
@@ -22,12 +24,10 @@ Work was organised as an iterative and incremental cycle that repeated for each 
 | Phase 2: System design | Phase 1 artefacts, replicated schema, constraints and non-functional requirements | Specify replication scope and join paths; define refresh boundary and rerun handling; define API contract and export behaviour; define validation plan and test cases | Report specification draft; API contract; data mapping; test plan; design diagram references |
 | Phase 3: Implementation | Design artefacts, replicated datasets, acceptance criteria | Implement version-controlled report queries and rules; build API endpoint; implement parameter validation and formatting; add logging and error handling | Endpoint implementation; reproducible queries; sample outputs; execution logs |
 | Phase 4: Testing and validation | Baseline exports, platform outputs, acceptance checklist | Compare outputs; investigate discrepancies; refine rules; run regression checks; record acceptance decisions and reconciliation results | Comparison evidence; discrepancy log; updated rule versions; validation records |
-| Phase 5: Deployment | Validated module, environment-ready checklist | Deploy validated changes; configure access controls; update release documentation; prepare controlled operational use | Deployed endpoint or portal view; deployment checklist; release notes |
-| Phase 6: Review and feedback | Deployed module, stakeholder feedback | Capture usability gaps and missing cases; triage defects versus enhancements; update acceptance criteria and test scenarios | Feedback log; change requests; revised acceptance criteria |
+| Phase 5: Review and feedback | Validated module, stakeholder feedback | Capture usability gaps and missing cases; triage defects versus enhancements; update acceptance criteria and test scenarios | Feedback log; change requests; revised acceptance criteria |
+| Deployment and operationalisation (separate activity) | Validated module, environment-ready checklist | Deploy validated changes; configure access controls; update release documentation; prepare controlled operational use | Deployed endpoint or portal view; deployment checklist; release notes |
 
-*Table 3.1: Phase-level inputs, activities, and evidence artefacts (per report module)*
-
-The phase descriptions in Sections 3.3.1 to 3.3.6 elaborate the responsibilities summarised in Table 3.1 and explain how each phase contributed to parity-driven report reconstruction and evidence retention.
+The phase descriptions in Sections 3.3.1 to 3.3.5 elaborate the recurring activities summarised in Table 3.1. Section 3.3.6 then documents the separate deployment and operationalisation activity used after validated modules were accepted for controlled operational use.
 
 ### Phase 1: Requirement Analysis (Document Analysis and Stakeholder Feedback)
 
@@ -55,13 +55,13 @@ At the system level, reconciliation checks were applied to confirm cross-report 
 
 The validation methodology also included black-box comparison against vendor outputs, white-box review of reconstructed business rules and query behaviour, and user-oriented verification of report retrieval, viewing, and export functions. In addition, a basic operational performance evaluation was used to assess usability under typical usage conditions. Response-time observations for representative report queries were considered in relation to practical expectations for routine Finance and Operations workflows. The intent of this evaluation was to confirm operational acceptability rather than to conduct exhaustive benchmarking or load testing.
 
-### Phase 5: Deployment
-
-Upon meeting validation criteria for a module, the corresponding API and portal changes were deployed to the target environment according to an environment-ready checklist. Deployment activities included configuration validation such as database connectivity and access controls, release documentation to support traceability of rule changes, and rollback considerations for changes that materially affected report outputs. In this project, deployment was staged so that validated report modules and supporting platform functions could first be checked in a controlled environment and then consolidated into the broader implemented platform environment. This phase also covered the operationalisation of controlled sync procedures, scheduled ETL functions, and related administrative controls for report operations.
-
-### Phase 6: Review and Feedback
+### Phase 5: Review and Feedback
 
 Feedback was collected from Finance and Operations users to identify usability issues, missing data elements, and any residual discrepancies observed during real workflows. Feedback was documented as traceable change requests and triaged into parity defects that required rule correction and enhancements that adjusted workflows or presentation without changing core financial meaning. Where feedback changed acceptance criteria or revealed new edge cases, the iteration returned to Phase 1 for the affected module so that requirements artefacts could be updated and the revised logic validated again with retained evidence.
+
+### Deployment and Operationalisation
+
+Upon meeting validation criteria for a module, the corresponding API and portal changes were deployed to the target environment according to an environment-ready checklist. Deployment activities included configuration validation such as database connectivity and access controls, release documentation to support traceability of rule changes, and rollback considerations for changes that materially affected report outputs. In this project, deployment was staged so that validated report modules and supporting platform functions could first be checked in a controlled environment and then consolidated into the broader implemented platform environment. This separate activity also covered the operationalisation of controlled sync procedures, scheduled ETL functions, and related administrative controls for report operations.
 
 As shown in Figure 3.2, the high-level operational workflow of the implemented platform began with data extraction and replication from the external POS environment, followed by ELT processing into the company-owned SQL Server reporting database, source-to-replica quality checking, semantic/API-based report reconstruction, and final report delivery through the internal reporting portal to Finance and Operations users. This view links the development phases described above to the end-to-end technical flow implemented and validated during the project.
 
@@ -69,9 +69,11 @@ As shown in Figure 3.2, the high-level operational workflow of the implemented p
 
 *Figure 3.2: High-level system workflow (data replication to report delivery)*
 
-## Project Schedule (Gantt Plan for the 40-Week Internship Period)
+## Project Schedule
 
-For planning and execution purposes, the overall project was organised across a 40-week internship period. Because the project followed an iterative and incremental methodology, the schedule was not treated as a strictly linear one-pass sequence in which all analysis ended before all design, and all design ended before all implementation. Instead, the work was arranged as overlapping blocks in which early planning activities established the foundation, while later report reconstruction, validation, deployment, and refinement cycles revisited earlier findings as new report behaviours and operational issues emerged. Table 3.2 therefore presents a detailed week-based Gantt-style plan that reflects both sequencing and overlap across the internship period.
+For planning and execution purposes, the overall project was organised across a 40-week internship period. Because the project followed an iterative and incremental methodology, the schedule was not treated as a strictly linear one-pass sequence in which all analysis ended before all design, and all design ended before all implementation. Instead, the work was arranged as overlapping blocks in which early planning activities established the foundation, while later report reconstruction, validation, and refinement activities revisited earlier findings as new report behaviours and operational issues emerged. Controlled deployment occurred separately after selected modules met their validation criteria and were ready for operational use. Table 3.2 therefore presents a detailed week-based Gantt-style plan that reflects both sequencing and overlap across the internship period.
+
+*Table 3.2: Detailed Gantt-style project schedule across the 40-week internship period*
 
 | Work package | Weeks (planned) | Main focus | Relation to the iterative and incremental methodology |
 | --- | --- | --- | --- |
@@ -87,13 +89,11 @@ For planning and execution purposes, the overall project was organised across a 
 | Iteration Cycle 2: rule refinement and additional reports | 19-24 | Extend report logic coverage, resolve first-wave discrepancies, and improve parity | Second increment that builds on feedback from the first validated modules |
 | Portal workflow development and shared UI integration | 20-26 | Implement report search, parameter input, tabular viewing, and export workflows | Frontend functions are integrated in parallel with backend report increments |
 | Iteration Cycle 3: expanded report reconstruction and regression checking | 23-28 | Add more report modules, recheck earlier modules, and reduce rule drift | Demonstrates repeated incremental extension with regression-aware validation |
-| Controlled deployment and environment consolidation | 25-30 | Deploy validated modules, verify access control, and stabilise environment setup | Moves validated increments into controlled operational use |
+| Controlled deployment and environment consolidation | 25-30 | Deploy validated modules, verify access control, and stabilise environment setup | Separate operationalisation activity that moves validated increments into controlled operational use |
 | Source-to-replica quality checking and sync refinement | 28-33 | Strengthen portal-triggered sync support, quality re-checking, and investigation workflow | Extends the methodology beyond report logic into data-quality assurance iterations |
 | Scheduled ETL and administrative automation refinement | 30-35 | Introduce and refine scheduled ETL behaviour and related administrative controls | Represents a later operational increment after core parity work is sufficiently stable |
 | Iteration Cycle 4: operational refinement and final validation pass | 32-37 | Revisit report behaviour, operational edge cases, and remaining mismatches | Final major refinement cycle before closure and handover preparation |
 | Documentation, handover preparation, and final report consolidation | 35-40 | Consolidate technical documents, handover materials, and academic report inputs | Captures the outputs of all prior iterations into final closure artefacts |
-
-*Table 3.2: Detailed Gantt-style project schedule across the 40-week internship period*
 
 ## Implementation Environment Requirements
 
@@ -103,6 +103,8 @@ The platform environment was specified at a practical level to support replicati
 
 At the hardware level, the platform required sufficient compute, memory, storage, network stability, and environment availability to support replication, API serving, and stakeholder validation activities. As summarised in Table 3.3, the hardware considerations were framed around dependable execution of replication and ELT tasks, responsive report generation, and stable access for iterative stakeholder review.
 
+*Table 3.3: Hardware requirements (high-level)*
+
 | Resource | Requirement (high-level) | Justification |
 | --- | --- | --- |
 | Compute | Multi-core CPU capacity | Supports replication and ELT tasks together with concurrent API request handling. |
@@ -111,11 +113,11 @@ At the hardware level, the platform required sufficient compute, memory, storage
 | Network | Stable connectivity between source, replica, and services | Required for extraction, loading, and portal access; affects refresh time and report responsiveness. |
 | Availability | Environment availability aligned to validation and operational use | Supports iterative validation and reduces disruption during reporting-intensive windows. |
 
-*Table 3.3: Hardware requirements (high-level)*
-
 ### Software Requirements
 
 At the software level, the platform depended on a relational database, a Python-based ELT environment, an API framework, a frontend framework, and version control tooling. As summarised in Table 3.4, these components collectively supported the end-to-end workflow of data replication, report logic reconstruction, portal-based report delivery, and traceable change management.
+
+*Table 3.4: Software requirements (high-level)*
 
 | Component | Role in the platform | Notes |
 | --- | --- | --- |
@@ -127,8 +129,6 @@ At the software level, the platform depended on a relational database, a Python-
 | React + Node.js | Reporting portal frontend | Implements report parameter inputs, tabular display, and export workflow (React, n.d.). |
 | Nginx / web serving layer | Portal delivery and API proxy support | Supports frontend delivery and controlled routing in the deployed environment. |
 | Git | Version control for code and documentation | Supports traceability of changes to report logic and validation artefacts. |
-
-*Table 3.4: Software requirements (high-level)*
 
 ## Summary
 

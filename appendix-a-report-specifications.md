@@ -4,6 +4,8 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 
 ## A.1 Formal Implementation and Business Scope Report Index
 
+*Table A.1: Formal implementation and business scope report index*
+
 | ID | Report | Report group | Final status | Notes |
 | --- | --- | --- | --- | --- |
 | R01 | Sale Delivery (By Sales Type) Ex Tax Calculation | Delivery and ordering channels | Implemented and validated | Delivered as a vendor-aligned delivery sales and ex-tax reporting module. |
@@ -26,9 +28,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | R18 | MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report | Payment and voucher reconciliation | Implemented and validated | Delivered as a staff and cash voucher redemption control report. |
 | R19 | Product Mix with modifier without ETL | Product, stock, and cost analysis | Not fully closed | Reverse engineering and parity validation were not sufficient to isolate the remaining profit logic required for final closure. |
 
-*Table A.1: Formal implementation and business scope report index*
-
 ## A.2 Additional Customised Reports
+
+*Table A.2: Additional customised reports implemented beyond the formal 19-report scope*
 
 | ID | Customised report | Reporting purpose | Final status |
 | --- | --- | --- | --- |
@@ -36,11 +38,11 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | C02 | Voucher Campaign & Reward Sales | Tracks campaign- and reward-related voucher sales activity requested during implementation. | Implemented and validated |
 | C03 | Promotion Item Additional Purchase Report | Analyses additional-purchase behaviour for selected promotion items requested by the company. | Implemented and validated |
 
-*Table A.2: Additional customised reports implemented beyond the formal 19-report scope*
-
 ## A.3 Detailed Report Specifications for the Formal 19-Report Scope
 
 ### R01: Sale Delivery (By Sales Type) Ex Tax Calculation
+
+*Table A.3: Detailed specification for R01*
 
 | Field | Description |
 | --- | --- |
@@ -54,9 +56,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports using matched reporting windows and filter selections. |
 | Final status | Implemented and validated. |
 
-*Table A.3: Detailed specification for R01*
-
 ### R02: Payment Type (All Payment)
+
+*Table A.4: Detailed specification for R02*
 
 | Field | Description |
 | --- | --- |
@@ -70,9 +72,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports across selected date ranges and store scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.4: Detailed specification for R02*
-
 ### R03: Product Mix Report
+
+*Table A.5: Detailed specification for R03*
 
 | Field | Description |
 | --- | --- |
@@ -86,9 +88,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
 | Final status | Not fully closed. |
 
-*Table A.5: Detailed specification for R03*
-
 ### R04: Delivery - FoodPanda, Grabfood, ShopeeFood
+
+*Table A.6: Detailed specification for R04*
 
 | Field | Description |
 | --- | --- |
@@ -102,9 +104,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for selected channels, date ranges, and outlet scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.6: Detailed specification for R04*
-
 ### R05: Pickup & Declaration Report
+
+*Table A.7: Detailed specification for R05*
 
 | Field | Description |
 | --- | --- |
@@ -118,9 +120,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through strict parity comparison against vendor workbook exports for matched date ranges and status scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.7: Detailed specification for R05*
-
 ### R06: Stock Variance Report (Latest)
+
+*Table A.8: Detailed specification for R06*
 
 | Field | Description |
 | --- | --- |
@@ -134,9 +136,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated against vendor workbook exports and cross-checked across source, replica, API, and frontend output for the validated scope. |
 | Final status | Implemented and validated. |
 
-*Table A.8: Detailed specification for R06*
-
 ### R07: Discount Remark Report
+
+*Table A.9: Detailed specification for R07*
 
 | Field | Description |
 | --- | --- |
@@ -150,9 +152,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
 | Final status | Not fully closed. |
 
-*Table A.9: Detailed specification for R07*
-
 ### R08: Foodpanda Sales
+
+*Table A.10: Detailed specification for R08*
 
 | Field | Description |
 | --- | --- |
@@ -166,9 +168,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through strict parity comparison against vendor portal exports across multiple windows and filtered scenarios. |
 | Final status | Implemented and validated. |
 
-*Table A.10: Detailed specification for R08*
-
 ### R09: DELETED Items Report
+
+*Table A.11: Detailed specification for R09*
 
 | Field | Description |
 | --- | --- |
@@ -182,9 +184,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through strict parity comparison against vendor portal export output for matched date windows. |
 | Final status | Implemented and validated. |
 
-*Table A.11: Detailed specification for R09*
-
 ### R10: Sales Return Report
+
+*Table A.12: Detailed specification for R10*
 
 | Field | Description |
 | --- | --- |
@@ -198,9 +200,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes and item-filter conditions. |
 | Final status | Implemented and validated. |
 
-*Table A.12: Detailed specification for R10*
-
 ### R11: [SOK] Each Kiosk Transaction Report
+
+*Table A.13: Detailed specification for R11*
 
 | Field | Description |
 | --- | --- |
@@ -214,9 +216,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for the retained kiosk-report scope. |
 | Final status | Implemented and validated. |
 
-*Table A.13: Detailed specification for R11*
-
 ### R12: Sales Cancelled Report
+
+*Table A.14: Detailed specification for R12*
 
 | Field | Description |
 | --- | --- |
@@ -230,9 +232,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.14: Detailed specification for R12*
-
 ### R13: Xilnex - Monthly Checking - COGS by Item (By Sales Type)
+
+*Table A.15: Detailed specification for R13*
 
 | Field | Description |
 | --- | --- |
@@ -246,9 +248,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for the retained monthly-checking scope. |
 | Final status | Implemented and validated. |
 
-*Table A.15: Detailed specification for R13*
-
 ### R14: Foodpanda Discount
+
+*Table A.16: Detailed specification for R14*
 
 | Field | Description |
 | --- | --- |
@@ -262,9 +264,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for matched Foodpanda reporting windows. |
 | Final status | Implemented and validated. |
 
-*Table A.16: Detailed specification for R14*
-
 ### R15: Mobile Ordering Sales
+
+*Table A.17: Detailed specification for R15*
 
 | Field | Description |
 | --- | --- |
@@ -278,9 +280,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for matched mobile-ordering scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.17: Detailed specification for R15*
-
 ### R16: Average SOS Report (New)
+
+*Table A.18: Detailed specification for R16*
 
 | Field | Description |
 | --- | --- |
@@ -294,9 +296,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal output for the retained report scope. |
 | Final status | Implemented and validated. |
 
-*Table A.18: Detailed specification for R16*
-
 ### R17: MB Cash Voucher (with Barcode) Redemption Report
+
+*Table A.19: Detailed specification for R17*
 
 | Field | Description |
 | --- | --- |
@@ -310,9 +312,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports using matched date ranges and outlet scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.19: Detailed specification for R17*
-
 ### R18: MB Staff E - Voucher RM 20 & MB CASH VOUCHER RM10 (with Barcode) Redemption Report
+
+*Table A.20: Detailed specification for R18*
 
 | Field | Description |
 | --- | --- |
@@ -326,9 +328,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through parity comparison against vendor portal exports for matched scopes. |
 | Final status | Implemented and validated. |
 
-*Table A.20: Detailed specification for R18*
-
 ### R19: Product Mix with modifier without ETL
+
+*Table A.21: Detailed specification for R19*
 
 | Field | Description |
 | --- | --- |
@@ -342,11 +344,11 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Reverse engineering and parity validation were performed against vendor portal behaviour, but the remaining profit-related logic could not be isolated conclusively within the project boundary. |
 | Final status | Not fully closed. |
 
-*Table A.21: Detailed specification for R19*
-
 ## A.4 Detailed Specifications for Additional Customised Reports
 
 ### C01: Roblox Free Chicken Burger Combo Sales
+
+*Table A.22: Detailed specification for C01*
 
 | Field | Description |
 | --- | --- |
@@ -360,9 +362,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through comparison against the required business expectations and retained portal-aligned checking workflow for the customised scope. |
 | Final status | Implemented and validated. |
 
-*Table A.22: Detailed specification for C01*
-
 ### C02: Voucher Campaign & Reward Sales
+
+*Table A.23: Detailed specification for C02*
 
 | Field | Description |
 | --- | --- |
@@ -376,9 +378,9 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Validation approach | Report output was validated through comparison against required business expectations and retained checking artefacts for the customised reporting scope. |
 | Final status | Implemented and validated. |
 
-*Table A.23: Detailed specification for C02*
-
 ### C03: Promotion Item Additional Purchase Report
+
+*Table A.24: Detailed specification for C03*
 
 | Field | Description |
 | --- | --- |
@@ -391,5 +393,3 @@ This appendix summarises the report specifications for the Marrybrown Sales and 
 | Key business rules | The report uses report-specific promotion-item selection logic while retaining the same shared platform pattern of parameter-driven retrieval, tabular results, and export-ready output. |
 | Validation approach | Report output was validated through comparison against required business expectations and retained checking artefacts for the customised scope. |
 | Final status | Implemented and validated. |
-
-*Table A.24: Detailed specification for C03*

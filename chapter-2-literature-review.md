@@ -60,6 +60,8 @@ However, fewer sources provide detailed guidance on reconstructing proprietary v
 
 Table 2.1 provides a comparative discussion between a vendor-managed reporting portal and a company-owned reporting platform, highlighting the trade-offs that motivate the architecture adopted in this project.
 
+*Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned reporting*
+
 | Criterion | Vendor-managed portal only | Company-owned reporting platform |
 | --- | --- | --- |
 | Availability and continuity | Reporting access depends on vendor service availability and change management (Badger et al., 2012; Jansen & Grance, 2011). | Provides an alternative reporting path by operating on replicated data under organisational control (Kleppmann, 2017). |
@@ -67,8 +69,6 @@ Table 2.1 provides a comparative discussion between a vendor-managed reporting p
 | Report logic control | Report definitions and changes are vendor-controlled; organisational adaptation is constrained. | Business rules are reconstructed and versioned in a semantic layer, enabling auditable updates. |
 | Validation burden | Vendor portal is treated as the reference, but internal validation is limited to exported outputs. | Requires black-box parity validation and reconciliation evidence to build trust in reconstructed logic (Myers et al., 2011; Wang & Strong, 1996). |
 | Cost and complexity | Lower internal build complexity, but potential lock-in and dependency costs (Armbrust et al., 2010). | Higher engineering and validation effort initially; benefits depend on sustained operational use and governance. |
-
-*Table 2.1: Comparative discussion of vendor-managed reporting versus company-owned reporting*
 
 Data warehousing literature, together with research on schema-on-read practices, also motivates a design trade-off between transformation-heavy analytical models and replication-first designs. Dimensional modelling supports analytical performance and standardised business views, whereas replication-first designs prioritise traceability and parity alignment to source representations (Inmon, 2005; Kimball & Ross, 2013). For continuity-oriented reporting where parity and reconciliation are primary goals, the architecture used in this project adopts replication for fidelity and applies transformations at the semantic layer, consistent with schema-on-read principles (Azzabi et al., 2024).
 
@@ -82,6 +82,8 @@ Usability literature on self-service portals further suggests that routine opera
 
 Taken together, these sources suggest that a sales and payment reporting portal should prioritise report discoverability, parameter-driven retrieval, readable tabular outputs, and export support for reconciliation-oriented work. This interpretation is consistent with the practical workflow observed in vendor-managed reporting environments and provides a conceptual basis for the portal requirements and interface decisions discussed in Chapter 4. Table 2.2 summarises the reporting portal design considerations most relevant to the implemented platform.
 
+*Table 2.2: Reporting portal workflow and interface considerations for the implemented platform*
+
 | Design consideration | Supporting source(s) | Relevance to the implemented platform |
 | --- | --- | --- |
 | Report catalogue and navigation | Oracle (2023); Matloobtalab & Ferati (2025) | Users should be able to locate relevant reports efficiently from a structured list or menu. |
@@ -91,8 +93,6 @@ Taken together, these sources suggest that a sales and payment reporting portal 
 | Consistency of prompts, labels, and interaction flow | Matloobtalab & Ferati (2025) | Consistent controls across reports reduce learning effort and improve usability for recurring operational tasks. |
 | Export support for reconciliation and offline review | Oracle (2023); Microsoft (2026) | Retrieved report outputs should be exportable to support reconciliation, sharing, and further offline review. |
 
-*Table 2.2: Reporting portal workflow and interface considerations for the implemented platform*
-
 ## Technology Selection Considerations
 
 Within the implemented platform, Microsoft SQL Server, a Python-based ELT workflow, FastAPI, and React were selected as engineering technologies that fit the literature-grounded architectural direction established in this chapter. SQL Server supports the company-managed reporting repository, the Python-based ELT workflow supports controlled extraction and refresh, FastAPI supports RESTful service delivery for reconstructed reports, and React supports parameter-driven retrieval, tabular viewing, and export workflows for internal users (FastAPI, n.d.; React, n.d.; Fielding, 2000). This section is included to connect the literature-grounded architecture to the actual technology stack adopted in the project, while detailed implementation discussion is reserved for Chapters 4 and 5.
@@ -100,6 +100,8 @@ Within the implemented platform, Microsoft SQL Server, a Python-based ELT workfl
 ## Synthesis and Rationale Map
 
 Table 2.3 synthesises how the literature reviewed in this chapter supports the architectural and methodological choices adopted in this project. The synthesis links each major design or methodological choice to its underlying academic rationale, thereby making the basis for the implemented platform explicit and traceable.
+
+*Table 2.3: Synthesis / rationale map linking adopted choices to literature*
 
 | Method/design choice | Rationale grounded in literature | Key sources |
 | --- | --- | --- |
@@ -111,8 +113,6 @@ Table 2.3 synthesises how the literature reviewed in this chapter supports the a
 | Reverse engineering + black-box parity validation | Proprietary vendor logic requires inference from observable behaviour; black-box testing provides empirical parity evidence. | Chikofsky & Cross (1990); Myers et al. (2011) |
 | Data quality and reconciliation checks | Fitness-for-use for financial reporting depends on accuracy, completeness, and consistency; reconciliation operationalises quality assurance. | Wang & Strong (1996); International Organization for Standardization (2008); Batini & Scannapieco (2006) |
 | Cloud dependency risk and lock-in considerations | Vendor dependence can introduce availability/security/change-management risks and lock-in costs; continuity designs mitigate exposure. | Mell & Grance (2011); Badger et al. (2012); Jansen & Grance (2011); Armbrust et al. (2010) |
-
-*Table 2.3: Synthesis / rationale map linking adopted choices to literature*
 
 ## Summary
 

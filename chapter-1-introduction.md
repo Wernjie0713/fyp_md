@@ -34,13 +34,13 @@ The aim of this project was to develop the Marrybrown Sales and Payment Analytic
 
 To achieve the stated aim, the following specific objectives have been defined:
 
-- To analyse stakeholder requirements for selected sales and payment reports, including continuity needs and report-level validation expectations.
+- To analyse stakeholder requirements for selected sales and payment reports, including business continuity requirements and report validation criteria.
 
-- To design and implement a company-managed reporting environment in Microsoft SQL Server using 1:1 replication of required transactional data.
+- To design and implement a company-managed reporting environment using Microsoft SQL Server and 1:1 replication of required transactional data.
 
-- To reconstruct and validate vendor-aligned report logic within a semantic/API layer so that selected reports can be reproduced with traceable business rules.
+- To reconstruct and validate vendor-aligned report logic within a semantic/API layer based on traceable business rules.
 
-- To deliver a web-based reporting portal that supports report search, viewing, export, and administrative control for authorised internal users.
+- To develop a web-based reporting portal that enables authorised internal users to search, view, export, and manage reports.
 
 ## Project Scope
 
@@ -50,7 +50,9 @@ The platform uses a company-managed Microsoft SQL Server reporting environment t
 
 Where operational reporting needs evolved during implementation, the same platform architecture also supported additional company-requested reporting modules within the same sales and payment reporting domain.
 
-The platform is intentionally limited to read-only reporting and does not perform write-back operations to the vendor POS environment. Broader enterprise analytics domains beyond the required sales and payment reporting surface, such as customer relationship management (CRM) and non-essential business intelligence extensions, are outside the project boundary. Detailed report specifications are presented in Appendix A.
+The platform is intentionally limited to read-only reporting and does not perform write-back operations to the vendor POS environment. Broader enterprise analytics domains beyond the required sales and payment reporting surface, such as customer relationship management (CRM) and non-essential business intelligence extensions, are outside the project boundary. Detailed report specifications are presented in Appendix A. The high-level project scope boundary across the data, report, and user layers is summarised in Table 1.1.
+
+_Table 1.1: High-level project scope boundary_
 
 | Scope Area | Coverage |
 | ---------- | -------- |
@@ -58,8 +60,6 @@ The platform is intentionally limited to read-only reporting and does not perfor
 | Report layer | Reconstruction and validation of selected vendor-aligned sales and payment reports through a FastAPI semantic/API layer |
 | User layer | Internal web portal for report search, viewing, export, and administrative control |
 | Boundary | Read-only reporting only; no write-back to the vendor POS system; broader analytics domains excluded from the current project |
-
-_Table 1.1: High-level project scope boundary_
 
 ## Project Importance
 
